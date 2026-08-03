@@ -1,0 +1,21 @@
+{
+  "name": "elliptic-weyl-orbits-v11",
+  "payload": {
+    "li_count_per_type": {
+      "E6": 62,
+      "E7": 126,
+      "E8": 254,
+      "F4": 14,
+      "G2": 2
+    },
+    "types": [
+      "E6",
+      "E7",
+      "E8",
+      "F4",
+      "G2"
+    ]
+  },
+  "sage_version": "10.9",
+  "schema": "grob-computation-v11"
+}

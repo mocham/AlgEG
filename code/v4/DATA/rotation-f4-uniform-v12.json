@@ -1,0 +1,561 @@
+{
+  "name": "rotation-f4-uniform-v12",
+  "payload": {
+    "ok": true,
+    "records": [
+      {
+        "attempt": 1,
+        "base_ring": "QQ",
+        "equation_values": [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "id": "I",
+        "jacobian_determinant_at_point": "432",
+        "ok": true,
+        "point": {
+          "br0010": "2",
+          "bu0010": "2",
+          "lambda0010": "1",
+          "mu": "1"
+        },
+        "rotation_root": "0010",
+        "specialization": {
+          "ap0001": "-3",
+          "ap0011": "1/4",
+          "ap0100": "-3",
+          "ap0110": "-2",
+          "ap0120": "-9",
+          "at0001": "2",
+          "at0011": "-1",
+          "at0100": "1",
+          "at0110": "2",
+          "at0120": "6"
+        },
+        "spreading_bad_primes": [
+          2,
+          3
+        ],
+        "substitutions": {
+          "0001": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "0001"
+            },
+            {
+              "coefficient": "-1",
+              "mu_power": 1,
+              "root": "0011"
+            }
+          ],
+          "0011": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "0011"
+            }
+          ],
+          "0100": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "0100"
+            },
+            {
+              "coefficient": "2",
+              "mu_power": 1,
+              "root": "0110"
+            },
+            {
+              "coefficient": "-1",
+              "mu_power": 2,
+              "root": "0120"
+            }
+          ],
+          "0110": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "0110"
+            },
+            {
+              "coefficient": "-1",
+              "mu_power": 1,
+              "root": "0120"
+            }
+          ],
+          "0120": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "0120"
+            }
+          ]
+        },
+        "uniform_for_p_gt_12": true,
+        "variable_order": [
+          "mu",
+          "lambda0010",
+          "bu0010",
+          "br0010"
+        ]
+      },
+      {
+        "attempt": 2,
+        "base_ring": "QQ",
+        "equation_values": [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "id": "II",
+        "jacobian_determinant_at_point": "704",
+        "ok": true,
+        "point": {
+          "br0010": "-2",
+          "bu0010": "0",
+          "lambda0010": "1",
+          "mu": "2"
+        },
+        "rotation_root": "0010",
+        "specialization": {
+          "ap0001": "-1",
+          "ap0011": "-5/8",
+          "ap0100": "2",
+          "ap0110": "-3",
+          "ap0120": "-15/4",
+          "ap1000": "2",
+          "at0001": "-1",
+          "at0011": "-1",
+          "at0100": "1",
+          "at0110": "2",
+          "at0120": "-9",
+          "at1000": "-2"
+        },
+        "spreading_bad_primes": [
+          2,
+          3,
+          5,
+          11
+        ],
+        "substitutions": {
+          "0001": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "0001"
+            },
+            {
+              "coefficient": "-1",
+              "mu_power": 1,
+              "root": "0011"
+            }
+          ],
+          "0011": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "0011"
+            }
+          ],
+          "0100": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "0100"
+            },
+            {
+              "coefficient": "2",
+              "mu_power": 1,
+              "root": "0110"
+            },
+            {
+              "coefficient": "-1",
+              "mu_power": 2,
+              "root": "0120"
+            }
+          ],
+          "0110": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "0110"
+            },
+            {
+              "coefficient": "-1",
+              "mu_power": 1,
+              "root": "0120"
+            }
+          ],
+          "0120": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "0120"
+            }
+          ],
+          "1000": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "1000"
+            }
+          ]
+        },
+        "uniform_for_p_gt_12": true,
+        "variable_order": [
+          "mu",
+          "lambda0010",
+          "bu0010",
+          "br0010"
+        ]
+      },
+      {
+        "attempt": 3,
+        "base_ring": "QQ",
+        "equation_values": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "id": "III",
+        "jacobian_determinant_at_point": "15360",
+        "ok": true,
+        "point": {
+          "br0010": "1",
+          "br1000": "0",
+          "bu0010": "-2",
+          "bu1000": "1",
+          "lambda0010": "1",
+          "lambda1000": "0",
+          "mu": "1"
+        },
+        "rotation_root": "1000",
+        "specialization": {
+          "ap0001": "2",
+          "ap0011": "3",
+          "ap0100": "-2",
+          "ap0110": "2",
+          "ap0120": "2",
+          "ap1100": "-4",
+          "ap1110": "-2",
+          "ap1120": "2",
+          "at0001": "2",
+          "at0011": "-4",
+          "at0100": "3",
+          "at0110": "2",
+          "at0120": "2",
+          "at1100": "3",
+          "at1110": "-6",
+          "at1120": "6"
+        },
+        "spreading_bad_primes": [
+          2,
+          3,
+          5
+        ],
+        "substitutions": {
+          "0001": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "0001"
+            }
+          ],
+          "0011": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "0011"
+            }
+          ],
+          "0100": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "0100"
+            },
+            {
+              "coefficient": "-1",
+              "mu_power": 1,
+              "root": "1100"
+            }
+          ],
+          "0110": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "0110"
+            },
+            {
+              "coefficient": "1",
+              "mu_power": 1,
+              "root": "1110"
+            }
+          ],
+          "0120": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "0120"
+            },
+            {
+              "coefficient": "1",
+              "mu_power": 1,
+              "root": "1120"
+            }
+          ],
+          "1100": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "1100"
+            }
+          ],
+          "1110": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "1110"
+            }
+          ],
+          "1120": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "1120"
+            }
+          ]
+        },
+        "uniform_for_p_gt_12": true,
+        "variable_order": [
+          "mu",
+          "lambda0010",
+          "lambda1000",
+          "bu0010",
+          "bu1000",
+          "br0010",
+          "br1000"
+        ]
+      },
+      {
+        "attempt": 23,
+        "base_ring": "QQ",
+        "equation_values": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "id": "IV",
+        "jacobian_determinant_at_point": "895795200",
+        "ok": true,
+        "point": {
+          "br0001": "1",
+          "br0010": "1",
+          "br0011": "-2",
+          "br1000": "-2",
+          "bu0001": "0",
+          "bu0010": "-1",
+          "bu0011": "2",
+          "bu1000": "-1",
+          "lambda0001": "1",
+          "lambda0010": "0",
+          "lambda1000": "0",
+          "mu": "1"
+        },
+        "rotation_root": "0010",
+        "specialization": {
+          "ap0100": "3",
+          "ap0110": "3",
+          "ap0111": "-1",
+          "ap0120": "9",
+          "ap0121": "5",
+          "ap0122": "1",
+          "ap1100": "-3",
+          "ap1110": "-15/2",
+          "ap1111": "2",
+          "ap1120": "5",
+          "ap1121": "-4",
+          "ap1122": "1",
+          "at0100": "3",
+          "at0110": "3",
+          "at0111": "3",
+          "at0120": "9",
+          "at0121": "9",
+          "at0122": "5",
+          "at1100": "-1",
+          "at1110": "-1",
+          "at1111": "3",
+          "at1120": "-2",
+          "at1121": "-5/2",
+          "at1122": "1/2"
+        },
+        "spreading_bad_primes": [
+          2,
+          3,
+          5
+        ],
+        "substitutions": {
+          "0100": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "0100"
+            },
+            {
+              "coefficient": "2",
+              "mu_power": 1,
+              "root": "0110"
+            },
+            {
+              "coefficient": "-1",
+              "mu_power": 2,
+              "root": "0120"
+            }
+          ],
+          "0110": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "0110"
+            },
+            {
+              "coefficient": "-1",
+              "mu_power": 1,
+              "root": "0120"
+            }
+          ],
+          "0111": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "0111"
+            },
+            {
+              "coefficient": "-1",
+              "mu_power": 1,
+              "root": "0121"
+            }
+          ],
+          "0120": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "0120"
+            }
+          ],
+          "0121": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "0121"
+            }
+          ],
+          "0122": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "0122"
+            }
+          ],
+          "1100": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "1100"
+            },
+            {
+              "coefficient": "-2",
+              "mu_power": 1,
+              "root": "1110"
+            },
+            {
+              "coefficient": "1",
+              "mu_power": 2,
+              "root": "1120"
+            }
+          ],
+          "1110": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "1110"
+            },
+            {
+              "coefficient": "-1",
+              "mu_power": 1,
+              "root": "1120"
+            }
+          ],
+          "1111": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "1111"
+            },
+            {
+              "coefficient": "-1",
+              "mu_power": 1,
+              "root": "1121"
+            }
+          ],
+          "1120": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "1120"
+            }
+          ],
+          "1121": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "1121"
+            }
+          ],
+          "1122": [
+            {
+              "coefficient": "1",
+              "mu_power": 0,
+              "root": "1122"
+            }
+          ]
+        },
+        "uniform_for_p_gt_12": true,
+        "variable_order": [
+          "mu",
+          "lambda0001",
+          "lambda0010",
+          "lambda1000",
+          "bu0001",
+          "bu0010",
+          "bu0011",
+          "bu1000",
+          "br0001",
+          "br0010",
+          "br0011",
+          "br1000"
+        ]
+      }
+    ]
+  },
+  "sage_version": "10.9",
+  "schema": "grob-computation-v12"
+}

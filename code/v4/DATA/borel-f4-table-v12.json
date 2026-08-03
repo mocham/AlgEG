@@ -1,0 +1,156 @@
+{
+  "name": "borel-f4-table-v12",
+  "payload": {
+    "complement_ideal_count": 105,
+    "failures": [],
+    "ok": true,
+    "positive_root_count": 24,
+    "records": [
+      {
+        "DeltaK": [
+          "0001",
+          "0011",
+          "0100",
+          "0110",
+          "0120",
+          "1000"
+        ],
+        "K_complement": [
+          "0010"
+        ],
+        "Psi0": [
+          "0010"
+        ],
+        "Psi2": [
+          "0001",
+          "0011",
+          "0100",
+          "0110",
+          "0120"
+        ],
+        "checks": {
+          "complement_is_order_ideal": true,
+          "fine_closure": true,
+          "psi2_is_K_simple": true
+        },
+        "id": "I"
+      },
+      {
+        "DeltaK": [
+          "0001",
+          "0011",
+          "0100",
+          "0110",
+          "0120",
+          "1000"
+        ],
+        "K_complement": [
+          "0010"
+        ],
+        "Psi0": [
+          "0010"
+        ],
+        "Psi2": [
+          "0001",
+          "0011",
+          "0100",
+          "0110",
+          "0120",
+          "1000"
+        ],
+        "checks": {
+          "complement_is_order_ideal": true,
+          "fine_closure": true,
+          "psi2_is_K_simple": true
+        },
+        "id": "II"
+      },
+      {
+        "DeltaK": [
+          "0001",
+          "0011",
+          "0100",
+          "0110",
+          "0120",
+          "1100",
+          "1110",
+          "1120"
+        ],
+        "K_complement": [
+          "0010",
+          "1000"
+        ],
+        "Psi0": [
+          "0010",
+          "1000"
+        ],
+        "Psi2": [
+          "0001",
+          "0011",
+          "0100",
+          "0110",
+          "0120",
+          "1100",
+          "1110",
+          "1120"
+        ],
+        "checks": {
+          "complement_is_order_ideal": true,
+          "fine_closure": true,
+          "psi2_is_K_simple": true
+        },
+        "id": "III"
+      },
+      {
+        "DeltaK": [
+          "0100",
+          "0110",
+          "0111",
+          "0120",
+          "0121",
+          "0122",
+          "1100",
+          "1110",
+          "1111",
+          "1120",
+          "1121",
+          "1122"
+        ],
+        "K_complement": [
+          "0001",
+          "0010",
+          "0011",
+          "1000"
+        ],
+        "Psi0": [
+          "0001",
+          "0010",
+          "0011",
+          "1000"
+        ],
+        "Psi2": [
+          "0100",
+          "0110",
+          "0111",
+          "0120",
+          "0121",
+          "0122",
+          "1100",
+          "1110",
+          "1111",
+          "1120",
+          "1121",
+          "1122"
+        ],
+        "checks": {
+          "complement_is_order_ideal": true,
+          "fine_closure": true,
+          "psi2_is_K_simple": true
+        },
+        "id": "IV"
+      }
+    ]
+  },
+  "sage_version": "10.9",
+  "schema": "grob-computation-v12"
+}
