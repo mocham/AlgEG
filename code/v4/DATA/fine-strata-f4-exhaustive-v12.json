@@ -10,9 +10,11 @@
       "epsilon_one_count": 91,
       "epsilon_zero_count": 4,
       "excluded_empty_complement_pairs": 4862,
+      "field_degree": 1,
       "jacobian_checked": 211260,
       "ok": true,
       "prefiltered": 294388,
+      "prime_used_for_degree_filter": 13,
       "psi_pair_count": 4862,
       "uniform_for_p_gt_12": true
     },
@@ -132,22 +134,33 @@
     ],
     "generation": {
       "cartan_type": "F4",
-      "degree_bound": 1,
       "first_principles_used": false,
       "independent_seed_count": 9780,
       "inventory_source": "reviewed-data",
+      "minimum_degree_mode": "exact",
       "pair_count": 4862,
       "visited_compatible_subsets": 50347
     },
     "inventory_certification": {
+      "admissible_terminal_pair_count": 4862,
       "covered_independent_seed_count": 3002,
+      "degree_filter": {
+        "field_degree": 1,
+        "prime": 13,
+        "required_field_degree": "(p-1)/gcd(p-1,minimum_degree)"
+      },
       "failures": [],
+      "finite_minimum_degree_pair_count": 0,
+      "finite_minimum_degrees": [],
+      "matches_first_principles_pair_list": true,
       "ok": true,
+      "pair_list_sha256": "e1dc8ced6a02269877dbfbc4a908404657d8a415a3b503f54d429888af29d4be",
       "relevant_independent_seed_count": 3002,
-      "terminal_pair_count": 4862
+      "terminal_pair_count": 4862,
+      "undefined_minimum_degree_pair_count": 4862
     },
     "ok": true,
-    "psi_pairs_sha256": "62327f69dc82bb81db8aaecf34369ca74653b2e708a92fd87004eaf617caa2fd"
+    "psi_pairs_sha256": "e1dc8ced6a02269877dbfbc4a908404657d8a415a3b503f54d429888af29d4be"
   },
   "sage_version": "10.9",
   "schema": "grob-computation-v12"

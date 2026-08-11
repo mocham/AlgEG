@@ -8,7 +8,9 @@ from cone import grouped_linear_relations, verify_f4_table_cones
 from cycles import verify_exceptional_types, verify_type
 from bounded_strata import (affine_level_consistent, compute_field_degree_bound,
                              certify_pair_inventory, enumerate_bounded_psi_pairs,
-                             load_or_generate_f4_pairs)
+                             field_degree_satisfies_bound,
+                             load_or_generate_f4_pairs,
+                             minimum_positive_degree, required_field_degree)
 from rotation import root_chain, verify_characteristic_uniform_configurations
 from roots import positive_roots, structure_constants
 from twisted_cycles import _obstructing_subsets
@@ -88,9 +90,23 @@ class V4Tests(unittest.TestCase):
         self.assertFalse(affine_level_consistent(((1, 0), (2, 0))))
 
     def test_bounded_bfs_on_A2(self):
-        result = enumerate_bounded_psi_pairs(("A", 2), degree_bound=1)
+        result = enumerate_bounded_psi_pairs(("A", 2))
         self.assertGreater(result["independent_seed_count"], 0)
         self.assertEqual(result["pair_count"], len(result["pairs"]))
+
+    def test_exact_minimum_positive_degree(self):
+        self.assertEqual(minimum_positive_degree(
+            ((1, 1),), ((1, 0), (0, 1))), 2)
+        self.assertIsNone(minimum_positive_degree(
+            ((1, 0),), ((0, 1),)))
+
+    def test_corrected_field_degree_bound(self):
+        self.assertEqual(required_field_degree(13, 4), 3)
+        self.assertEqual(required_field_degree(13, 5), 12)
+        self.assertEqual(required_field_degree(13, 6), 2)
+        self.assertTrue(field_degree_satisfies_bound(13, 2, 6))
+        self.assertFalse(field_degree_satisfies_bound(13, 2, 4))
+        self.assertTrue(field_degree_satisfies_bound(13, 1, None))
 
     def test_f4_field_degree_bound(self):
         result = compute_field_degree_bound(("F", 4))
@@ -105,6 +121,8 @@ class V4Tests(unittest.TestCase):
         certificate = certify_pair_inventory(result)
         self.assertFalse(result["first_principles_used"])
         self.assertEqual(certificate["terminal_pair_count"], 4862)
+        self.assertEqual(certificate["admissible_terminal_pair_count"], 4862)
+        self.assertEqual(certificate["finite_minimum_degree_pair_count"], 0)
         self.assertEqual(certificate["relevant_independent_seed_count"], 3002)
         self.assertEqual(certificate["covered_independent_seed_count"], 3002)
         self.assertTrue(certificate["ok"], certificate["failures"])

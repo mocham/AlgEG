@@ -11,6 +11,7 @@ from collections import deque
 import hashlib
 import json
 from itertools import combinations
+from math import gcd
 from pathlib import Path
 
 from sage.all import FreeModule, matrix, QQ, vector, ZZ
@@ -23,6 +24,7 @@ from roots import (add, downward_closed_subsets, positive_roots, root_less_than,
 
 
 PAIR_INVENTORY = Path(__file__).resolve().parent / "DATA" / "psi-pairs-f4-v12.json"
+EXPECTED_F4_PAIR_DIGEST = "e1dc8ced6a02269877dbfbc4a908404657d8a415a3b503f54d429888af29d4be"
 
 
 def affine_level_consistent(subset):
@@ -56,21 +58,40 @@ def closure_satisfied(psi0, psi2, root_set):
                for alpha in psi2 for beta in psi0)
 
 
-def minimum_positive_degree(psi0, psi2, maximum):
-    """Find the least positive Psi2-sum in Psi0 up to ``maximum``.
-
-    ``None`` means that no such relation occurs in the requested range.
-    Repetitions are allowed, as in the manuscript's definition.
-    """
+def minimum_positive_degree(psi0, psi2):
+    """Find the least positive Psi2-sum in Psi0, if one exists."""
     targets = set(psi0)
-    if not targets:
+    if not targets or not psi2:
         return None
+
+    # Positive-root height is additive, so a sum beyond the largest target
+    # height cannot return to Psi0.  This makes the search exact and finite.
+    maximum = max(sum(target) for target in targets)
     frontier = {(0,) * len(psi2[0])}
     for degree in range(1, maximum + 1):
         frontier = {add(total, root) for total in frontier for root in psi2}
         if frontier & targets:
             return degree
     return None
+
+
+def required_field_degree(prime, minimum_degree):
+    """Return the corrected degree lower bound attached to a finite minimum."""
+    if prime <= 1:
+        raise ValueError("prime must be greater than one")
+    if minimum_degree is None:
+        return None
+    if minimum_degree <= 0:
+        raise ValueError("minimum degree must be positive")
+    return (prime - 1) // gcd(prime - 1, minimum_degree)
+
+
+def field_degree_satisfies_bound(prime, field_degree, minimum_degree):
+    """Test d_F >= (p-1)/gcd(p-1, minimum_degree)."""
+    if field_degree <= 0:
+        raise ValueError("field degree must be positive")
+    required = required_field_degree(prime, minimum_degree)
+    return required is None or field_degree >= required
 
 
 def independent_seeds(roots):
@@ -167,7 +188,7 @@ def _generic_obstruction(layers, constants):
     return obstruction, witnesses
 
 
-def classify_degree_one_f4(psi_result):
+def classify_degree_one_f4(psi_result, prime=13):
     """Classify every generated F4 pair against every intrinsic K-poset."""
     cartan_type = ("F", 4)
     roots = tuple(sorted(positive_roots(cartan_type)))
@@ -179,6 +200,8 @@ def classify_degree_one_f4(psi_result):
          tuple(tuple(int(digit) for digit in root) for root in item["Psi2"]),
          item["affine_solution_dimension"])
         for item in psi_result["pairs"]
+        if field_degree_satisfies_bound(
+            prime, 1, item.get("minimum_positive_degree"))
     ]
     epsilon_zero = []
     epsilon_one = []
@@ -246,6 +269,8 @@ def classify_degree_one_f4(psi_result):
     return {
         "K_count": len(ideals),
         "admissible_nonempty_K_count": len(ideals) - 1,
+        "field_degree": 1,
+        "prime_used_for_degree_filter": prime,
         "psi_pair_count": len(pairs),
         "cartesian_product_size": len(ideals) * len(pairs),
         "excluded_empty_complement_pairs": len(pairs),
@@ -269,12 +294,19 @@ def _pair_key(item):
     )
 
 
-def certify_pair_inventory(psi_result, degree_bound=1):
+def certify_pair_inventory(psi_result, prime=13, field_degree=1):
     """Check the stored terminal pairs and all relevant independent seeds."""
     roots = tuple(sorted(positive_roots(("F", 4))))
     root_set = set(roots)
-    pair_keys = {_pair_key(item) for item in psi_result["pairs"]}
+    pair_digest = hashlib.sha256(json.dumps(
+        psi_result["pairs"], sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+    pair_keys = set()
+    finite_minimum_degrees = []
     failures = []
+    if psi_result.get("pair_count") != len(psi_result["pairs"]):
+        failures.append({"kind": "pair_count"})
+    if pair_digest != EXPECTED_F4_PAIR_DIGEST:
+        failures.append({"kind": "pair_digest", "actual": pair_digest})
     for item in psi_result["pairs"]:
         psi0, psi2 = _pair_key(item)
         if not affine_level_consistent(psi2):
@@ -283,6 +315,13 @@ def certify_pair_inventory(psi_result, degree_bound=1):
             failures.append({"kind": "Psi0", "Psi2": item["Psi2"]})
         if not closure_satisfied(psi0, psi2, root_set):
             failures.append({"kind": "closure", "Psi2": item["Psi2"]})
+        degree = minimum_positive_degree(psi0, psi2)
+        if item.get("minimum_positive_degree") != degree:
+            failures.append({"kind": "minimum_degree", "Psi2": item["Psi2"]})
+        if degree is not None:
+            finite_minimum_degrees.append(degree)
+        if field_degree_satisfies_bound(prime, field_degree, degree):
+            pair_keys.add((psi0, psi2))
 
     relevant_seeds = 0
     covered_seeds = 0
@@ -290,8 +329,8 @@ def certify_pair_inventory(psi_result, degree_bound=1):
         psi0 = forced_psi0(seed, roots)
         if not closure_satisfied(psi0, seed, root_set):
             continue
-        degree = minimum_positive_degree(psi0, seed, degree_bound)
-        if degree is not None and degree > degree_bound:
+        degree = minimum_positive_degree(psi0, seed)
+        if not field_degree_satisfies_bound(prime, field_degree, degree):
             continue
         relevant_seeds += 1
         if (psi0, seed) in pair_keys:
@@ -302,7 +341,19 @@ def certify_pair_inventory(psi_result, degree_bound=1):
                 "Psi2": ["".join(map(str, root)) for root in seed],
             })
     return {
-        "terminal_pair_count": len(pair_keys),
+        "terminal_pair_count": len(psi_result["pairs"]),
+        "pair_list_sha256": pair_digest,
+        "matches_first_principles_pair_list": pair_digest == EXPECTED_F4_PAIR_DIGEST,
+        "admissible_terminal_pair_count": len(pair_keys),
+        "finite_minimum_degree_pair_count": len(finite_minimum_degrees),
+        "undefined_minimum_degree_pair_count": (
+            len(psi_result["pairs"]) - len(finite_minimum_degrees)),
+        "finite_minimum_degrees": sorted(set(finite_minimum_degrees)),
+        "degree_filter": {
+            "prime": prime,
+            "field_degree": field_degree,
+            "required_field_degree": "(p-1)/gcd(p-1,minimum_degree)",
+        },
         "relevant_independent_seed_count": relevant_seeds,
         "covered_independent_seed_count": covered_seeds,
         "failures": failures,
@@ -319,8 +370,7 @@ def load_or_generate_f4_pairs(progress=None):
         result["first_principles_used"] = False
         return result
 
-    result = enumerate_bounded_psi_pairs(("F", 4), degree_bound=1,
-                                         progress=progress)
+    result = enumerate_bounded_psi_pairs(("F", 4), progress=progress)
     document = {
         "schema": "grob-pair-inventory-v12",
         "name": "psi-pairs-f4-v12",
@@ -344,10 +394,10 @@ def verify_f4_bounded_enumeration(progress=None):
     if degrees != [1]:
         return {"ok": False, "error": f"unexpected degree range {degrees}"}
     pairs = load_or_generate_f4_pairs(progress=progress)
-    inventory = certify_pair_inventory(pairs, degree_bound=1)
+    inventory = certify_pair_inventory(pairs, prime=13, field_degree=1)
     pair_digest = hashlib.sha256(json.dumps(
         pairs["pairs"], sort_keys=True, separators=(",", ":")).encode()).hexdigest()
-    classification = classify_degree_one_f4(pairs)
+    classification = classify_degree_one_f4(pairs, prime=13)
     return {
         "degree_bound": {
             key: value for key, value in degree.items() if key != "records"
@@ -368,20 +418,20 @@ def verify_f4_bounded_enumeration(progress=None):
         "epsilon_zero": classification["epsilon_zero"],
         "ok": (classification["ok"] and inventory["ok"]
                and pairs["pair_count"] == 4862
+               and inventory["finite_minimum_degree_pair_count"] == 0
                and degree["automatic_from_degree"] == 2),
     }
 
 
-def enumerate_bounded_psi_pairs(cartan_type=("F", 4), degree_bound=2,
-                                progress=None):
+def enumerate_bounded_psi_pairs(cartan_type=("F", 4), progress=None):
     """Enumerate all affine-compatible saturated Psi pairs by BFS.
 
     Every compatible set contains an independent subset with the same affine
     span.  We seed by those independent subsets and add only roots preserving
     f(alpha)=1.  Canonical frozenset keys remove duplicates reached from
-    different seeds.  Degree is computed at every accepted node and included
-    in the output.  Since adding a root strictly increases minimal degree, a
-    node at the first automatic degree terminates its entire branch.
+    different seeds.  Exact minimum degree is computed at every accepted node
+    and included in the output.  Degree is not used for branch pruning because
+    the corrected field-degree condition is not monotone in minimum degree.
     """
     roots = tuple(sorted(positive_roots(cartan_type)))
     root_set = set(roots)
@@ -399,27 +449,21 @@ def enumerate_bounded_psi_pairs(cartan_type=("F", 4), degree_bound=2,
         if not affine_level_consistent(subset):
             continue
         psi0 = forced_psi0(subset, roots)
-        degree = minimum_positive_degree(psi0, subset, degree_bound)
+        degree = minimum_positive_degree(psi0, subset)
         if closure_satisfied(psi0, subset, root_set):
             key = (psi0, subset)
             records[key] = {
                 "Psi0": ["".join(map(str, root)) for root in psi0],
                 "Psi2": ["".join(map(str, root)) for root in subset],
-                "degree_up_to_bound": degree,
+                "minimum_positive_degree": degree,
                 "affine_solution_dimension": len(roots[0]) - matrix(QQ, subset).rank(),
             }
-        # Adding a root to Psi2 strictly increases the minimal degree.  Keep a
-        # boundary node, but do not generate descendants outside the bound.
-        if degree is not None and degree >= degree_bound:
-            continue
         for root in roots:
             if root in current:
                 continue
             expanded = frozenset((*current, root))
             if expanded in visited or expanded in queued:
                 continue
-            # Affine inconsistency and the degree cutoff are both monotone
-            # branch-and-bound tests.
             if affine_level_consistent(tuple(sorted(expanded))):
                 queue.append(expanded)
                 queued.add(expanded)
@@ -427,7 +471,7 @@ def enumerate_bounded_psi_pairs(cartan_type=("F", 4), degree_bound=2,
             print(f"visited={len(visited)} queue={len(queue)} records={len(records)}")
     return {
         "cartan_type": f"{cartan_type[0]}{cartan_type[1]}",
-        "degree_bound": degree_bound,
+        "minimum_degree_mode": "exact",
         "independent_seed_count": sum(1 for _ in independent_seeds(roots)),
         "visited_compatible_subsets": len(visited),
         "pair_count": len(records),

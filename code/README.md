@@ -22,8 +22,9 @@ mathematical pseudocode and the numerics used in the proofs.
    is used as a mathematical input.
 5. Every machine-assisted theorem records its scope, counts, exact rank
    witnesses, SageMath version, and SHA-256 digest.
-6. Adding a root to `Psi2` strictly increases minimal degree. A BFS branch may
-   therefore retain its boundary node and stop without generating descendants.
+6. Minimum positive degree is computed exactly, using target-root height as the
+   intrinsic finite search bound. It is not used for BFS pruning because the
+   corrected field-degree condition is not monotone in minimum degree.
 7. The exhaustive method computes the field-degree bound before considering
    pair data. It never scans all `2^|Phi+|` subsets.
 
@@ -38,24 +39,40 @@ An ordinary certification run performs the following short check.
 1. Load the 4,862 pairs.
 2. Recompute affine consistency, the forced integral difference lattice,
    `Psi0`, and both closure conditions for every pair.
-3. Regard every reviewed pair as a terminal BFS state, so no descendants are
+3. Recompute the exact minimum positive degree. It is undefined for all 4,862
+   reviewed pairs.
+4. Regard every reviewed pair as a terminal BFS state, so no descendants are
    generated.
-4. Generate all linearly independent subsets at the active degree bound.
-5. Check that every relevant independent subset occurs among the reviewed
+5. Generate all linearly independent subsets and apply
+   `d_F >= (p-1)/gcd(p-1, minimum_degree)` whenever the minimum is finite.
+6. Check that every relevant independent subset occurs among the reviewed
    pairs. There are 3,002 relevant subsets, and all 3,002 occur.
-6. Classify the reviewed pairs against the 104 nonempty `K` complements.
+7. Match the pair-list digest against the first-principles reconstruction.
+8. Classify the reviewed pairs against the 104 nonempty `K` complements.
 
 If the inventory file is absent, `load_or_generate_f4_pairs()` invokes the
 first-principles independent-seed BFS, writes the canonical inventory and its
 checksum, and then runs the same validation. The fallback visits 50,347
 affine-compatible subsets, begins with 9,780 independent seeds, and returns the
 same 4,862 pairs with pair-list digest
-`62327f69dc82bb81db8aaecf34369ca74653b2e708a92fd87004eaf617caa2fd`.
+`e1dc8ced6a02269877dbfbc4a908404657d8a415a3b503f54d429888af29d4be`.
 
 The formal product has `105 * 4862 = 510510` entries. The 4,862 empty-complement
 entries do not define nontrivial `K`-strata. Of the remaining 505,648 entries,
 294,388 are removed by the target-count bound and 211,260 receive exact
 polynomial Jacobian-rank checks. Exactly four have epsilon zero.
+
+## Effect of the Corrected Minimum-Degree Bound
+
+The corrected necessary condition for a finite minimum degree `delta` is
+`d_F >= (p-1)/gcd(p-1, delta)`, not `d_F >= delta`. This correction does not
+change any previously reported computational result. Exact recomputation shows
+that the minimum positive degree is undefined for every one of the 4,862 F4
+pairs, so the corrected finite-degree filter removes no pair. The exhaustive
+rerun reproduces the same pair count, classification digest, 91 epsilon-one
+configurations, and four epsilon-zero configurations. The automatic result for
+`d_F >= 2` comes from the independent maximal-cone rank calculation and does
+not use the minimum-degree lemma.
 
 ## Reproduction
 
@@ -92,12 +109,12 @@ planning estimates.
 | Pair inventory certification | 2m21s | Loads 4,862 terminal pairs; no first-principles BFS |
 | Missing-data fallback | 4m45s | Reconstructs the inventory, then certifies and classifies |
 | Pair-generation phase alone | 2m05s--2m06s | 50,347 visited nodes |
-| Unit tests | 2m43s | 12 tests; exceptional roots and pair-inventory checks dominate |
+| Unit tests | 2m43s | 14 tests; exceptional roots and pair-inventory checks dominate |
 | Elliptic Weyl plus twisted cycles | 1m44s | Run separately from `quick` |
 
-The monotone-degree cutoff has shown about a 30% gain when branches reach the
-active boundary. The degree-one F4 run has the same 50,347 first-principles
-node count, so compare both wall time and branch counters for other bounds.
+The corrected field-degree predicate is nonmonotone in minimum degree, so the
+fallback BFS does not prune by degree. The F4 run visits 50,347 compatible
+subsets.
 
 ## Source Map
 
@@ -120,8 +137,8 @@ All artifacts are in [`code/v4/DATA/`](https://github.com/mocham/AlgEG/tree/main
 
 | Artifact | SHA-256 |
 |---|---|
-| `psi-pairs-f4-v12.json` | `12a4861a55705ada23dc14a68e70d61d59c0ee67a717088d750e0bead5789ebc` |
-| `fine-strata-f4-exhaustive-v12.json` | `1eb00e00c473b640ac475b1f93496ac45db097feb2cfe054f5856f0d5f6e71bc` |
+| `psi-pairs-f4-v12.json` | `c92c488abfccab63f1f61ab0a34cb15d38fcd8feb4a0c87a46043d228710cc2f` |
+| `fine-strata-f4-exhaustive-v12.json` | `f029f02381ddc18d91e6de7600a52078b64143297c319f9cc0c2a6e97ce042c8` |
 | `borel-f4-table-v12.json` | `d1df30b9b97db18e0674d87817f34ee516667900974e745fde0bb60fbbf719ed` |
 | `cone-f4-table-v12.json` | `5958b56f37f60b45ed5cad848169a330d3189254035b42213791ba0ab3d9e0e6` |
 | `cycles-exceptional-v12.json` | `2d61c4c0ff42f648a0dd7e92b0e0a784265431a628ad31bffe59f547bb955c63` |
