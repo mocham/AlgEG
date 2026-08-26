@@ -68,7 +68,7 @@ def linear_cone_certificate(layers, psi0, psi2, constants):
 
 
 def verify_f4_table_cones():
-    """Certify the grouped linear cone systems for Configurations I--IV."""
+    """Check the grouped linear cone systems for Configurations I--IV."""
     roots = set(positive_roots(("F", 4)))
     constants = structure_constants(("F", 4))
     records = []

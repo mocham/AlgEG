@@ -41,7 +41,7 @@ def induced_bipartite(graph, source_subset, target_subset):
 
 
 def contract_source_leaves(graph):
-    """Return the noncontractible core and an auditable elimination trace."""
+    """Remove degree-one graph sources and record each removed edge."""
     adjacency = {source: set(targets) for source, targets in graph.items()}
     trace = []
     while True:
@@ -74,7 +74,7 @@ def signature(graph):
 
 
 def height_dict(graph):
-    """Assign each vertex a height. Sources have min height, sinks max."""
+    """Assign each graph vertex a height, increasing along each edge."""
     layers = bipartite_layers(graph)
     if not layers:
         return {}

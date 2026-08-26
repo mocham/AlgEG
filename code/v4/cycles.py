@@ -1,4 +1,4 @@
-"""Certificate generator for exceptional root-poset bipartite graphs."""
+"""Checks for bipartite root-poset graphs of exceptional Chevalley type."""
 
 from itertools import combinations
 

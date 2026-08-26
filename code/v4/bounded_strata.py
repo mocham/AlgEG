@@ -104,7 +104,7 @@ def independent_seeds(roots):
 
 
 def k_height_layers(graph):
-    """Bipartite layers for the intrinsic K-height, not ambient root height."""
+    """Bipartite graphs for each intrinsic K-height."""
     parents = {root: set() for root in graph}
     for source, targets in graph.items():
         for target in targets:
@@ -161,7 +161,7 @@ def compute_field_degree_bound(cartan_type=("F", 4)):
 
 
 def _generic_obstruction(layers, constants):
-    """Sum generic Jacobian coranks, recording monomial uniformity witnesses."""
+    """Sum Jacobian coranks over fraction fields and record rank witnesses."""
     obstruction = 0
     witnesses = []
     for height, layer in sorted(layers.items()):
@@ -295,7 +295,7 @@ def _pair_key(item):
 
 
 def certify_pair_inventory(psi_result, prime=13, field_degree=1):
-    """Check the stored terminal pairs and all relevant independent seeds."""
+    """Check the reviewed pairs and all relevant independent seeds."""
     roots = tuple(sorted(positive_roots(("F", 4))))
     root_set = set(roots)
     pair_digest = hashlib.sha256(json.dumps(
@@ -315,6 +315,8 @@ def certify_pair_inventory(psi_result, prime=13, field_degree=1):
             failures.append({"kind": "Psi0", "Psi2": item["Psi2"]})
         if not closure_satisfied(psi0, psi2, root_set):
             failures.append({"kind": "closure", "Psi2": item["Psi2"]})
+        if "minimum_positive_degree" not in item:
+            failures.append({"kind": "missing_minimum_degree", "Psi2": item["Psi2"]})
         degree = minimum_positive_degree(psi0, psi2)
         if item.get("minimum_positive_degree") != degree:
             failures.append({"kind": "minimum_degree", "Psi2": item["Psi2"]})
@@ -361,40 +363,103 @@ def certify_pair_inventory(psi_result, prime=13, field_degree=1):
     }
 
 
-def load_or_generate_f4_pairs(progress=None):
-    """Use the reviewed inventory, regenerating it only when absent."""
-    if PAIR_INVENTORY.exists():
-        document = json.loads(PAIR_INVENTORY.read_text())
-        result = document["payload"]
-        result["inventory_source"] = "reviewed-data"
-        result["first_principles_used"] = False
-        return result
+def load_f4_pair_inventory():
+    """Load the reviewed pair list used for comparison."""
+    document = json.loads(PAIR_INVENTORY.read_text())
+    if document.get("schema") != "grob-pair-inventory-v12":
+        raise ValueError(f"unexpected pair-list schema in {PAIR_INVENTORY}")
+    if document.get("name") != "psi-pairs-f4-v12":
+        raise ValueError(f"unexpected pair-list name in {PAIR_INVENTORY}")
+    return document["payload"]
 
-    result = enumerate_bounded_psi_pairs(("F", 4), progress=progress)
-    document = {
-        "schema": "grob-pair-inventory-v12",
-        "name": "psi-pairs-f4-v12",
-        "payload": result,
+
+def compare_f4_pair_inventory(recomputed, reviewed):
+    """Compare the no-cutoff result with the reviewed pair list."""
+    def pair_digest(result):
+        return hashlib.sha256(json.dumps(
+            result["pairs"], sort_keys=True, separators=(",", ":")
+        ).encode()).hexdigest()
+
+    metadata_keys = (
+        "cartan_type", "minimum_degree_mode", "independent_seed_count",
+        "visited_compatible_subsets", "pair_count",
+    )
+    metadata_match = all(
+        recomputed[key] == reviewed[key] for key in metadata_keys
+    )
+    pairs_match = recomputed["pairs"] == reviewed["pairs"]
+    return {
+        "metadata_match": metadata_match,
+        "pairs_match": pairs_match,
+        "recomputed_pair_count": recomputed["pair_count"],
+        "reviewed_pair_count": reviewed["pair_count"],
+        "recomputed_pairs_sha256": pair_digest(recomputed),
+        "reviewed_pairs_sha256": pair_digest(reviewed),
+        "ok": metadata_match and pairs_match,
     }
-    encoded = (json.dumps(document, sort_keys=True, indent=2) + "\n").encode()
-    PAIR_INVENTORY.parent.mkdir(exist_ok=True)
-    PAIR_INVENTORY.write_bytes(encoded)
-    digest = hashlib.sha256(encoded).hexdigest()
-    PAIR_INVENTORY.with_suffix(".sha256").write_text(
-        f"{digest}  {PAIR_INVENTORY.name}\n")
-    result["inventory_source"] = "generated-first-principles"
-    result["first_principles_used"] = True
-    return result
+
+
+def empty_psi2_epsilon(k_complement, phi_k, psi0):
+    """Return epsilon for empty Psi2 and arbitrary Psi0."""
+    return len(k_complement) + len(set(psi0) - set(phi_k))
+
+
+def verify_empty_f4_pair():
+    """Check empty Psi2 for every relevant Psi0 cardinality."""
+    roots = tuple(sorted(positive_roots(("F", 4))))
+    root_set = set(roots)
+    complements = [
+        complement
+        for complement in downward_closed_subsets(roots, root_less_than)
+        if complement
+    ]
+    epsilon_values = []
+    for complement in complements:
+        phi_k = root_set - set(complement)
+        outside_roots = tuple(sorted(complement))
+        for outside_count in range(len(complement) + 1):
+            psi0 = outside_roots[:outside_count]
+            epsilon_values.append(empty_psi2_epsilon(
+                complement, phi_k, psi0))
+    affine_ok = affine_level_consistent(())
+    closure_ok = closure_satisfied(roots, (), root_set)
+    return {
+        "Psi2": [],
+        "Psi0_scope": "arbitrary Psi0 subset of Phi+",
+        "affine_level_consistent": affine_ok,
+        "closure_conditions_hold_for_all_Psi0": closure_ok,
+        "affine_solution_dimension": len(roots[0]),
+        "inventory_domain": "Psi2 != empty",
+        "included_in_pair_inventory": False,
+        "nonempty_K_complement_count": len(complements),
+        "epsilon_formula": (
+            "epsilon=|K_complement|+|Psi0 minus Phi_K|"),
+        "psi0_term_bounds": (
+            "0<=|Psi0 minus Phi_K|<=|K_complement|"),
+        "cardinality_cases_checked": len(epsilon_values),
+        "minimum_epsilon": min(epsilon_values),
+        "zero_epsilon_cardinality_case_count": epsilon_values.count(0),
+        "ok": (
+            affine_ok
+            and closure_ok
+            and len(complements) == 104
+            and min(epsilon_values) == 1
+            and 0 not in epsilon_values
+        ),
+    }
 
 
 def verify_f4_bounded_enumeration(progress=None):
-    """Run the complete v12 proof computation from generated root data."""
+    """Run the complete proof computation from generated root data."""
     degree = compute_field_degree_bound(("F", 4))
     degrees = degree["degrees_requiring_enumeration"]
     if degrees != [1]:
         return {"ok": False, "error": f"unexpected degree range {degrees}"}
-    pairs = load_or_generate_f4_pairs(progress=progress)
-    inventory = certify_pair_inventory(pairs, prime=13, field_degree=1)
+    pairs = enumerate_bounded_psi_pairs(("F", 4), progress=progress)
+    reviewed = load_f4_pair_inventory()
+    inventory = certify_pair_inventory(reviewed, prime=13, field_degree=1)
+    comparison = compare_f4_pair_inventory(pairs, reviewed)
+    empty_pair = verify_empty_f4_pair()
     pair_digest = hashlib.sha256(json.dumps(
         pairs["pairs"], sort_keys=True, separators=(",", ":")).encode()).hexdigest()
     classification = classify_degree_one_f4(pairs, prime=13)
@@ -410,35 +475,28 @@ def verify_f4_bounded_enumeration(progress=None):
             key: value for key, value in pairs.items() if key != "pairs"
         },
         "psi_pairs_sha256": pair_digest,
-        "inventory_certification": inventory,
+        "inventory_validation": inventory,
+        "inventory_comparison": comparison,
+        "empty_pair": empty_pair,
         "classification": {
             key: value for key, value in classification.items()
             if key not in ("epsilon_zero", "epsilon_one")
         },
         "epsilon_zero": classification["epsilon_zero"],
-        "ok": (classification["ok"] and inventory["ok"]
-               and pairs["pair_count"] == 4862
-               and inventory["finite_minimum_degree_pair_count"] == 0
-               and degree["automatic_from_degree"] == 2),
+        "ok": (classification["ok"] and inventory["ok"] and comparison["ok"]
+                and empty_pair["ok"]
+                and pairs["degree_relation_node_count"] == 0
+                and inventory["finite_minimum_degree_pair_count"] == 0
+                and pairs["pair_count"] == 4862
+                and degree["automatic_from_degree"] == 2),
     }
 
 
-def enumerate_bounded_psi_pairs(cartan_type=("F", 4), progress=None):
-    """Enumerate all affine-compatible saturated Psi pairs by BFS.
-
-    Every compatible set contains an independent subset with the same affine
-    span.  We seed by those independent subsets and add only roots preserving
-    f(alpha)=1.  Canonical frozenset keys remove duplicates reached from
-    different seeds.  Exact minimum degree is computed at every accepted node
-    and included in the output.  Degree is not used for branch pruning because
-    the corrected field-degree condition is not monotone in minimum degree.
-    """
-    roots = tuple(sorted(positive_roots(cartan_type)))
-    root_set = set(roots)
+def _traverse_affine_subsets(roots, inspect, progress=None, record_count=None):
+    """Visit every nonempty affine-consistent subset and ignore callback values."""
     queue = deque(frozenset(seed) for seed in independent_seeds(roots))
     queued = set(queue)
     visited = set()
-    records = {}
     while queue:
         current = queue.popleft()
         queued.discard(current)
@@ -448,8 +506,43 @@ def enumerate_bounded_psi_pairs(cartan_type=("F", 4), progress=None):
         subset = tuple(sorted(current))
         if not affine_level_consistent(subset):
             continue
+        inspect(subset)
+        for root in roots:
+            if root in current:
+                continue
+            expanded = frozenset((*current, root))
+            if expanded in visited or expanded in queued:
+                continue
+            # Affine inconsistency persists after adjoining more equations.
+            if affine_level_consistent(tuple(sorted(expanded))):
+                queue.append(expanded)
+                queued.add(expanded)
+        if progress and len(visited) % progress == 0:
+            suffix = f" records={record_count()}" if record_count else ""
+            print(f"visited={len(visited)} queue={len(queue)}{suffix}")
+    return len(visited)
+
+
+def enumerate_bounded_psi_pairs(cartan_type=("F", 4), progress=None):
+    """Enumerate all affine-compatible Psi pairs by BFS without a degree cutoff.
+
+    Every compatible set contains an independent subset with the same affine
+    span.  We seed by those independent subsets and add only roots preserving
+    f(alpha)=1.  Frozenset keys remove duplicates reached from different seeds.
+    Degree is recomputed at every accepted node and included in the output.
+    No branch is stopped on the basis of that value.
+    """
+    roots = tuple(sorted(positive_roots(cartan_type)))
+    root_set = set(roots)
+    records = {}
+    degree_relation_node_count = 0
+
+    def inspect(subset):
+        nonlocal degree_relation_node_count
         psi0 = forced_psi0(subset, roots)
         degree = minimum_positive_degree(psi0, subset)
+        if degree is not None:
+            degree_relation_node_count += 1
         if closure_satisfied(psi0, subset, root_set):
             key = (psi0, subset)
             records[key] = {
@@ -458,22 +551,16 @@ def enumerate_bounded_psi_pairs(cartan_type=("F", 4), progress=None):
                 "minimum_positive_degree": degree,
                 "affine_solution_dimension": len(roots[0]) - matrix(QQ, subset).rank(),
             }
-        for root in roots:
-            if root in current:
-                continue
-            expanded = frozenset((*current, root))
-            if expanded in visited or expanded in queued:
-                continue
-            if affine_level_consistent(tuple(sorted(expanded))):
-                queue.append(expanded)
-                queued.add(expanded)
-        if progress and len(visited) % progress == 0:
-            print(f"visited={len(visited)} queue={len(queue)} records={len(records)}")
+    visited_count = _traverse_affine_subsets(
+        roots, inspect, progress=progress, record_count=lambda: len(records))
     return {
         "cartan_type": f"{cartan_type[0]}{cartan_type[1]}",
         "minimum_degree_mode": "exact",
+        "degree_cutoff_used": False,
+        "empty_subset_visited": False,
+        "degree_relation_node_count": degree_relation_node_count,
         "independent_seed_count": sum(1 for _ in independent_seeds(roots)),
-        "visited_compatible_subsets": len(visited),
+        "visited_compatible_subsets": visited_count,
         "pair_count": len(records),
         "pairs": [records[key] for key in sorted(records)],
     }

@@ -1,4 +1,4 @@
-"""Polynomial-matrix certificates."""
+"""Polynomial-matrix checks."""
 
 from itertools import combinations
 
@@ -56,8 +56,8 @@ def monomial_minor_certificate(jacobian):
 def rational_rank_certificate(coefficient_matrix):
     """Certify a rational rank by an explicit nonzero integral minor.
 
-    The returned bad primes are exactly the prime divisors of the witness
-    determinant.  Away from these primes the rank cannot drop after reduction.
+    The returned primes are exactly the prime divisors of the witness
+    determinant.  At every other prime the rank cannot decrease after reduction.
     """
     rational = coefficient_matrix.change_ring(QQ)
     rank = rational.rank()
@@ -89,7 +89,7 @@ def rational_rank_certificate(coefficient_matrix):
 
 
 def polynomial_rank_certificate(polynomial_matrix):
-    """Certify generic polynomial rank and primes where the witness vanishes."""
+    """Compute rank over the fraction field and its integral witness."""
     fraction = polynomial_matrix.base_ring().fraction_field()
     generic = polynomial_matrix.change_ring(fraction)
     rank = generic.rank()

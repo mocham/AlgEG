@@ -1,0 +1,99 @@
+Sources for the local classicality argument
+===========================================
+
+1. Vytautas Paskunas and Julian Quast, "On local Galois deformation
+rings: generalised reductive groups", arXiv:2404.14622, Theorem 1.1.
+
+The following is a faithful TeX transcription of the theorem and its
+immediate derived-deformation consequence from the introduction.
+
+Let p denote any prime number, let F be a finite extension of Q_p, and
+let Gamma_F denote its absolute Galois group. Let L be another finite
+extension of Q_p with ring of integers O, uniformiser varpi and residue
+field k=O/varpi. Let G be a smooth affine group scheme over O, such that
+its neutral component G^0 is reductive and the component group G/G^0 is
+a finite group scheme over O. Fix a continuous representation
+rho:Gamma_F -> G(k), and let R_rho^square be its universal framed
+deformation ring.
+
+Theorem 1.1 (Corollaries 13.27, 15.29). The ring R_rho^square is a local
+complete intersection, flat over O and of relative dimension
+
+    dim(G_k)([F:Q_p]+1).
+
+In particular, every continuous representation rho:Gamma_F -> G(k) has
+a lift to characteristic zero. Moreover, R_rho^square is reduced and
+R_rho^square[1/p] is normal.
+
+Obstruction theory provides a presentation
+
+    R_rho^square = O[[x_1,...,x_r]]/(f_1,...,f_s)
+
+with r equal to the dimension of the tangent space and s equal to
+dim_k H^2(Gamma_F,ad rho). The Euler-Poincare characteristic formula
+gives
+
+    r-s = dim(G_k)([F:Q_p]+1).
+
+Having the expected dimension implies that varpi,f_1,...,f_s is a
+regular sequence and that R_rho^square is a local complete
+intersection. It also implies (see Galatius-Venkatesh, Lemma 7.5) that
+the derived deformation ring of rho is homotopy discrete, which means
+the derived deformation theory of rho does not contain more information
+than the usual deformation theory of rho.
+
+2. Yu Min, "Classicality of derived Emerton-Gee stack",
+arXiv:2309.05066, Proposition 3.51.
+
+The following is a faithful transcription of the proposition statement
+and its three-step proof decomposition. The intervening calculations in
+the published preprint identify each displayed step by reducing
+finite-type coefficient rings to their completed Artinian local
+quotients and then using the homotopy-discreteness result above.
+
+Proposition 3.51. There is an equivalence of functors
+
+    (Lan X_EG)^#_{rho-bar} ~= F_{K,GL_d,rho-bar}.
+
+Proof. By Lemma 3.52, we have
+(Lan X_EG)^#_{rho-bar} ~= (Lan X_EG)_{rho-bar}. So we just need to focus
+on proving
+
+    (Lan X_EG)_{rho-bar} ~= F_{K,GL_d,rho-bar}.
+
+We proceed in three steps:
+
+1. prove
+   (Lan X_EG)_{rho-bar}
+   ~= (Lan^cl R^c_{G_K,GL_d/GL_d})_{rho-bar};
+
+2. prove
+   (Lan^cl R^c_{G_K,GL_d/GL_d})_{rho-bar}
+   ~= R^c_{G_K,GL_d/GL_d,rho-bar};
+
+3. prove
+   R^c_{G_K,GL_d/GL_d,rho-bar}
+   ~= F_{K,GL_d,rho-bar}.
+
+Summary of the intervening calculations (not part of the quotation):
+
+For Step 1, limit preservation expresses both classical prestacks as
+filtered colimits of finite-type affine test objects. Fibres over the
+finite residual point decompose through completions at the corresponding
+maximal ideals, and those completions are filtered colimits of finite
+Artinian local quotients. The equivalence between etale
+(phi,Gamma)-modules and Galois representations over finite coefficient
+rings identifies the resulting Artinian overcategories.
+
+For Step 2, the framed derived representation prestack is a filtered
+colimit of derived affine schemes almost of finite presentation. Its
+fibre is pro-corepresented by the completed Artinian local quotients.
+The local-complete-intersection theorem and Galatius-Venkatesh Lemma 7.5
+identify the left Kan extension of the classical deformation functor
+with the derived framed deformation functor. Left Kan extension commutes
+with the geometric realization defining the unframed quotient.
+
+Step 3 follows from the definitions: the framed continuous
+representation functor is the framed Galois deformation functor, and
+geometric realization of its conjugation action groupoid is the
+unframed deformation functor.

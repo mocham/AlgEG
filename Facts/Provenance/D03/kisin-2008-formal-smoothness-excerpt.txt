@@ -1,0 +1,108 @@
+Mark Kisin, "Potentially semi-stable deformation rings",
+Journal of the American Mathematical Society 21 (2008), no. 2, 513-546,
+DOI 10.1090/S0894-0347-07-00576-0.
+
+The following is a faithful TeX transcription of Lemma 3.2.1 and
+Proposition 3.3.1 (including the parts of their proofs used here) from
+pages 538-540 of the published article.
+
+Lemma (3.2.1). The morphism of groupoids
+\(\operatorname{Mod}_{F,\varphi,N}\to\operatorname{Mod}_{\varphi,N}\),
+obtained by forgetting filtrations, is formally smooth.
+
+Let \(A\) be a local Artin ring with maximal ideal \(\mathfrak m_A\), and
+\(I\subset A\) an ideal with \(I\mathfrak m_A=0\). Let \(D_{A/I}\) be in
+\(\operatorname{Mod}_{F,\varphi,N}(A/I)\) and set
+\(D_{A/\mathfrak m_A}=D_{A/I}\otimes_{A/I}A/\mathfrak m_A\).
+
+(1) If \(H_F^2(D_{A/\mathfrak m_A})=0\), then there exists a module
+\(D_A\) in \(\operatorname{Mod}_{F,\varphi,N}(A)\) whose reduction modulo
+\(I\) is isomorphic to \(D_{A/I}\).
+
+(2) The set of isomorphism classes of liftings of \(D_{A/I}\) to \(D_A\)
+in \(\operatorname{Mod}_{F,\varphi,N}(A)\) is either empty or is a torsor
+under
+\[
+H_F^1(D_{A/\mathfrak m_A})\otimes_{A/\mathfrak m_A} I.
+\]
+
+Proof. The first claim, regarding formal smoothness, is easily seen, since
+if \(A\) is as above, and \(D_A\) is an object of
+\(\operatorname{Mod}_{\varphi,N}\) lifting \(D_{A/I}\), then one can
+always lift the filtration on \(D_{A/I,L}\) to a filtration by projective
+\(L\otimes_{\mathbf Q_p}A\)-modules on \(D_{A,L}\). (This follows from
+the smoothness of the corresponding Grassmannian variety, which is well
+known.) The claim in (1) follows from this and Proposition (3.1.2)(1),
+since \(H_F^2(D_{A/\mathfrak m_A})=H^2(D_{A/\mathfrak m_A})\). The
+argument for (2) is similar to that for Proposition (3.1.2)(2).
+
+Proposition (3.3.1). Suppose that the morphism
+\(A^\circ\to D_{V_{\mathbb F}}\) is formally smooth. Then the morphism
+\[
+\widehat A^{\tau,\mathbf v}_{\mathfrak m}
+   \longrightarrow \operatorname{Mod}_{F,\varphi,N}
+\]
+of groupoids on \(E\)-algebras is formally smooth.
+
+Proof. Let \(B\) be an \(E\)-algebra, \(I\subset B\) an ideal with
+\(I^2=0\), and
+\(h:\widehat A^{\tau,\mathbf v}_{\mathfrak m}\to B/I\) a map of
+\(E\)-algebras. Let \(D_{B/I}\) be the object of
+\(\operatorname{Mod}_{F,\varphi,N}(B/I)\) induced by \(h\), and let
+\(D_B\) in \(\operatorname{Mod}_{F,\varphi,N}(B)\) be an object equipped
+with an isomorphism \(D_B\otimes_B B/I\simeq D_{B/I}\). We have to show
+that \(D_B\) is induced by a map
+\(\widehat A^{\tau,\mathbf v}_{\mathfrak m}\to B\) lifting \(h\).
+
+We may replace \(B/I\) by the image of \(h\), and \(B\) by the preimage
+of \(h(\widehat A^{\tau,\mathbf v}_{\mathfrak m})\). Then \(B\) is the
+limit of subalgebras \(B'\) which surject onto \(B/I\) and such that
+\(I\cap B'\) is a finitely generated \(B/I\)-module. \(D_B\) is induced
+from an object of \(\operatorname{Mod}_{F,\varphi,N}(B')\) for one of
+these \(B'\), so we may assume that \(I\) is a finitely generated
+\(B/I\)-module. In particular, we may assume that \(B\) is a
+Noetherian, complete local \(E'\)-algebra, with residue field \(E'\).
+
+Let \(\mathfrak m_B\) denote the maximal ideal of \(B\). If \(i\geq1\),
+then \(D_B\otimes_B B/\mathfrak m_B^i\) is in
+\(\operatorname{Mod}_{F,\varphi,N}(B/\mathfrak m_B^i)\) and it is a
+weakly admissible (and hence admissible) module, because it is a
+successive extension of the admissible module
+\(D_{B/I}\otimes_{B/I}B/\mathfrak m_B\) [Fo 2, 4.4.4]. Hence one can
+associate to \(D_B\otimes_B B/\mathfrak m_B^i\) a finite free
+\(B/\mathfrak m_B^i\)-module \(V_{B/\mathfrak m_B^i}\) of rank \(d\),
+equipped with a continuous action of \(G_K\). Note that by Corollary
+(2.6.2) \(V_{B/\mathfrak m_B^i}\) is of type \(\tau\) and p-adic Hodge
+type \(\mathbf v\), since this is true when \(i=1\).
+
+For \(i\geq1\), we now construct maps
+\[
+\widetilde h_i:\widehat A^{\tau,\mathbf v}_{\mathfrak m}
+\longrightarrow B/\mathfrak m_B^i
+\]
+such that the composite of \(\widetilde h_i\) with the projection
+\(B/\mathfrak m_B^i\to B/\mathfrak m_B^{i-1}\) is
+\(\widetilde h_{i-1}\), and the composite with
+\(B/\mathfrak m_B^i\to B/(\mathfrak m_B^i+I)\) is the reduction of
+\(h\) modulo \(\mathfrak m_B^i\). When \(i=1\), we take
+\(\widetilde h_1\) to be the reduction of \(h\) modulo \(\mathfrak m_B\).
+Given \(\widetilde h_{i-1}\), consider the composite
+\[
+\widehat A^{\tau,\mathbf v}_{\mathfrak m}
+\longrightarrow B/(\mathfrak m_B^{i-1}\cap I)
+\longrightarrow B/(\mathfrak m_B^i\cap(\mathfrak m_B^{i-1}+I)),
+\tag{3.3.2}
+\]
+where the first map is the unique morphism which reduces to
+\(\widetilde h_{i-1}\) modulo \(\mathfrak m_B^{i-1}\) and to \(h\)
+modulo \(I\). We again write \(\mathfrak m\) for the maximal ideal of
+\(A\) induced by \(\mathfrak m\). By [Ki 1, 2.3.2, 2.3.3] the formal
+smoothness of \(A^\circ\to D_{V_{\mathbb F}}\) implies that the
+composite of \(\widehat A_{\mathfrak m}\to
+\widehat A^{\tau,\mathbf v}_{\mathfrak m}\) and (3.3.2) lifts to a map
+\(\widehat A_{\mathfrak m}\to B/\mathfrak m_B^i\) inducing
+\(V_{B/\mathfrak m_B^i}\). Since \(V_{B/\mathfrak m_B^i}\) is of type
+\(\tau\) and p-adic Hodge type \(\mathbf v\), this map factors through
+\(\widehat A^{\tau,\mathbf v}_{\mathfrak m}\) by Theorem (2.7.6) and
+yields the required map \(\widetilde h_i\). Finally, passing to the
+limit with \(i\) gives a lifting of \(h\) to \(B\).

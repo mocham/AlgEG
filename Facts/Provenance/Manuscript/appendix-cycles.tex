@@ -1,0 +1,146 @@
+\section{Root-poset cycle algorithms}
+\label{app:root-poset-cycles}
+
+We describe separately the absolute and non-Borel computations.  In both, a
+source-leaf contraction removes a source of valency one together with its
+unique target; isolated sources are discarded.  A surviving Jacobian with $r$
+target rows and $c\ge r$ source columns is tested by enumerating the
+$\binom cr$ source-column subsets.  Success means that one corresponding
+determinant is a nonzero monomial in the simple-root variables.
+
+\subsection{Absolute root posets}
+
+The absolute routine applies the following finite test independently at each
+height.
+
+\begin{tcolorbox}
+\begin{algorithmic}[1]
+\Require An exceptional root system $\Phi$ and its Chevalley constants.
+\State Construct the directed root poset and its bipartite height layers
+$\fB(\Phi^+,\Delta,h)$.
+\For{each height $h$ and each target selection $T$}
+  \State Retain the full source layer and only edges ending in $T$.
+  \State Repeatedly contract source leaves.
+  \If{the graph contracts to the empty graph}
+    \State Record a trivial certificate and continue.
+  \EndIf
+  \State Form the Jacobian
+  $J_{\alpha,\beta}=N_{\beta,\alpha-\beta}x_{\alpha-\beta}$.
+  \For{each set $C$ of $\#T$ source columns}
+    \State Compute $d_C\gets\det J_C$.
+    \If{$d_C$ is a nonzero monomial}
+      \State Record $C$ and $d_C$ and continue with the next target selection.
+    \EndIf
+  \EndFor
+  \State If no witness was found, report failure.
+\EndFor
+\end{algorithmic}
+\end{tcolorbox}
+\renewcommand{\figurename}{Algorithm}
+\captionof{figure}{Absolute admissibility test}
+\label{alg:absolute-cycles}
+
+For the exceptional types the numerical summary is:
+\[
+\begin{array}{c|rr}
+\toprule
+\text{Type}&\text{target selections}&\text{failures}\\
+\midrule
+F_4&48&0\\
+E_6&138&0\\
+E_7&384&0\\
+E_8&1196&0\\
+\bottomrule
+\end{array}
+\]
+The nontrivial determinants, up to orientation-dependent signs, are:
+\[
+\begin{array}{c|c|l}
+\toprule
+\text{Type}&\text{height}&\text{Jacobian minor}\\
+\midrule
+F_4&3&3x_{0001}x_{0010}x_{1000}\\
+E_6&2&2x_{000010}x_{001000}x_{010000}\\
+E_6&3&3x_{000001}x_{000010}x_{001000}x_{010000}x_{100000}\\
+E_7&2&-2x_{0000100}x_{0010000}x_{0100000}\\
+E_7&3&-3x_{0000010}x_{0000100}x_{0010000}x_{0100000}x_{1000000}\\
+E_7&4&2x_{0000001}x_{0001000}x_{0010000}x_{0100000}\\
+E_7&8&-2x_{0000001}x_{0000010}x_{0000100}x_{0010000}\\
+E_8&2&-2x_{00001000}x_{00100000}x_{01000000}\\
+E_8&3&-3x_{00000100}x_{00001000}x_{00100000}x_{01000000}x_{10000000}\\
+E_8&4&2x_{00000010}x_{00010000}x_{00100000}x_{01000000}\\
+E_8&5&-5x_{00000001}x_{00000010}x_{00000100}x_{00010000}x_{00100000}x_{01000000}x_{10000000}\\
+E_8&8&-2x_{00000010}x_{00000100}x_{00001000}x_{00100000}\\
+E_8&9&3x_{00000001}x_{00000100}x_{00001000}x_{00010000}x_{00100000}x_{10000000}\\
+E_8&14&2x_{00000010}x_{00001000}x_{00010000}x_{01000000}\\
+\bottomrule
+\end{array}
+\]
+
+For $D_n$, all cycles are isomorphic to $\vec C_6$.  With the standard
+ordering $\Delta_{D_n}=\{\delta_1,\ldots,\delta_n\}$, they are given by
+\[
+\begin{aligned}
+\beta_1&=\sum_{i=n-h-1}^{n-2}\delta_i,&
+\beta_2&=\sum_{i=n-h}^{n-2}\delta_i+\delta_{n-1},&
+\beta_3&=\sum_{i=n-h}^{n-2}\delta_i+\delta_n,
+\end{aligned}
+\]
+and their Jacobian coefficients are $2$ or $-2$.
+
+\subsection{Non-Borel root posets}
+
+Theorem~\ref{thm:twist-C6} already has the correct disjunction: a relative
+cycle is either non-obstructing or its associated absolute graph is
+admissible.  Thus the non-obstructing condition is applied before any absolute
+Jacobian test.
+
+\begin{tcolorbox}
+\begin{algorithmic}[1]
+\Require A Levi $\bM$, an elliptic Weyl element $w$, its relative root orbits,
+and the non-obstructing singleton and pair relation.
+\State Construct the $w$-relative root poset and its bipartite height layers.
+\State Remove individually non-obstructing targets.
+\For{each relative height layer}
+  \State Contract source leaves.
+  \For{each target subset $T$ containing no non-obstructing pair}
+    \State Restrict to $T$ and contract source leaves again.
+    \If{the graph contracts to the empty graph}
+      \State Record the contraction and continue.
+    \EndIf
+    \State Replace every relative source and target by all absolute roots in
+    its $w$-orbit.
+    \State Add every absolute edge whose target-source difference is a
+    positive root, and contract source leaves.
+    \If{the absolute graph is nonempty}
+      \State Apply Algorithm~\ref{alg:absolute-cycles}, testing combinations
+      of absolute source columns.
+    \EndIf
+  \EndFor
+\EndFor
+\State Report failure if any surviving absolute graph has no monomial maximal
+minor.
+\end{algorithmic}
+\end{tcolorbox}
+\renewcommand{\figurename}{Algorithm}
+\captionof{figure}{Non-Borel cycle test}
+\label{alg:twisted-cycles}
+
+The computation generates all exceptional Levi/Weyl configurations from the
+Cartan matrices and covers:
+\[
+\begin{array}{c|rr}
+\toprule
+\text{Type}&\text{configurations}&\text{failures}\\
+\midrule
+F_4&19&0\\
+E_6&68&0\\
+E_7&145&0\\
+E_8&304&0\\
+\bottomrule
+\end{array}
+\]
+Consequently all $F_4$ relative cycles are non-obstructing or contractible,
+and every surviving E-type associated absolute graph is admissible.  The
+reviewed data are available at
+\url{https://github.com/mocham/AlgEG/tree/main/code/v4}.

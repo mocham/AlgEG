@@ -1,4 +1,4 @@
-"""Twisted-cycle certificates with the non-obstructing constraint.
+"""Twisted-cycle checks with the non-obstructing constraint.
 
 Input data are generated in-process by the local ``elliptic_weyl`` module.
 """
@@ -19,7 +19,7 @@ def _absolute_roots(relative_root):
 
 
 def _obstructing_subsets(target_ids, nonobstructing_pairs):
-    """Yield target subsets containing no non-obstructing singleton or pair."""
+    """Yield graph-target subsets containing no allowed set of size one or two."""
     target_ids = tuple(sorted(target_ids))
     forbidden = tuple(frozenset(pair) for pair in nonobstructing_pairs)
     for size in range(2, len(target_ids) + 1):
@@ -51,7 +51,7 @@ def _absolute_graph(relative_graph, roots):
 
 
 def verify_twisted_records(records):
-    """Verify obstructing relative cycles via their absolute source minors.
+    """Verify obstructing relative cycles via their absolute graph-source minors.
 
     records: dict mapping CartanType -> { Levi -> { word -> { ... } } }
     """

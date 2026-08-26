@@ -1,0 +1,193 @@
+{
+  "name": "fine-strata-f4-exhaustive-v14",
+  "payload": {
+    "classification": {
+      "K_count": 105,
+      "admissible_nonempty_K_count": 104,
+      "cartesian_product_size": 510510,
+      "classification_sha256": "74ed5cf49c3079252f580abc6d06bad761da1513981b8ec166b96b27ef38ecde",
+      "classified_pair_count": 505648,
+      "epsilon_one_count": 91,
+      "epsilon_zero_count": 4,
+      "excluded_empty_complement_pairs": 4862,
+      "field_degree": 1,
+      "jacobian_checked": 211260,
+      "ok": true,
+      "prefiltered": 294388,
+      "prime_used_for_degree_filter": 13,
+      "psi_pair_count": 4862,
+      "uniform_for_p_gt_12": true
+    },
+    "degree_bound": {
+      "K_count": 105,
+      "automatic_from_degree": 2,
+      "cartan_type": "F4",
+      "degrees_requiring_enumeration": [
+        1
+      ],
+      "positive_root_count": 24
+    },
+    "degree_rank_bad_primes": [
+      2,
+      3
+    ],
+    "empty_pair": {
+      "Psi0_scope": "arbitrary Psi0 subset of Phi+",
+      "Psi2": [],
+      "affine_level_consistent": true,
+      "affine_solution_dimension": 4,
+      "cardinality_cases_checked": 1048,
+      "closure_conditions_hold_for_all_Psi0": true,
+      "epsilon_formula": "epsilon=|K_complement|+|Psi0 minus Phi_K|",
+      "included_in_pair_inventory": false,
+      "inventory_domain": "Psi2 != empty",
+      "minimum_epsilon": 1,
+      "nonempty_K_complement_count": 104,
+      "ok": true,
+      "psi0_term_bounds": "0<=|Psi0 minus Phi_K|<=|K_complement|",
+      "zero_epsilon_cardinality_case_count": 0
+    },
+    "epsilon_zero": [
+      {
+        "K_complement": [
+          "0010"
+        ],
+        "Psi0": [
+          "0010"
+        ],
+        "Psi2": [
+          "0001",
+          "0011",
+          "0100",
+          "0110",
+          "0120"
+        ],
+        "epsilon": 0,
+        "obstruction": 0,
+        "relations": 0,
+        "type": "D",
+        "witnesses": []
+      },
+      {
+        "K_complement": [
+          "0010"
+        ],
+        "Psi0": [
+          "0010"
+        ],
+        "Psi2": [
+          "0001",
+          "0011",
+          "0100",
+          "0110",
+          "0120",
+          "1000"
+        ],
+        "epsilon": 0,
+        "obstruction": 0,
+        "relations": 0,
+        "type": "D",
+        "witnesses": []
+      },
+      {
+        "K_complement": [
+          "0010",
+          "1000"
+        ],
+        "Psi0": [
+          "0010",
+          "1000"
+        ],
+        "Psi2": [
+          "0001",
+          "0011",
+          "0100",
+          "0110",
+          "0120",
+          "1100",
+          "1110",
+          "1120"
+        ],
+        "epsilon": 0,
+        "obstruction": 0,
+        "relations": 0,
+        "type": "D",
+        "witnesses": []
+      },
+      {
+        "K_complement": [
+          "0001",
+          "0010",
+          "0011",
+          "1000"
+        ],
+        "Psi0": [
+          "0001",
+          "0010",
+          "0011",
+          "1000"
+        ],
+        "Psi2": [
+          "0100",
+          "0110",
+          "0111",
+          "0120",
+          "0121",
+          "0122",
+          "1100",
+          "1110",
+          "1111",
+          "1120",
+          "1121",
+          "1122"
+        ],
+        "epsilon": 0,
+        "obstruction": 0,
+        "relations": 0,
+        "type": "D",
+        "witnesses": []
+      }
+    ],
+    "generation": {
+      "cartan_type": "F4",
+      "degree_cutoff_used": false,
+      "degree_relation_node_count": 0,
+      "empty_subset_visited": false,
+      "independent_seed_count": 9780,
+      "minimum_degree_mode": "exact",
+      "pair_count": 4862,
+      "visited_compatible_subsets": 50347
+    },
+    "inventory_comparison": {
+      "metadata_match": true,
+      "ok": true,
+      "pairs_match": true,
+      "recomputed_pair_count": 4862,
+      "recomputed_pairs_sha256": "e1dc8ced6a02269877dbfbc4a908404657d8a415a3b503f54d429888af29d4be",
+      "reviewed_pair_count": 4862,
+      "reviewed_pairs_sha256": "e1dc8ced6a02269877dbfbc4a908404657d8a415a3b503f54d429888af29d4be"
+    },
+    "inventory_validation": {
+      "admissible_terminal_pair_count": 4862,
+      "covered_independent_seed_count": 3002,
+      "degree_filter": {
+        "field_degree": 1,
+        "prime": 13,
+        "required_field_degree": "(p-1)/gcd(p-1,minimum_degree)"
+      },
+      "failures": [],
+      "finite_minimum_degree_pair_count": 0,
+      "finite_minimum_degrees": [],
+      "matches_first_principles_pair_list": true,
+      "ok": true,
+      "pair_list_sha256": "e1dc8ced6a02269877dbfbc4a908404657d8a415a3b503f54d429888af29d4be",
+      "relevant_independent_seed_count": 3002,
+      "terminal_pair_count": 4862,
+      "undefined_minimum_degree_pair_count": 4862
+    },
+    "ok": true,
+    "psi_pairs_sha256": "e1dc8ced6a02269877dbfbc4a908404657d8a415a3b503f54d429888af29d4be"
+  },
+  "sage_version": "10.9",
+  "schema": "grob-computation-v14"
+}

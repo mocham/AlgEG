@@ -1,0 +1,2757 @@
+             EXTENSIONS OF DE RHAM GALOIS REPRESENTATIONS
+
+                                                ZHONGYIPAN LIN
+
+
+       Abstract. For primes p > 3, we construct the parabolic and reductive versions of the integral de
+       Rham moduli stacks of Langlands parameters, allowing the group to be arbitrarily ramified. We also
+       construct the period morphism from the rigid generic fiber of Borel-valued de Rham moduli stacks to
+       the moduli stack of Weil-Deligne representations.
+          Furthermore, we formulate the conjecture that the top Chow group of the reduced Emerton-Gee
+       stack XLG is isomorphic to that of a certain moduli stack of Weil-Deligne representations. We prove
+       this isomorphism in the cases of (1) algebraic tori, and (2) unitary, orthogonal, and symplectic groups.
+       Finally, we confirm the conjecture for (3) tame groups when restricted to the cyclotomic-free part of
+       the Chow groups.
+
+
+
+   The Breuil–Mézard conjecture ([BM02]) expresses the Hilbert-Samuel multiplicities of the special fi-
+bre of the de Rham deformation ring in terms of representation-theoretic multiplicities. Gee and Kisin
+([GK14]) subsequently employed patching functors to prove the potentially Barsotti-Tate cases of the
+conjecture, hinting that the conjecture has a geometrization which furnishes a deformation-theoretic
+recipe for the modular weights of residual Galois representations. Emerton and Gee ([EG14], [EG23])
+placed this geometric insight on a systematic footing by constructing the Emerton-Gee stacks and
+formulating the geometric Breuil-Mézard conjecture for GLn , which consists of a quantitative (numer-
+ical) part generalizing the original conjecture of Breuil and Mézard and a qualitative (topological) part
+describing the top Chow group of the reduced Emerton-Gee stacks in terms of Serre weights. Very
+recently, Feng and Le Hung gave a purely local proof of the geometric conjecture for generic tame iner-
+tial types, small Hodge-Tate weights, and unramified groups. They used algebraic local models of the
+Emerton-Gee stacks to deduce the numerical conjecture from the decomposition of characteristic cy-
+cles on related affine Springer fibres. On the other hand, the topological part of the conjecture bridges
+the decomposition pattern on algebraic local models and the decomposition on Galois deformation
+rings.
+   A precise formulation of the topological Breuil-Mézard conjecture for more general groups is sub-
+tle. Indeed, already for PGL2 (on the representation-theoretic side), a Serre weight corresponds to
+multiple irreducible components in the reduced Emerton-Gee stacks. Moreover, the combinatorial
+parametrization of irreducible components in [EG23] is given by an ad hoc formula, and it is desirable
+to have a more conceptual description that is coordinate-free.
+Notation Let K/Qp be a local field with absolute Galois group GalK . Let (G, B, T, {Xα }) be a
+pinned quasi-split connected reductive group over K that splits over L, with dual pinned group
+(Ğ, B̆, T̆ , {Yα }) and Langlands dual LG = Ğ ⋊ Gal(L/K). Write WK for the Weil group of K, and set
+Γ := WK /IK . Denote by M a standard Levi subgroup of G. Both M and its dual M̆ have pinnings
+induced from the pinning of G and Ğ, respectively. The pinned homomorphism M̆ → Ğ induces
+LM = M̆ ⋊ Gal(L/K) ,→ LG, and we choose the parabolic P = U ⋊ M̆ of Ğ by demanding B̆ ⊂ P .
+
+Set LP := P ⋊ Gal(L/K).
+                                                          1
+2                                                     ZHONGYIPAN LIN
+
+0.1. Construction of the potentially semistable stacks, and the Borel-valued Weil-Deligne
+                   τ,λ
+morphism Let XK,     LP be the moduli of potentially semistable L-parameters of Hodge type λ and
+
+inertial type τ (Definition 5). We have the following representability theorem:
+Theorem 1 (Theorem 10). Let λ be any Hodge type Gm → (ResK/Qp T )˘ that pairs negatively with
+                                                           τ,λ
+roots of U and let τ be any inertial type. If p > 3, then XK,LP is a Z̄p -flat Noetherian formal algebraic
+                                       τ,λ
+stack over Spf Z̄p . If LP = LG, then XK,LG is of finite type over Spf Z̄p .
+
+
+    Here, “Pairs negatively” is the condition that allows XLτ,λ
+                                                             P
+                                                                to achieve maximal dimension.
+                                                     L,λ
+    Let L/K be a fixed finite extension, and let XK,LP be the scheme-theoretic union of the finitely
+        τ,λ
+many XK,  LP where τ ranges over inertial types that split over L. Fontaine attaches to each potentially
+
+semistable Galois representation V a Weil Deligne representation Dpst (V ), and we construct the family
+version of Dpst for Borel-valued parameters:
+Theorem 2 (Theorem 11). There exists a unique morphism of rigid analytic Artin stacks
+                                                     L,λ,rig
+(1)                                            WD : XK,LB    → WDL,an
+                                                                 K,LB
+
+which is compatible with Fontaine’s Dpst over Q̄p -points.
+           L,λ,rig                                L,λ
+    Here, XK,LB    is the rigid generic fiber of XK,LB , and can be thought of as the limit of all admissible
+                    L,λ,rig          L,an
+formal blowups of XK,  LB ; and WDK,LB is the rigid analytification of the algebraic stack of Weil-
+
+Deligne parameters (r, N ) such that r : WK → LB is trivial when restricted to IL .
+0.2. Irreducible components of the reduced Emerton-Gee stacks
+   Let ∆ = {α1 , . . . , αs } be the set of simple positive absolute roots of G with respect to the Borel
+pair (B, T ). Write Uαi ⊂ B̆ for the root group of weight αi∨ , i ∈ {1, . . . , s}. Set Ū := si=1 Uαi . The
+                                                                                             Q
+first observation is that the Weil-Deligne morphism induces the following isomorphism of top Chow
+groups:
+Theorem 3 (Theorem 12). Suppose ResK/Qp G admits a local twisting element (−ρ) in the sense of
+[GHS]. The Weil-Deligne morphism
+                                        L,ρ,rig   WD
+                                       XK,LB    −−→ WDL,an
+                                                      K,LB
+                                                           → WDL,an
+                                                               K,Ū ⋊LT
+induces an isomorphism
+                                              L,λ,rig       ∼
+                                                            =
+                                      Chtop (XK,LB ) −→ Chtop (WDL,an
+                                                                 K,Ū ⋊LT
+                                                                          ).
+   This suggests that irreducible components of the reduced Emerton-Gee stacks for general reductive
+groups correspond naturally to irreducible components of certain moduli of Weil-Deligne representa-
+             tame,λ                                    τ,λ
+tions. Let XK, LB   be the scheme-theoretic union of XK, LB for the finitely many tame inertial types τ
+
+(see Definition 10). The expectation is that all maps in the following diagram
+                           f    tame,ρ                                 sp
+                                                                              ? _ X tame,ρ,rig
+             XK,LG,red o
+                                                i /                                            WD /
+                               XK,LB,red
+                                                       tame,ρ
+                                                      XK,LB   ⊗Zp Fp o             K,LB
+                                                                                                    WDtame,an
+                                                                                                      K,Ū ⋊LT
+
+(where sp is Raynaud’s specialization map) induce an isomorphism of top Chow groups, and thus
+                 spf ◦i∗ ◦(sp∗ )−1 ◦sp−1
+                                      WD
+Chtop (WDLB ) −−−−−−−−−−−−−−→ Chtop (XLG,red ) is an isomorphism. Here, spf ([C]) := [f (C)], spWD ([C]) :=
+                          EXTENSIONS OF DE RHAM GALOIS REPRESENTATIONS                                   3
+
+[WD(C)], i∗ is the usual Gysin homomorphism ([Stacks, Tag 02T7]) and sp∗ is the map that sends
+the fundamental class [C] of an irreducible component to the fundamental class of its tubular neigh-
+borhood.
+Conjecture 1. There is a natural isomorphism between the top Chow group of the reduced Emerton-
+Gee stacks XK,LG,red and the top Chow group of the moduli of Weil-Deligne representations WDK,Ū ⋊LT
+valued in Ū ⋊ LT .
+Theorem 4 (Theorem 13). The Conjecture holds in the following cases:
+  (1) G = T is a torus and X ∗ (ResK/Qp T )ΓIQ is p-torsion-free,
+                                              p
+  (2) G = Un and p > 2, and
+  (3) LG = GSp2n or GOn , and p > 2.
+  Here, Γ = GalQp /IQp . The condition that X ∗ (ResK/Qp T )ΓIQ is p-torsion-free holds when T is a
+                                                               p
+tame torus, or when T is an induction torus. Some partial results are established for general tame
+groups:
+Theorem 5 (Proposition 6). Assume G is tame. Denote by XLcfG the substack of XLG defined by the
+condition {ρ|H 2 (GalK , ad ρ) = 0}. Then the chain XLcfG,red ← XLcfB,red → XLcfT,red induces isomorphism
+of top Chow groups.
+0.3. Applications to the geometric Breuil-Mézard conjecture Approaches to establish cases
+of the geometric Breuil-Mézard conjecture often rely on combinatorial or representation-theoretic
+                                                                     τ,λ
+methods to construct the Breuil-Mézard cycles [Zστ,λ ] inside each XK,LG ⊗Zp Fp . The next step is to
+
+show that the formation of [Zστ,λ ] does not depend on the choice of the types (τ, λ). The irreducible
+                 τ,λ                                            τ,λ
+components of XK,  LG,red define the Springer-Schubert cycles [Cσ ], and it is often clear that the index
+
+[Zστ,λ : Cστ,λ ] is an inherent structural constant of certain affine Springer fibers, and does not depend
+on the type (τ, λ). Conjecture 1 offers the following criterion to recognize identical Springer-Schubert
+cycles:
+Proposition 1. Assume Conjecture 1 holds. Let C1 , C2 ⊂ XK,LG,red be two irreducible components.
+Then C1 = C2 if and only if there exists substacks C1′ ⊂ C1 and C2′ ⊂ C2 of dimension [K : Qp ] dim U
+such that Fp -points of C1 and C2 have potentially semistable Borel-valued lifts of Hodge type ρ and
+Weil-Deligne type lying on the same irreducible component of WDan  K,Ū ⋊LT
+                                                                            .
+ See Subsection 6.6 for a comparison with the parametrization in [EG23] by Serre weights for G =
+GLn .
+ Finally, we also present the following technical result that has independent interest.
+Theorem 6 (Corollary 4, Corollary 6). Let ρ : GalK → LM (Qp ) be a de Rham representation whose
+Hodge type is P − -dominant. Endow Lie U (Qp ) with GalK -action via ad ρ.
+   Any ρ′ : GalK → LP (Qp ) such that ρ′ ×P M̆ = ρ is also de Rham with its possible Weil-Deligne
+types parameterized by H 2 (GalK , U (Qp )).
+0.4. Acknowledgement The author thanks Bao Le Hung and Tony Feng for asking for a general
+and conceptual description of the top Chow group of reduced Emerton-Gee stacks, which is the source
+of this work. The author also thanks Heejong Lee and Gal Porat for helpful correspondences. Finally,
+4                                               ZHONGYIPAN LIN
+
+the author thanks the anonymous referee for pointing out inaccuracies of the previous version of the
+manuscript.
+
+                                                    Contents
+1     Preliminaries . . . . . . . . . . . . . . . . . .                       .   .   .   .   .   .   .   .   .   .   .   .   .    4
+2     Extension of weakly admissible filtered (ϕ, N )-modules .               .   .   .   .   .   .   .   .   .   .   .   .   .    6
+3     Weil-Deligne types of de Rham extensions . . . . . .                    .   .   .   .   .   .   .   .   .   .   .   .   .   12
+4     Moduli of de Rham parameters: the parabolic case . . .                  .   .   .   .   .   .   .   .   .   .   .   .   .   13
+5     Construction of the Borel-valued Weil-Deligne morphism                  .   .   .   .   .   .   .   .   .   .   .   .   .   14
+6     Analysis of the Borel-valued Weil-Deligne morphism . .                  .   .   .   .   .   .   .   .   .   .   .   .   .   21
+7     The cyclotomic-free case . . . . . . . . . . . . .                      .   .   .   .   .   .   .   .   .   .   .   .   .   29
+A     Algebraic characters and crystalline parameters . . . .                 .   .   .   .   .   .   .   .   .   .   .   .   .   31
+B     Moduli of de Rham parameters: the reductive case . . .                  .   .   .   .   .   .   .   .   .   .   .   .   .   33
+References . . . . . . . . . . . . . . . . . . . . .                          .   .   .   .   .   .   .   .   .   .   .   .   .   46
+
+
+
+1.      Preliminaries
+
+     For ease of notation, we write − ⊗ − for − ⊗Qp −.
+1.1. Exact ⊗-filtrations Let VectA be the category of projective A-modules. For X ∈ VectA ,
+a filtration of X indexed by Z is a tuple (Filn X)n∈Z where Filn X ∈ VectA , Filn X ⊃ Filn+1 X,
+∩ Filn X = 0, and ∪ Filn X = X. Denote by Fil VectA the category of filtered (indexed by Z) projective
+A-modules and denote by gr VectA be the category of Z-graded projective A-modules.
+  Let C be an ind-tannakian category ([SN72, III 1.1.1]) over a ring A. Let ω : C → VectA be an
+exact tensor functor. An exact ⊗-filtration θ on ω is a factorization
+                                       C
+                                                           ω            / VectA
+                                                                          9
+                                                θ              forget
+
+                                                      $
+                                                    Fil VectA
+such that the following are satisfied:
+(FE 1) For X ∈ C , θn (X) is a direct summand of ω(X);
+(FE 2) The associated graded functor gr(θ) is exact.
+(FE 3) For all n ∈ Z, X, Y ∈ C ,
+                                                 X
+                                   θn (X ⊗ Y ) =     θi (X) ⊗ θj (Y ).
+                                                          i+j=n
+
+  Let ω, ω ′ be exact tensor functors with exact ⊗-filtrations θ, θ′ , respectively. Denote by Isom-fil⊗ (θ, θ′ )
+the set of tensor isomorphisms f : ω → ω ′ inducing an isomorphism of filtrations f∗ θ ∼    = θ′ . Set
+                                           Aut⊗ (θ) := Isom-fil⊗ (θ, θ)
+and denote by Aut⊗! (θ) the subfunctor of Aut⊗ (θ) which induces identity of the associated grading.
+                          EXTENSIONS OF DE RHAM GALOIS REPRESENTATIONS                                  5
+
+1.2. Splitting of exact ⊗-filtrations An exact tensor functor λ : C → gr VectA induces a canonical
+                                                                   ′
+exact ⊗-filtration λcan , which is defined as λncan (X) := n′ ≥n λn (X) for all X ∈ C .
+                                                           P
+   An exact ⊗-filtration is said to be splittable if it is isomorphic to the canonical exact ⊗-filtration
+associated to a graded exact tensor functor.
+1.3. Torsors for smooth affine groups For smooth affine groups H, we interpret H-torsors over
+Spec A as rigid exact tensor functors Rep(H) → VectA . We specialize to the case where A = K ⊗ Qp .
+Here are some basic facts
+    (1) Any exact ⊗-filtration on H-torsors over Spec A is splittable ([SN72, IV.2.4, IV.1.3]).
+    (2) Any exact ⊗-grading on H-torsors over Spec A is the weight grading of a cocharacter λ :
+        (Gm )A → HA ([SN72, IV.1.3]).
+    (3) As a consequence of (1) and (2), any exact ⊗-filtration on H-torsors over Spec A is equal to
+        λcan for some cocharacter λ : (Gm )A → HA .
+Let ω be an H-torsor. For each group scheme morphism f : H → H ′ , we can functorially define the
+pushforward f∗ ω = ω ×H H ′ , which is an H ′ -torsor. The construction of pushforward extends to exact
+⊗-filtrations and ⊗-gradings: if λ : (Gm )A → HA is an exact ⊗-grading, then f∗ (λ) = f ◦ λ, and if
+θ = λcan is an exact ⊗-filtration, then f∗ (θ) = (f∗ λ)can .
+  In particular, if f = Ad(g), g ∈ H(A) is an inner automorphism, then f∗ (λcan ) = (gλg −1 )can , which
+we also denote by g(λcan )g −1 by abuse of notation.
+Lemma 1. If θ is an exact ⊗-filtration on an P -torsor over K ⊗ Qp , then there exists an element
+u ∈ U such that
+                                   uθu−1 = (θ ×P M̆ ) ×M̆ P.
+Proof. Set A = K ⊗ Qp . Write θ = λcan , where λ : (Gm )A → PA is a cocharacter. The image of λ is
+contained in a maximal torus S of PA . There exists an element u ∈ U (A) such that u−1 Su ⊂ M̆A .
+Replace θ by uθu−1 , so S ⊂ M̆A and λ = (λ ×P M̆ ) ×M̆ P .                                      □
+1.4. Dynamic methods Since F 7→ F (K ⊗ Qp ) is a fully faithful functor from the category of
+scheme-theoretic torsors over K ⊗ Qp to the category of set-theoretic torsors, we will not distinguish
+F and F (K ⊗ Qp ) in the entire article.
+   Recall some notations from [Crd11, Section 4.1]. Let λ be a cocharacter of a reductive group H
+over K ⊗ Qp . Define PH (λ) := {g ∈ H| limt→0 λ(t)gλ(t)−1 exists.}; PH (λ) is a smooth subgroup
+of H, and all parabolic subgroups of H are of the form PH (λ) for some λ. Define UH (λ) = {g ∈
+H| limt→0 λ(t)gλ(t)−1 = 1}. Then UH (λ) ⊂ PH (λ) is the unipotent radical.
+  Recall that λcan = (λican )i∈Z is the exact ⊗-filtration associated to λ.
+
+Theorem 7. Consider the adjoint representation ad : H → GL(Lie(H)). We have
+                                  Lie Aut⊗ (λcan ) = λ0can (Lie(H)), and
+                                 Lie Aut⊗! (λcan ) = λ1can (Lie(H)).
+  As a consequence, we have PH (λ) = Aut⊗ (λcan ) and UH (λ) = Aut⊗! (λcan ).
+Proof. The first paragraph is a special case of [SN72, IV 2.1.4.1] where α = 0, 1. The second paragraph
+follows from [Crd11, Theorem 4.1.7(4)].                                                               □
+6                                             ZHONGYIPAN LIN
+
+2.      Extension of weakly admissible filtered (ϕ, N )-modules
+  In this section, we work over a general field K (instead of specializing to Qp ) and we always work
+with connected groups.
+Definition 1. Let K/Qp be a finite extension. Set K0 = W (k)[1/p] where k is the residue field of K.
+A filtered (ϕ, N )-module with Qp -coefficients is a tuple (D, ϕD , θD , ND ) where
+     - D is a finite free module over K0 ⊗ Qp ;
+     - ϕD : (ϕ ⊗ 1)∗ D → D is an isomorphism of K0 ⊗ Qp -modules;
+                                                        j                       j
+     - θD is a filtration on DK := D ⊗K0 K such that θD   DK = 0 if j ≫ 0, and θD DK = DK if
+       j ≪ 0.
+     - ND : D → D is a K0 -linear endomorphism such that ND ϕD = pϕD ND .
+Here ϕ ⊗ 1 : K0 ⊗ Qp → K0 ⊗ Qp sends x ⊗ y to φ(x) ⊗ y.
+     We will drop the phrase “with Qp -coefficients” because it is always enforced.
+Definition 2. Let H be an affine smooth group over Qp . A filtered (ϕ, N )-module and H-structure is
+a tuple (F, ϕF , θF , NF ) such that
+      - F is a H-torsor over Spec K0 ⊗ Qp ;
+      - ϕF : (ϕ ⊗ 1)∗ F → F is a H-equivariant isomorphism over Spec K0 ⊗ Qp ;
+      - θF is an exact ⊗-filtration on F ⊗K0 K;
+      - NF ∈ Lie(H) ⊗Qp K0 such that NF = pϕF (ϕ ⊗ 1)∗ NF ϕ−1F .
+     We will drop the phrase “with H-structure” when the choice of H is clear from the context.
+2.1. Weak admissibility and semistable representations A filtered (ϕ, N )-module (F, ϕF , θF , NF )
+with H-structure is said to be weakly admissible if for any algebraic representation H → GL(V ),
+(F, ϕF , θF , NF ) ×H V is a weakly admissible filtered (ϕ, N )-module.
+  Since the covariant Fontaine’s functors Vss and Dss are rigid exact tensor functors (see the paragraph
+before [C11, 9.1.9]), the category of weakly admissible filtered (ϕ, N )-module with H-structure is
+equivalent to the category of semistable representations valued in H.
+Lemma 2. (1) If (F, ϕF , θF , NF ) is weakly admissible, then (F, ϕF , θF , NF ) ×H H ′ is also weakly
+admissible for any group scheme morphism H → H ′ .
+  (2) If H → H ′ is an embedding, then the converse is also true.
+Proof. (1) Unravelling definitions shows (F, ϕF , θF , NF ) ×H H ′ = Dss (Vss ((F, ϕF , θF , NF )) ×H H ′ ),
+which is automatically weakly admissible.
+   (2) It is harmless to replace H ′ by GL(V ). It follows from the fact that a single faithful representation
+of H generates the Tannkian category of algebraic representations Rep(H).                                    □
+     Recall that P is a parabolic subgroup of Ğ with Levi subgroup M̆ and unipotent radical U .
+Proposition 2. Let (F, ϕF , θF , NF ) be a filtered (ϕ, N )-module with P -structure. Then (F, ϕF , θF , NF )
+is weakly admissible if and only if (F, ϕF , θF , NF ) ×P M̆ ×M̆ P is weakly admissible.
+Proof. Since P → M̆ × P/Z(Ğ) is an embedding, Lemma 2 allows us to replace P , M̆ , and Ğ by
+P/Z(Ğ), M̆ /Z(Ğ) and Ğ/Z(Ğ). So now P ⊂ Ğ → GL(Lie Ğ) is an embedding. For ease of notation,
+set (−)M̆ -ss := (−) ×P M̆ ×M̆ P , and set F∗ := (F, ϕF , θF , NF ).
+                           EXTENSIONS OF DE RHAM GALOIS REPRESENTATIONS                                        7
+
+  Choose a cocharacter µ of P such that P = PĞ (µ). Then P ′ := PGL(Lie Ğ) (µ) ⊃ P is a parabolic
+subgroup of GL(Lie Ğ) with unipotent radical U ′ = UGL(Lie Ğ) (µ) ⊃ U and Levi subgroup M̆ ′ :=
+ZGL(Lie Ğ) (µ) ⊃ M̆ . Since
+                                                  U        / U′
+
+
+                                                             
+                                                  P        / P′
+is Cartesian, we have
+                                                       ′
+                                      (F∗ ×P P ′ )M -ss = F∗M̆ -ss ×P P ′ .
+F∗M̆ -ss ×P P ′ is weakly admissible by Lemma 2, and therefore F∗ ×P P ′ is weakly admissible by [BC08,
+Proposition 8.2.10] (which is the special case of this lemma for GLN ). By Lemma 2 again, we conclude
+F∗ is weakly admissible.                                                                             □
+
+2.2. Newton polygon of isocrystals Let K̆ be the p-adic completion of the maximal unramified
+extension of K0 . By the Dieudonné-Manin classification, the category of isocrystals over K̆ is a
+semisimple category. The simple objects can be classified by rational numbers s/r, where r is a
+positive integer and s is an integer coprime to r. Denote by Dr,s the simple object labeled by the
+rational number s/r. Dr,s has dimension r, and we call s/r the slope of Dr,s .
+    Let (D, ϕ) be an isocrystal over K0 . Then D̆ = K̆ ⊗K0 D is a direct sum of simple objects Dri ,si . We
+call the numbers si /ri that appear in the direct sum decomposition the slopes of D. Say D has slopes
+{α0 < · · · < αn } with multiplicities {µ0 , · · · , µn }. The Newton polygon of D is the convex polygon
+with leftmost endpoint (0, 0), and having µi consecutive segments of horizontal distance 1 and slope
+αi .
+Lemma 3. If all slopes of D are positive numbers, then for any lattice L ⊂ D, we have
+                                                lim ϕn L = {0}
+                                               n→∞
+in the sense that the diameter of the bounded sets ϕn L converges to 0. Note that L is not assumed to
+be ϕ-stable.
+Proof. Let N be the product of the denominator of the slopes of D. By the Diedonné-Manin classifica-
+tion, there is a basis {x1 , .., xt } of K̆ ⊗K0 D such that ϕN xi = pSi xi for positive integers Si , 1 ≤ i ≤ t.
+The p-adic topology on D can be defined by
+                                      |λ1 x1 + · · · + λt xt | = max (|λi |)
+                                                                  1≤i≤t
+
+where λi ∈ K̆, 1 ≤ i ≤ t. For any x ∈ D, |ϕN x| < p1 |x|. Therefore for any lattice L, we have
+limn→∞ ϕnN L = {0}. Replacing L by ϕk L, 1 ≤ k < N , we have limn→∞ ϕk+nN L = {0}. Combining
+these, we have limn→∞ ϕn L = {0}.                                                           □
+Corollary 1. If the slopes of D are either all positive numbers or all negative numbers, the map
+1 − ϕ : D → D is invertible.
+Proof. If the slopes of D are all positive numbers, then 1 + ϕ + ϕ2 + · · · converges and is an inverse
+of 1 − ϕ.
+8                                             ZHONGYIPAN LIN
+
+   If the slopes of D are all negative numbers, then the slopes of the dual isocrystal D∨ are all positive
+numbers. By choosing a basis of D, the matrix of ϕ∨ is the transpose inverse of that of ϕ, and
+(1 − ϕ−t ) = −ϕ−t (1 − ϕt )−1 = −ϕ−t (1 + ϕt + ϕ2t + · · · ) is invertible.                             □
+
+Definition 3. Let (F, ϕF , θF , NF ) be a filtered (ϕ, N )-module with P -structure. Consider the adjoint
+action M̆ → GL(Lie U ). Assume (F, ϕF , θF , NF ) ×P M̆ is weakly admissible.
+  The following conditions are equivalent:
+    (1) The Hodge polygon of the ϕ-module
+
+                                     (F, ϕF , θF , NF ) ×P M̆ ×M̆ Lie U
+
+        has slopes < 0;
+    (2) All Hodge-Tate weights of the semistable representation
+
+                                       Vss ((F, ϕF , θF , NF ) ×P Lie U )
+
+        are negative integers, where Vss is the covariant Fontaine functor;
+    (3) θF0 (Lie G) ∩ Lie U = {0}.
+We say θF is P − -dominant if (F, ϕF , θF , NF ) ×P M̆ is weakly admissible and one of the conditions
+above holds.
+
+Lemma 4. If (F, ϕF , θF , NF ) is weakly admissible and θF is P − -dominant, then the map 1−ϕF ×P Lie U
+is invertible.
+
+Proof. By Corollary 1, it suffices to show all slopes of the Newton polygon of F ×P Lie U are negative
+numbers, which follows from the definition of P -dominance and weak admissibility.                  □
+
+Lemma 5. If (F, ϕF , θF , NF ) is weakly admissible and θF is P − -dominant, then the map
+
+                                        U → U, u 7→ uϕF ×P U (u)−1
+
+is invertible.
+
+Proof. Denote this map by ∆F . Since U is a unipotent algebraic group over a ring of characteristic 0,
+the logarithm map log : U → Lie U is an M̆ -equivariant bijection. Let m0 = m ∈ U . We inductively
+define
+
+                                        nk = (1 − ϕF ×P Lie U )−1 log mk
+                                     mk+1 = n−1
+                                             k mk ϕF ×P U (nk )
+
+Let U0 = U ⊃ U1 = [U, U ] ⊃ · · · ⊃ Us = {1} be the lower central series. It is clear that mk ∈ Uk for
+each k = 0, 1, 2, · · · . Thus m = ∆F (n0 n1 · · · ns−1 ). It remains to show the injectivity: by the explicit
+formula, we conclude inductively on k that x = nk nk+1 · · · ns−1 is the unique element of Uk that solves
+the equation ∆F (n0 · · · nk−1 )−1 m = ∆F (x).                                                              □
+
+  We didn’t prove Lemma 5 by using the technique of Proposition 2 because after embedding, we
+couldn’t easily show the inverse actually lands in U (the argument would be equally lengthy).
+                             EXTENSIONS OF DE RHAM GALOIS REPRESENTATIONS                                             9
+
+2.3. Framing Let (F, ϕF , θF , NF ) be a filtered (ϕ, N )-module. Once we fix a (right) torsor morphism
+[−] : F ∼
+        = H(K0 ⊗ Qp ), we have
+                                           [ϕF (h)] = [ϕF ]φ([h])
+for all h ∈ H(K0 ⊗ Qp ) and some [ϕF ] ∈ H(K0 ⊗ Qp ). We remark that changing framing has
+the effect of changing [ϕF ] to g −1 [ϕF ]φ(g), g ∈ H(K0 ⊗ Qp ). The monodromy condition becomes
+NF = p[ϕF ]φ(NF )[ϕF ]−1 (recall that NF ∈ Lie H).
+Proposition 3. Fix a framing of F ×P M̆ . If (F, ϕF , θF , NF ) is weakly admissible and θF is P − -
+dominant, then there exists a unique framing [−] of F such that [ϕF ] = [ϕF ×P M̆ ] ∈ M̆ (K0 ⊗ Qp ).
+
+Proof. Set A := [ϕF ×P M̆ ]. Suppose [−] is a framing of F that is compatible with the fixed framing of
+F ×P M̆ , that is, [ϕF ] = M A, where M ∈ U . Changing the framing [−] amounts to change M A to
+u−1 M Aφ(u), u ∈ U . We want to solve the equation
+                                   u−1 M Aφ(u) = A ⇔ M = uAφ(u)−1 A−1 ,
+which has a unique solution in U by Lemma 5.                                                                       □
+  Fix a filtered (ϕ, N )-module (F̄ , ϕF̄ , θF̄ , NF̄ ) with M̆ -structure. As a consequence of Proposition
+3 and 2, the set of all possible monodromy operators NF appearing in a filtered (ϕ, N )-module
+(F, ϕF , θF , NF ) such that (F, ϕF , θF , NF )M̆ -ss = (F̄ , ϕF̄ , θF̄ , NF̄ ) does not depend on (F, ϕF , θF , NF ).
+Indeed, the set of all possible monodromy operators NF extending NF̄ naturally forms a Qp -vector
+space.
+Definition 4. Denote by
+                                         (                                                                      )
+                                               ∃ weakly admissible (F, ϕF , θF , NF )with U ⋊ M̆ -structure
+ Ext(WD(F̄ , ϕF̄ , θF̄ , NF̄ ), U ) :=   NF                                                                       .
+                                                   such that (F, ϕF , θF , NF )M̆ -ss = (F̄ , ϕF̄ , θF̄ , NF̄ )
+Lemma 6. We have
+                      Ext(WD(F̄ , ϕF̄ , θF̄ , NF̄ ), U ) = Ext(WD(F̄ , ϕF̄ , θF̄ , NF̄ ), Lie U ).
+To elaborate, abelian extensions to Lie U ⋊ M̆ and non-abelian extensions to U ⋊ M̆ have the same
+(vector) space of monodromy operators.
+Proof. Clear by definition.                                                                                        □
+  We record the following standard fact for lack of direct reference.
+Lemma 7. (1) If P is a parabolic of a reductive group H, then the center of P is equal to the center
+of H, that is, Z(P ) = Z(H).
+   (2) If M is a Levi subgroup of a reductive group H, then the centralizer of the connected center of
+M is M , that is, ZH (Z(M )◦ ) = M .
+Proof. (1) Say P = U ⋊ M , where U is the unipotent radical. First note Z(P ) ⊂ U ⋊ Z(M ) because
+it is contained in Z(M ) after mod U . Say g = tu ∈ Z(P ) where t ∈ Z(M ) and U ∈ M , and s ∈ T
+where T ⊂ M is a maximal torus. We have tusu−1 t−1 = s ⇔ u = sus−1 for all s ∈ T , which forces
+u = 1 by the root space decomposition of U . So Z(P ) ⊂ Z(M ) ⊂ T . Let t ∈ Z(P ). Say Uα ⊂ U is a
+root group, where α ∈ X ∗ (T ). t commuting with elements of Uα is equivalent to t commuting with
+10                                               ZHONGYIPAN LIN
+
+elements of U−α . Therefore Z(P ) ⊂ ZH (P − ) ∩ ZH (P ) where P − is the opposite parabolic. Finally
+since P − P is dense in H, we have Z(P ) ⊂ Z(H). Conversely, we have Z(H) ⊂ T ⊂ P which implies
+Z(H) ⊂ Z(P ).
+   (2) Indeed, M = ZH (µ) for some cocharacter µ.                                                 □
+     The following lemma also looks very standard but we couldn’t find a reference.
+Lemma 8. If (F, ϕF , θF , NF ) is weakly admissible and θF is P − -dominant, then θF ̸= uθF u−1 for all
+u ∈ U . In particular, the element u in Lemma 1 is unique.
+Proof. Say θF = λcan for some λ ∈ X∗ (T̆ ) where T̆ ⊂ P is a maximal torus. There exists another
+cocharacter µ ∈ X∗ (T̆ ) such that P = PĞ (µ). Since both PĞ (µ) and PĞ (λ) = Aut⊗ (θF ) are stable
+under the T̆ -action (by conjugation), we can decompose Lie(P ∩ Aut⊗ (θF )) as a sum of T̆ -weight
+spaces. We claim that the unique Gm -weight of Lie(P ∩ Aut⊗ (θF )) (where Gm acts by µ : Gm → T̆ )
+is 0: indeed, Lie P has no negative weights and Lie Aut⊗ (θF ) has no positive weights by the P -
+dominance. Therefore P ∩ Aut⊗ (θF ) ⊂ ZĞ (µ) is contained in a maximal Levi subgroup of P . So,
+P ∩ Aut⊗ (θF ) = PZĞ (µ) (λ). By the previous lemma (first use part 1, then use part 2), we have
+ZĞ (µ) = ZĞ (Z(P ∩ Aut⊗ (θF ))◦ ).
+   Now we prove this lemma. Suppose θF = uθF u−1 and u ∈ U . Then
+                        P ∩ Aut⊗ (θF ) = P ∩ Aut⊗ (uθF u−1 ) = uP ∩ Aut⊗ (θF )u−1
+which implies ZĞ (µ) = uZĞ (µ)u−1 ⇒ u ∈ ZĞ (µ) ⇒ u = 1.                                                        □
+
+Corollary 2. Let (F̄ , ϕF̄ , θF̄ , NF̄ ) be a weakly admissible filtered (ϕ, N )-module with M̆ -structure with
+θF̄ being P − -dominant. The set of isomorphism classes of weakly admissible filtered (ϕ, N )-modules
+(F, ϕF , θF , NF ) equipped with an identification (F, ϕF , θF , NF ) ×P M̆ = (F̄ , ϕF̄ , θF̄ , NF̄ ) is in canonical
+bijection with the cartesian product
+                                 U (K ⊗ Qp ) × Ext(WD(F̄ , ϕF̄ , θF̄ , NF̄ ), U ).
+
+
+Proof. It is harmless to fix a framing of (F̄ , ϕF̄ , θF̄ , NF̄ ). By Proposition 3, each isomorphism class of
+such filtered (ϕ, N )-module with P -structure admits a unique framing under which [ϕF ] = [ϕF̄ ]. By
+Proposition 2, the choice of θF and NF are independent. By Lemma 1 and Lemma 8, the choice of
+θF is parameterized by U (K ⊗ C).                                                                           □
+Corollary 3. Let U1 ⊴ U2 be closed algebraic subgroups of U which are stable under adjoint action of
+M̆ . Corollary 2 holds after replacing U by U1 /U2 .
+Proof. Clear.                                                                                                     □
+Theorem 8. Let ρ : GalK → M̆ (Qp ) be a semistable Galois representation with P − -dominant Hodge
+                                            ρ           Ad
+type. Let GalK act on Lie U via GalK − → M̆ (Qp ) −−→ Aut(U ). Let U1 ⊴U2 be closed algebraic subgroups
+of U which are stable under adjoint action of M̆ . Set U ′ := U2 /U1 .
+   (1) There is a canonical bijection
+                              H 1 (GalK , U ′ (Qp )) ∼
+                                                     = H 1 (GalK , Lie U ′ (Qp ))
+which is compatible with the long exact sequence induced from the short exact sequence U1 → U2 → U ′ .
+                            EXTENSIONS OF DE RHAM GALOIS REPRESENTATIONS                                         11
+
+  (2) There is a commutative diagram
+                                                                    ∼
+                                  H 1 (GalK , U (Qp ))
+                                                                    =      / H 1 (GalK , Lie U (Q ))
+                                                                                                     p
+
+
+                                                         t
+                         Ext(WD(F̄ , ϕF̄ , θF̄ , NF̄ ), U )
+
+with all fibers canonically identified with U (K ⊗ Qp ).
+  (3) There is an isomorphism of Qp -vector spaces
+                           Ext(WD(F̄ , ϕF̄ , θF̄ , NF̄ ), U ) ∼
+                                                              = H 2 (GalK , Lie U (Qp )).
+Proof. Part (1, 2): by Corollary 3, we specify a bijection
+     U (K ⊗ Qp ) × Ext(WD(F̄ , ϕF̄ , θF̄ , NF̄ ), U ) → Lie U (K ⊗ Qp ) × Ext(WD(F̄ , ϕF̄ , θF̄ , NF̄ ), U ).
+Set (u, N ) 7→ (log u, N ) where log is automatically truncated after nc(U ) terms (the nilpotency class of
+U ). This shows Hst 1 (Gal , U ′ (Q )) ∼ H 1 (Gal , Lie U ′ (Q )) where H 1 ⊂ H 1 is the subset of semistable
+                           K       p   = st      K            p          st
+extensions. By [Be02, Lemma 6.4, Lemma 6.5], Hst (GalK , Lie U ′ (Qp )) ∼
+                                                        1
+                                                                             = H 1 (GalK , Lie U ′ (Qp )), and
+so we have a commutative diagram
+                                                                  ∼
+                                                                  = /
+                                    1 (Gal , U ′ (C))
+                                   Hst                                   1 (Gal , Lie U ′ (C))
+                                                                        Hst
+                                          K                                   K
+                                                    _
+                             (∗)                                                        ∼
+                                                                                        =
+                                                                                   
+                                    H 1 (GalK , U ′ (C))                H 1 (GalK , Lie U ′ (C))
+It remains to show the left vertical map is surjective, and we do this by considering the long exact
+sequence
+                    1 (Gal , U (C))
+                   Hst                                   1 (Gal , U (C))
+                                                        Hst                              1 (Gal , U ′ (C))
+                                                                                        Hst
+                          K   1                                K   2                           K
+
+
+                                                                                                 
+                    H 1 (GalK , U1 (C))                 / H 1 (GalK , U2 (C))           / H 1 (GalK , U ′ (C))
+
+we argue by induction on dim U ′ and so we assume the left and right vertical arrows are surjective;
+it is clear the middle vertical arrow is also surjective using diagram (∗). We warn the reader that a
+priori there are no horizontal arrows in the top row.
+   Part (3): since Lie U (Qp ) has negative Hodge-Tate weights, we have H 0 (GalK , Lie U (Qp )) = 0. By
+the Euler characteristic, dim H 1 = dim H 0 + dim H 2 + dim U (Qp ) = dim H 2 + dim U (Qp ). So, part
+(3) follows from part (2) by noting the right vertical map is linear.                                  □
+Corollary 4. Let ρ : GalK → M̆ (Qp ) be a semistable representation whose Hodge type is P − -
+dominant. Endow Lie U (Qp ) with GalK -action via ad ρ.
+  Any ρ′ : GalK → P (Qp ) such that ρ′ ×P M̆ = ρ is semistable with its possible Weil-Deligne types
+parameterized by H 2 (GalK , U (Qp )).
+Proof. It is already proved in the proof of Theorem 8. Alternatively, we can deduce it from Theorem
+8 combined with Corollary 3.                                                                      □
+12                                              ZHONGYIPAN LIN
+
+
+Corollary 5. Let ρ : GalK → M̆ (Qp ) be a crystalline representation whose Hodge type is P − -
+dominant. Endow Lie U (Qp ) with GalK -action via ad ρ.
+  Assume H 2 (GalK , U (Qp )) = 0. Then any ρ′ : GalK → P (Qp ) such that ρ′ ×P M̆ = ρ is crystalline.
+
+Proof. By Corollary 4, the Weil-Deligne type of ρ′ is unique. But ρ itself composed with M̆ ,→ P is a
+crystalline representation.                                                                        □
+
+3.    Weil-Deligne types of de Rham extensions
+3.1. Non-abelian Shapiro lemma Let G be a possibly non-split reductive group over K that splits
+over L and let LG := Ğ ⋊ Gal(L/K). There is an equivalence of groupoids
+                   {parameters GalK → LG} ↔ {parameters GalQp → L ResK/Qp G},
+see, for example, [GHS, Lemma 9.4.1] for unramified groups and [St10] for the general case. As a
+consequence, we will assume K = Qp from now on as all results for Qp automatically imply the same
+statement for general K.
+   The phrases “Galois representation” and “parameters” are used interchangeably.
+   Set LP := P ⋊ Gal(L/Qp ) where P = U ⋊ M̆ is a Gal(L/Qp )-stable parabolic of Ğ.
+3.2. Weil-Deligne types Let ρ : GalQp → LP (Qp ) be a de Rham Galois representation. We choose
+the splitting field L/Qp of G large enough so that ρ becomes semistable after restriction to GalL .
+We denote by ρ|GalL : GalL → Ğ(Qp ) the restriction of ρ composed with the evaluation at identity
+LG → Ğ.
+      L (ρ|
+   Dss     GalL ) =: (ϕρ , θρ , Nρ ) is a weakly admissible filtered (ϕ, N )-module that admits a semilinear
+action of Gal(L/Qp ) which we denote by τρ . We forget the filtration structure and define WD(ρ) :=
+(ϕρ , Nρ , τρ ) and call it the Weil-Deligne type of ρ. Our definition is consistent with [BG19, Definition
+2.6.1].
+3.3. Remark It is possible to remove the dependence on the splitting field L by descending WD(ρ) to
+the σ-isotypic part WD(ρ)σ for a fixed embedding σ : L0 ,→ Qp and combine the data of ϕρ and τρ |IQp
+into a representation of the Weil group WQp := Z ⋉ IQp to get a genuine Weil-Deligne representation
+(rσ , Nσ ) on WD(ρ)σ (c.f. [BG19, Lemma 2.6.6]). Moreover, if ρ is potentially crystalline and G
+is an unramified group, then (rσ , Nσ ) can be reconstructed from rσ |IQp alone, which is often called
+the inertial type of ρ in the literature. In the rest of this note, we reserve the notation WDσ (ρ) for
+the inertial type rσ |IQp and we remark that [EG23] uses the notation WD(ρ) for inertial types, not
+Weil-Deligne types.
+Theorem 9. Let ρ : GalQp → LM (Qp ) be a de Rham Galois representation of P − -dominant Hodge
+                                            ρ              Ad
+                                        → LM (Qp ) −−→ U (Qp ). Then there is a commutative diagram
+type. Let GalQp act on U (Qp ) by GalQp −
+
+                          H 1 (GalQp , U (C))
+                                                     ∼          / H 1 (GalQ , Lie U (C))
+                                                                          p
+
+
+
+
+                                                     ∼ /
+                      H 1 (GalL , U (C))Gal(L/Qp )         H 1 (GalL , Lie U (C))Gal(L/Qp ) .
+Here L is chosen so that ρ|GalL is semistable.
+                           EXTENSIONS OF DE RHAM GALOIS REPRESENTATIONS                                    13
+
+Proof. The vertical maps are equalities by [Ko02, Theorem 3.15]. It remains to show that the isomor-
+phisms in Theorem 8 are compatible with Gal(L/Qp )-action, which is clear.                        □
+Corollary 6. Theorem 8 and Corollary 4 both hold after replacing “semistable” by “de Rham”, P by
+LP and M̆ by LM .
+
+Proof. Clear.                                                                                              □
+
+4.      Moduli of de Rham parameters: the parabolic case
+   By [Min24], the Emerton-Gee stack XK,LP (or XLP when the choice of K is clear from the context)
+is a formal algebraic stack, locally Noetherian over Spf Z̄p .
+4.1. Remark When LP is connected, then there is no ambiguity in XK,LP . When LP is disconnected,
+we always use the version such that XK,LP (Fp ) is the groupoid of parameters GalK → LP (Fp ), up to
+P -conjugacy rather than LP -conjugacy.
+Lemma 9. XK,LP is a Noetherian formal algebraic stack over Spf Z̄p .
+Proof. It suffices to show XK,LP,red is quasi-compact, which follows from [L23B, Theorem 1.1(3)].          □
+4.2. Z̄p -flat quotient of Noetherian formal algebraic stacks Let Y be a Noetherian formal
+algebraic stack over Spf Z̄p . Let Spf A be a Noetherian smooth cover of Y, which exists by [Stacks,
+Tag 0AIC, 0AID] and the definition of formal algebraic stacks [Eme, Definition 5.3]. Let T be the
+p-power torsion ideal of A and define the Z̄p -flat quotient of Spf A to be Spf A/T . Such a construction
+descends along smooth covers.
+Definition 5. Let λ be a P − -dominant Hodge type and let τ be an inertial type, both valued in LP .
+               τ,λ
+    Define XK,   LP to be (if it exists) the Noetherian formal algebraic stack which is flat over Spf Z̄p ,
+
+uniquely determined as the O-flat closed substack of XK,LP by the following property: if A◦ is a finite
+                          τ,λ    ◦
+Z̄p -flat algebra, then XK, LP (A ) is the subgroupoid consisting of L-parameters which become potentially
+
+semistable of Hodge type λ and inertia type τ after inverting p.
+     We record the following obvious properties:
+                    τ,λ
+Lemma 10. (1) If XK,  LP exists, then it is indeed unique.
+
+  (2) If G = G1 × G2 is reductive, then
+                                      (τ ,τ ),(λ ,λ )     τ1 ,λ1   τ2 ,λ2
+                                    XK,1L(G2 1 ×G12 )2 = XK, LG × XK,LG
+                                                                1        2
+
+                                                                                         τ,λ        i(τ ),i(λ)
+   (3) If i : G → H is a central isogeny of reductive groups (with finite kernel), then XK,LH → XK,LG
+
+is relatively representable by a finite morphism.
+   (4, Shapiro Lemma) Under the identification ([L23B, Theorem 1.1(4)])
+                                       Sha : X L ∼
+                                               K, G=X L             ,
+                                                           Qp , ResK/Qp G
+
+we have
+                                          τ,λ           Sha(τ ), Sha(λ)
+                                         XK,LG = XQ ,L Res              .
+                                                   p             K/Qp G
+                                                               τ,λ
+   (5, the tame case) If G is tame over K and reductive, then XK,LG exists and is p-adic formal
+
+algebraic of finite type over Spf Z̄p .
+14                                           ZHONGYIPAN LIN
+
+Proof. (1) Suppose X1 and X2 are closed substacks satisfying the defining properties. So does X3 :=
+X1 ×XK,LP X2 . Both X3 → X1 and X3 → X2 are formally étale closed immersions. So X3 is an open
+and closed substack of X1 ; if X1 has a component disjoint from X3 , then X3 cannot satisfy the defining
+property.
+   (2) and (4) Both follows immediately from the uniqueness.
+                                          τ,λ                                           i(τ ),i(λ)
+   (3) Say X1 and X2 are two objects of XK, LH (Spec A) that map to the same object of XK,LG       (Spec A),
+then it makes sense to take their ratio “X1 /X2 ”, which is a well-defined object of XK,Z where Z is
+the kernel of H̆ → Ğ. Since Z is a multiplicative finite group scheme, XK,Z is the same as the moduli
+of Weil representations and is finite over Spf Z̄p .
+   (5) It is proved in the Appendix B. See Theorem B.6.3.                                                □
+                            τ,λ               τ,λ
+Theorem 10. If p > 3, then XK,LP exists, and XK,LG is of finite type over Spf Z̄p .
+
+
+Proof. We first assume LP = LG is reductive. Let G′ be the simply-connected cover of G and let Z
+be the kernel of G. Then G′ × Z → G is a central isogeny. Since p > 3, G′ is a finite product of Weil
+                                  τ,λ
+restrictions of tame groups. So, XK,LP exists by Lemma 10.
+                                                                                                    i(τ ),i(λ)
+     In general, write i for the surjective homomorphism LP → LM and set X := XK,LP          ×     XK,LM         .
+                                                                                           XK,LM
+             τ,λ
+It is clear XK,LP is representable by the Z̄p -flat quotient of X , as a consequence of Corollary 6.        □
+
+Definition 6. Fix a Hodge type λ. Let L/K be a finite extension containing the splitting field of G.
+        L,λ                                                         τ,λ
+Define XK,LP to be the scheme-theoretic union of the finitely many XK,LP for τ |IL is trivial.
+
+
+4.3. The rigid generic fiber of Noetherian formal algebraic stacks The notion of rigid analytic
+Artin stacks we adopt is the one in [EGH25, Subsection 5.1.7]. For a general Noetherian formal
+algebraic stack X , the generic fiber X rig can always be realized as an adic space stack — the formal
+scheme case is [Hu94, Proposition 4.2], and for general stacks, we proceed in a manner similar to
+[EGH25, Proposition 5.1.3]: we present X as the coequalizer Spf B ⇒ Spf A, and define X rig to be
+the coequalizer Spa B rig ⇒ Spa Arig of adic spaces.
+   The rigid generic fibers considered in this note will turn out to be representable by rigid analytic
+Artin stacks.
+
+5.      Construction of the Borel-valued Weil-Deligne morphism
+   We recall the definition of the moduli of (framed) Weil-Deligne representations from [BG19, Sub-
+section 1.4, Subsection 2.1]:
+Definition 7. Let L/K be a finite Galois extension. The Weil group WK is an extension 1 → IK →
+    v
+WK −→ Z → 1. Define
+         L,□
+      W DK,H : Spec A → {(r, N )|r : WK → H(A), N ∈ Lie H, r|IL = 1, r(g)N r(g)−1 = pv(g)fK N }
+                                          L,□   ◦
+where A is a Q̄p -algebra. WDL
+                             K,H := [WDK,H /H ] is an algebraic stack over Spec Q̄p (it is denoted
+               ◦
+by [YL/K,φ,N /H ] in [BG19, Definition 2.1.2]).
+Remark 1. By [BG19, Lemma 2.1.3], WDL       K,H is equivalent to the moduli stack of (φ, N, IL/K )-
+modules with H-structure. This is one subtlety when H is a disconnected L-group — when working
+                          EXTENSIONS OF DE RHAM GALOIS REPRESENTATIONS                                 15
+
+
+with (φ, N, IL/K )-modules, the usual form of L-groups LG = Ğ ⋊ Gal(L/K) is used; when working
+with Weil-Deligne representations, however, we use the Weil form of L-groups Ğ ⋊ WK .
+  WDL K,LG , by a mild abuse of notation, is interpreted as both the moduli of (φ, N, IL/K )-modules with
+Ğ ⋊ Gal(L/K)-structure, or the moduli of Weil-Deligne representations with Ğ ⋊ WK -structure.
+
+  Write WDL,an
+          K,LB
+               for the rigid-analytification of WDL
+                                                  K,LB . In [BG19, Subsection 3.2], a morphism
+
+(2)                                           □,τ,λ rig
+                                   WD : (Spf RK,LB )    → WDL,an
+                                                            K,LB
+
+is constructed for the framed potentially semistable Galois deformation ring of type (τ, λ). The main
+result of this section is the following:
+Theorem 11. There exists a unique morphism
+                                             L,λ,rig
+(3)                                    WD : XK,LB    → WDL,an
+                                                         K,LB
+
+which is compatible with the Weil-Deligne morphism (2) on Galois deformation rings.
+              L,λ,rig
+  Moreover, XK, LB    is a rigid analytic Artin stack.
+
+5.1. The strategy We assume G = GL2 to help explain the main ideas. The crystalline part
+  L,λ,rig,crys    L,λ,rig                                             L,λ,rig,crys
+XK, LB         ⊂ XK,LB    is a closed adic space substack. We shrink XK,LB         a little bit to get an
+open substack V , and directly define a morphism V → WDL,an      K,LB
+                                                                      using explicit computation of the
+Emerton-Gee stacks for tori. On the other hand, let U be the tubular neighborhood of the special
+                                             L,λ,rig                         L,an
+fiber of the non-crystalline substack of XK,   LB . A morphism U → WDK,LB has already been con-
+
+structed by Carl Wang-Erickson in his thesis (c.f. [WE18]). The cover {V, U } is an admissible open
+           L,λ,rig                                                              L,λ,rig
+cover of XK, LB    because it is the pullback of an admissible open cover of XK,  LT    .
+
+                                     crystalline V
+
+
+
+                        (
+                    )       Tubular Neighborhood
+
+
+
+
+                                    semistable (non-crystalline) U
+
+
+5.2. Wang-Erickson’s moduli of (literal) Galois representations The results of [WE18] have
+the following modern interpretation:
+       Let Z ⊂ XK,LG ⊗Zp Fp be an algebraic substack having fixed semisimplification, then
+                                             rig
+       the tubular neighborhood NZ of Z in XK,  LG is a moduli stack of Galois representations,
+
+       in the sense that any Sp A → NZ of topologically finite type comes from a continuous
+       representation GalK → AutA (VA ) on a finite projective A-module VA .
+16                                               ZHONGYIPAN LIN
+
+
+Indeed, following the notation of loc. cit., write D̄ := ψ(ρ̄          b ss ) for the associated pseudorepresentation
+of a residue Galois representation ρ̄ : GalK → GLn (Fp ), RepD̄ the groupoid that associates a quo-
+tient B of Z̄p [[x1 , . . . , xn ]]⟨y1 , . . . , ym ⟩ to the groupoid of Galois representations over Spf B with fixed
+pseudorepresentation D̄, and Spf RD̄ the universal deformation of pseudorepresentations, then
+                                                 RepD̄ → Spf RD̄
+is relatively representable by an algebraic stacks of finite type in the sense that for any Spec A →
+Spf RD̄ , the base change RepD̄ ×Spf RD̄ Spec A is an algebraic stack of finite type over Spec A ([WE18,
+Theorem A]).
+   Moreover, there is a framed version Rep□   D̄
+                                                 (c.f. [WE18, Theorem B]) that allows us to extend
+the results to arbitrary smooth groups H for free by choosing a (closed) embedding H ,→ GLd and
+considering the diagram
+                                                             / Rep□
+                                               Rep□
+                                                  H,D̄                      D̄
+
+
+                                                                   
+                                               RepH,D̄         RepD̄
+
+where Rep□ H,D̄
+                is the H-valued version of Res□
+                                              D̄
+                                                 , the vertical maps are smooth and the horizontal map
+is a closed immersion.
+   When H = LT is a torus, there is no difference between a Galois representation and a pseudorep-
+resentation. The following proposition justifies our interpretation of Wang-Erickson’s results, for the
+cases that we need:
+Proposition 4. The diagram
+                                              RepLB,D̄         /X
+                                                                  K,LB
+
+
+                                                                       
+                                             Spf RLT,D̄        /X
+                                                                    K,LT
+
+is a Cartesian diagram.
+Proof. Choose any Spec A → Spf RLT,D̄ where A is a Artinian Z̄p -algebra, and set
+                                    XA := RepLB,D̄ ×Spf RLT,D̄ Spec A, and
+                                     YA := XK,LB ×XK,LT Spec A.
+The morphism f : XA → YA is of finite type over Spec A. To show f is an isomorphism, it suffices to
+check on Artinian test rings B ([LLHLM, Lemma 7.2.5]). But f (B) is clearly an equivalence because
+both XA (B) and YA (B) classify Galois representations.                                          □
+
+5.3. Analysis of tori We first make a thorough investigation of the stacks for LT . The first ob-
+                                                                         L,◦
+servation is that the moduli stack WDL   K,LT admits an integral model WDK,LT over Spec Z̄p defined
+by
+         WDL,◦K,LT
+                   : A 7→ {Weil representations WK → T̆ (A) ⋊ WK that vanish on IL }/T̆ (A),
+                                                 L,◦ 1
+for Z̄p -algebras A. It is clear that WDL
+                                        K,LT = WDK,LT [ p ].
+                         EXTENSIONS OF DE RHAM GALOIS REPRESENTATIONS                               17
+
+Lemma 11. Let λ be a character.
+  (1) We have
+                                      XK,LT = lim WDL,◦  /pn ,
+                                              −→    K,LT
+                                                           n,L
+is the “p-adic completion of the moduli of Weil group representations”.
+   (2) There exists an isomorphism
+                                          L,λ ∼         L,◦    n
+                                   fλ : XK, LT = lim WDK,LT /p ,
+                                                 −→
+                                                                 n
+for any λ.
+   (3) There is a unique shift-by-λ algebraic automorphism
+                                      Lλ : WDL        L
+                                             K,LT → WDK,LT
+and a unique Weil-Deligne morphism
+                                            L,λ,rig
+                                      WD : XK,LT    → WDL,an
+                                                        K,LT
+compatible with Eq. (2) fitting in a commutative diagram
+                                                                 ∼
+                                        L,0,rig
+                                       XK,LT
+                                                                 =       / X L,λ,rig
+                                                                               L
+                                                                            K, T
+
+                                       f0rig
+                                                      y         fλrig
+                                      WDL,◦,rig
+                                        K,LT
+                                                                               WD
+
+
+
+                                                                            
+                                                             Lan
+                                       WDL,an
+                                                              λ
+                                                                         / WDL,an
+                                         K,LT                                  L
+                                                                              K, T
+
+Proof. (1) Fix n > 1 and suppose L is sufficiently large such that T splits over L. By [EG23,
+Proposition 2.7.8], XK,LT /pn is equivalent to the moduli of étale (φ, GalK )-modules. Since T splits
+over L, there is a well-defined morphism WDL,◦  L,LT
+                                                     /pn → XL,LT /pn by [EG23, Proposition 7.2.17].
+Each Spec A → WDL,◦    K,LT
+                            /pn thus corresponds to an étale (φ, GalL )-module MA over Spec A. By
+construction, MA is equipped with a GalK -action extending the GalL -action, which is automatically
+continuous as GalK / GalL = WK /WL is finite. So, a morphism from the right-hand-side to the
+left-hand-side exists, and is automatically an isomorphism by [LLHLM, Lemma 7.2.5].
+   (2) By the proof of part (1), it suffices to construct an isomorphism
+                                              L,λ ∼         L,◦   n
+                                      fλ : XL, LT = lim WDL,LT /p ,
+                                                    −→
+                                                                 n
+and thus we can assume T is a split torus. We can further reduce to the case where T = Gm and
+λ ∈ Z is an integer. When λ = 0 is the trivial Hodge type, we get the isomorphism by composing
+                 L,0
+the embedding XK,G   m
+                       ,→ XK,Gm with the equality from part (1). For general λ ∈ Z, the Tate twist
+morphism
+                                        L,0            N 7→N (λ)
+                                                       L,λ
+                                       XK,G m
+                                              −−−−−−→ XK,G m
+                                                             ,
+induces an equivalence of categories on the level of Z̄p -points. Thus this morphism is an isomorphism
+by the uniqueness in Definition 5.
+18                                             ZHONGYIPAN LIN
+
+   (3) We can still assume T = Gm , and define Lλ to be the Tate twist (in the context of Weil-Deligne
+representations) morphism sending χ 7→ χ(λ). We simply define WD as the composition of the chain
+of maps including fλrig and Lan
+                             λ . The uniqueness follows from Lemma 13(2).                           □
+
+     The morphism
+                                             WDL,◦,rig
+                                               K,LT
+                                                       → WDL,an
+                                                           K,LT
+
+is formally étale, and its image is an open rigid analytic Artin substack. Write WDL
+                                                                                    K,LT (λ) for the
+image of the composition
+                                                               Lan
+                                   WDL,◦,rig
+                                     K,LT
+                                             → WDL,an −−λ→ WDL,an
+                                                 K,LT ∼      K,LT
+                                                                  .
+                                                               =
+                                                  L,λ,rig
+In particular, the Weil-Deligne morphism WD : XK,   LT    → WDL,an
+                                                               K,LT
+                                                                    factors through the open substack
+    L
+WDK,LT (λ). Define
+                                               L,an
+                             WDL K,LB (λ) := WDK,LB ×WDL,an   WDL K,LT (λ).
+                                                            L    K, T
+
+
+Lemma 12. Write ∆ = ∆G (B, T ) = {α1 , . . . , αs } for the set of (absolute) simple positive roots of G,
+and write Uαi ⊂ Ğ for the root group corresponding to the (absolute) root αi∨ . If λ is B − -dominant,
+then the morphism
+                                                     L Q
+                                 WDL K,LB (λ) → WDK, s Uα ⋊LT (λ)
+                                                               i=1      i
+
+is an isomorphism of rigid analytic Artin stacks.
+Proof. Write WDL,□ for the moduli of framed Weil-Deligne representations. The proof of Proposition
+3 extends to the relative setting of affinoids of topologically finite type, as the framing is explicitly
+given by a recursive formula that terminates after finitely many iterations. So, there exists a canonical
+section
+                             WDL K,LB (λ) ×WDL     WDL,□K,LT
+                                                             → WDλ,□ K,LB
+                                                                          (λ)
+                                                        K,LT
+
+whose image Z consists of framed (φ, N, GalL/K )-modules whose φ-structure factors through LT .
+Thus, there exists an embedding
+                                    Z ,→ WDL,□
+                                           K,LT
+                                                (λ) × (Lie U )[K:Qp ],an
+by Lemma 6. So, we have a diagram
+                                                                   / WDL,□L (λ) × (Lie U )[K:Qp ],an
+              WDL
+                K,LB (λ) ×WDL            WDL,□
+                                           K,LT                          K, T
+                                  K,LT                                              O
+
+                                                                                   ?
+                                                                   / WDL,□L (λ) × (
+           WDL                              WDL,□                                        Uα )[K:Qp ],an
+                                                                                       Q
+                 Uα ⋊LT (λ) ×WDL
+               Q
+             K,                               K,LT                          K, T        i   i
+                    i   i            K,LT
+
+
+which is commutative as each Q̄p -point of WDL
+                                             K,LB (λ) can be upgraded to a weakly admissible filtered
+(φ, N, IL/K )-module of anti-dominant Hodge type λ. All morphisms except for the left vertical map
+are closed immersions. Thus WDL                 L Q
+                                  K,LB (λ) → WDK, si=1 Uαi ⋊LT (λ) is a surjective closed immersion of
+reduced rigid analytic Artin stacks.                                                                □
+                              EXTENSIONS OF DE RHAM GALOIS REPRESENTATIONS                            19
+
+  We remark that the reason the lemma above holds is because we restrict ourselves to the weakly
+admissible (with respect to λ) locus.
+  Now, we establish the main theorem of this section:
+Proof of Theorem 11. We start with some reductions. By the proof of Lemma 11, we can assume G
+is a split reductive group. By Lemma 12, there is a diagram
+                                   L,λ,rig
+                                  XK,LB
+                                                       ?           / WDL,an
+                                                                       K,LB
+                                                      WD               O
+
+                                      
+                                L,λ,rig
+                               XK,Qs
+                                                       ?      / WDL Qs          L    (λ)
+                                    i=1 Uα ⋊LT
+                                             i        WD          K,   i=1 Uαi ⋊ T
+
+
+and it suffices to construct the Weil-Deligne morphism for the group H = si=1 Uαi ⋊ LT . The group
+                                                                              Q
+
+H is generated by the torus T̆ , and the subgroup Gm ⋊Uαi where Gm ⊂ T̆ acts on Uαi by the character
+αi∨ . So, it suffices to construct WD for Gm ⋊ Uαi , which is the Borel of either SL2 , or PGL2 .
+   Now we assume G = SL2 , as the PGL2 -case is virtually identical. We have T̆ = Gm , and the unique
+root is α : T̆ → Gm , x 7→ x2 .
+   We write
+                                    X L,λ,rig = [Sp A/Grig          rig
+                                                       m ] ∪ [Sp B/Gm ]
+                                          K,T̆
+as
+ a union where Sp A is the affinoid whose Q̄p -point classifies framed Galois representations ρ =
+ χ1 ∗
+           such that α(ρ) = χ1 /χ2 is congruent mod p2 to the cyclotomic character χcyc , and Sp B is
+      χ2
+the affinoid that classifies ρ such that α(ρ) is not congruent mod p to the cyclotomic character. Both
+[Sp A/Grig                 rig
+         m ] and [Sp A/Gm ] are the rigid generic fiber of a locally closed substack of some admissible
+                      L,λ                                                         rig
+formal blowup of X         (see Paragraph 6.2.1), and thus {[Sp A/Grigm ], [Sp B/Gm ]} is an admissible
+                       K,T̆
+open cover of X L,λ,rig . As a consequence, to define a morphism
+                K,T̆
+                                                  L,λ,rig
+                                                 XK,LB    → WDL,an
+                                                              LB ,
+
+it suffices to define morphisms on
+                                            L,λ,rig
+                                     XA := XK,LB    ×X L,λ,rig [Sp A/Grig
+                                                                      m]
+                                                           K,T̆
+
+and
+                                            L,λ,rig
+                                     XB := XK,LB    ×X L,λ,rig [Sp B/Grig
+                                                                      m]
+                                                           K,T̆
+
+separately. By Proposition 4, XA is isomorphic to a moduli stack of literal Galois representations, and
+a Weil-Deligne morphism WD : XA → WDrig      LB is already constructed in [WE18, Theorem 6.1].
+  On the other hand, XB cannot be interpreted as moduli of Galois representations; nevertheless,
+XB is strictly contained in the crystalline locus. The Weil-Deligne type of a crystalline representation
+should have trivial monodromy operator. We define WD : XB → WDrig         LB as the composition XB →
+ L,λ   WD
+XK,LT −−→ WDL,an
+            K,LT
+                 → WDL,an
+                     K,LB
+                          . The WD morphism on XA and XB must agree by Lemma 13(2),
+                L,λ,rig
+provided that XK, LB    is reduced (when B is the Borel of SL2 or PGL2 ); and the uniqueness of
+WD also follows. By Lemma 13(1), it suffices to show each potentially semistable deformation ring
+20                                             ZHONGYIPAN LIN
+
+
+Spec Rτ,λ [1/p] is reduced; here we take τ = rcyc ⊕ 1 where rcyc is the cyclotomic Weil character. The
+         K,B̆
+Weil-Deligne framed moduli scheme WDL,□ is known to be a local complete intersection of dimension
+                                             K,T̆
+dim T̆ = 2 ([BG19, Corollary 2.3.7]), and Zariski locally its coordinate ring has (s + 2) free variables
+and s relations ([Stacks, Tag 00S8]). Consider the subscheme Z ⊂ WDL,□ consisting of pairs (r, N )
+                                                                               K,B̆
+where r factors through T̆ . Then local coordinate rings of Z have one extra variable and one extra
+relation for the monodromy N (compared to WDL,□ ), and thus Z is also a local complete intersection
+                                                K,T̆
+of dimension 2. By the proof of Lemma 12, there exists a canonical isomorphism
+                     WDL
+                       K,B̆
+                            (ρ) ×WDL        WDL,□
+                                              K,LT
+                                                   → Z an ×WDL         WDL
+                                                                         K,T̆
+                                                                              (ρ) =: Z(ρ)
+                                     K,T̆                       K,T̆
+
+Thus WDL
+       K,B̆
+            (ρ) ∼
+                = [Z(ρ)/T̆ ] is a local complete intersection, equidimensional of dimension 0. The
+morphism WD : Spec Rτ,λ [1/p] → WDL       K,B̆
+                                               (ρ) is formally smooth by the same argument as [BG19,
+                        K,B̆
+Proposition 3.3.2] (which refers to the proof of [Kis08, Lemma 3.2.1]. Kisin’s proof utilizes the smooth-
+ness of the Grassmannian for G; for the Borel-valued version, we do not use the entire Grassmannian,
+but rather the open big Schubert cell inside the Grassmannian, which is also smooth). The rest of the
+proof is the same as that of [BG19, Corollary 2.3.7 and Theorem 3.3.3].                                □
+Lemma 13. (1) The scheme-theoretic union of reduced schemes is reduced.
+  (2) Two morphisms f1 , f2 : Sp B → Sp A of (topologically finite type) reduced affinoids over Spec Q̄p
+that agree on Q̄p -points are equal.
+Proof. (1) Say Spec A is the scheme-theoretic union of Spec A1 and Spec A2 . Then Spec A is by
+definition the scheme-theoretic image of Spec A1 × A2 in the ambient scheme. By [Stacks, Tag 056A],
+A ,→ A1 × A2 is injective, and thus A is reduced.
+   (2) It follows from the “maximum modulus principle”. See [Crd08, Theorem 1.2.6(5)].           □
+     At the end of this section, we make precise the notion of top Chow groups that we will use later.
+5.4. Irreducible components of rigid analytic Artin stacks A theory of irreducible components
+for rigid analytic varieties is developed in [Crd99]. In this section, we extend some of the results to
+the setup of rigid analytic Artin stacks.
+Lemma 14. Let X be a reduced rigid analytic Artin stack, and let U ⊂ X be an admissible open
+substack. There is at most one irreducible analytic substack Y ⊂ X containing U.
+Proof. Suppose Y1 , Y2 are two (closed) irreducible analytic substacks containing U. Then Y1 ∩ Y2 ⊂ U
+is also a analytic substack of X containing U. We replace X by Y1 , and replace Y by Y1 ∩ Y2 , and
+claim that X = Y. Let f : Z → X be a smooth cover by a rigid analytic variety. Since X is irreducible,
+there exists an irreducible component Z0 ⊂ Z such that f (Z0 ) = Z. So, W0 := Z0 ∩ f −1 (Y) is a closed
+analytic subvariety of Z0 containing an admissible open Z0 ∩ f −1 (U). By [Crd99, Lemma 2.2.3], we
+have W0 = Z0 . So, X = Y = f (W0 ).                                                                   □
+Definition 8. We say a rigid analytic Artin stack X is generically reduced if there exists an admissible
+open substack U ⊂ X such that U is reduced and the Zariski closure of U contains Xred .
+                                                                  L,λ,rig
+     We want to avoid having to prove the expected property that XK,LB    is reduced in general to keep
+                                 L,λ,rig
+the exposition short. Note that XK,LB    is clearly generically reduced.
+                           EXTENSIONS OF DE RHAM GALOIS REPRESENTATIONS                                      21
+
+Definition 9. Let X be a generically reduced rigid analytic Artin stack which is equidimensional of
+dimension d. An irreducible component of X is by definition a reduced analytic substack of dimension
+d that cannot be written as a union of two proper analytic substacks. Define Chtop (X ) to be the finite
+free abelian group generated by the irreducible components of X .
+
+6.      Analysis of the Borel-valued Weil-Deligne morphism
+   We keep notations from the previous section. Let ∆ = {α1Q        , . . . , αs } = ∆G (B, T ) be the set of
+simple positive roots of the absolute root system. Write Ū := si=1 Uαi , which is a quotient of the
+unipotent radical U of LB. Rigid analytification induces a bijection of irreducible components of
+WDL K,Ū ⋊LT
+             and that of WDL,an
+                            K,Ū ⋊LT
+                                     (c.f. [Crd99, Section 2.3]), and we identify Chtop (WDL    K,Ū ⋊LT
+                                                                                                         ) with
+Chtop (WDL,an
+         K,Ū ⋊LT
+                  ).
+
+Theorem 12. Let (−ρ) be a local twisting element. The Weil-Deligne morphism
+                                    L,ρ,rig  WD
+                                   XK,LB    −−→ WDL,an
+                                                  K,LB
+                                                       → WDL,an
+                                                           K,Ū ⋊LT
+
+induces an isomorphism
+                                          L,λ,rig   ∼
+                                                    =
+                                  Chtop (XK,LB ) −→ Chtop (WDL,an
+                                                             K,Ū ⋊LT
+                                                                      ).
+
+     We need some preparations before proving the theorem.
+
+6.1. The structure of WDL
+                        K,Ū ⋊LT
+                                 For any Q̄p -algebra A, let (r, N ) ∈ WDL
+                                                                         K,Ū ⋊LT
+                                                                                  (A). We have
+
+(4)                                       r(g)N r(g)−1 = pv(g)fK N
+for g ∈ WK . For each g ∈ WL , the conjugation action of r(g) stabilizes each Uαi (recall that we assume
+      P large enough to split T ). Write ad(r)i : WL → GL(Uαi ) for the adjoint action. So, if we write
+L to be
+N = si=1 Ni where Ni ∈ Uαi , then
+
+                                 r(g)Ni r(g)−1 = ad(r)i (g)Ni = pv(g)fK Ni .
+Thus, we have either Ni = 0 or ad(r)i = pvfK =: rcyc is the cyclotomic Weil character WL → Q̄×
+                                                                                             p.
+
+Lemma 15. (1) Let αi ∈ ∆ be a simple positive root. Write WDL,N i =0
+                                                            K,Ū ⋊LT
+                                                                     for the closed substack
+                                L,ad(r) =r
+where Ni = 0, and write WDK,Ū ⋊LTi cyc for the closed substack where ad(r)i is the cyclotomic Weil
+character. Then
+                                                   L,ad(r) =r
+                           dim WDL,N     i =0
+                                     K,Ū ⋊LT
+                                              ∩ WDK,Ū ⋊LTi cyc = −1,
+
+and the intersection is thus nowhere dense in WDL
+                                                K,Ū ⋊LT
+                                                         .
+                  L
+  Moreover, WDK,Ū ⋊LT is equidimensional of dimension 0.
+  (2) If Gal(L/K)αi ̸= Gal(L/K)αj , then
+                                   L,N =N =0              L,ad(r) =ad(r)j =rcyc
+                          dim WDK,Ūi⋊LTj      = dim WDK,Ū ⋊LTi                  = −1.
+22                                                 ZHONGYIPAN LIN
+
+Proof. (1) We can assume i = 1, and set
+
+                                          ∆1 := ∆\{γ · α1 |γ ∈ Gal(L/K)},
+                                                  Y
+                                          Ū 1 :=   Uα .
+                                                  α∈∆1
+
+
+Then WDL,N 1 =0
+       K,Ū ⋊LT
+                is identified with the scheme-theoretic image of WDL
+                                                                   K,Ū 1 ⋊LT
+                                                                              → WDL
+                                                                                  K,Ū ⋊LT
+                                                                                           .
+     Let A be a Q̄p -algebra. For each c ∈ A× , let tc ∈ T̆ (A) be an element such that
+                                                     (
+                                            ∨          c α ̸∈ ∆1
+                                          α (tc ) =
+                                                       1 α ∈ ∆1 .
+
+If Ğ is an adjoint group, then we can arrange it so that c 7→ tc is a group homomorphism. In general,
+for a suitable integer κ > 0, we can always arrange it so that c 7→ tκc is a group homomorphism
+Gm → T̆ which we denote by ur.
+   We construct an unramified twist morphism
+                                                     L,ad(r) =r
+                                   f : Gm × WDK,Ū 1 ⋊L1T cyc → WDL
+                                                                  K,Ū 1 ⋊LT ,
+
+sending (c, (r, N )) where c ∈ A× , to (rc , N ) where
+
+                                          rc (g) = r(g) ur(c)v(g)fK , g ∈ WK .
+
+The morphism f is quasi-finite and surjective, and thus
+                                           L,ad(r) =rcyc
+                               dim WDK,Ū ⋊L1T             = dim WDL
+                                                                   K,Ū1 ⋊LT −1 = −1
+                                              1
+
+
+by induction on the size of ∆. Finally, the morphism WDK,Ū1 ⋊LT → WDK,Ū ⋊LT is a monomorphism
+away from the bad locus where ad(r)1 = 1 is the trivial Weil character (by computing automorphism
+                      L,ad(r) =r               L,ad(r) =r ,N =0
+groups). So, dim WDK,Ū ⋊L1T cyc = dim WDK,Ū ⋊LT1 cyc 1 = −1.
+                          1
+  For the moreover part, the base case where ∆ = ∅ follows from [BG19, Corollary 2.3.7]. Using
+                                 L,ad(r) =r                          L,ad(r) =r
+WDL K,Ū ⋊LT
+             = WDL,N  1 =0
+                  K,Ū ⋊LT
+                            ∪ WDK,Ū ⋊LT1 cyc , it remains to show WDK,Ū ⋊LT1 cyc is equidimensional of
+dimension 0, which follows from the following isomorphisms of the framed moduli spaces
+                     L,ad(r) =rcyc ,□               L,ad(r) =rcyc ,N1 =0,□                    L,ad(r) =rcyc ,□
+                WDK,Ū ⋊L1T             ×A1 ∼
+                                            = WDK,Ū ⋊LT1                      ×A1 ∼
+                                                                                   = WDK,Ū ⋊LT1                 .
+                        1
+
+
+     (2) The proof is similar to that of part (1).                                                                            □
+
+Corollary 7. There exists an isomorphism
+
+                           ∼                                                                             L,ad(r) =rcyc
+                                                                             WDL,N i =0
+                                  Y                                  \                       \
+       Chtop (WDL
+                K,Ū ⋊LT ) =                               Chtop (             K,Ū ⋊LT
+                                                                                        ∩            WDK,Ū ⋊LTi         ).
+                                   Gal(L/K)-stable S⊂∆               ai ∈S                  ai ̸∈S
+
+Proof. It follows from Lemma 15 by induction on the size of ∆.                                                                □
+                            EXTENSIONS OF DE RHAM GALOIS REPRESENTATIONS                                          23
+
+6.2. The strategy and the proof Before proving Theorem 12, we explain the strategy in the case
+of G = GL2 . Recall U is the unipotent radical of LB. The key is to understand the morphism
+  L,ρ,rig    L,ρ,rig                     L,ρ,rig                              L,ρ,rig
+XK, LB    → XK,LT .  Let x : Spec Q̄p → XK,LT , and consider the fiber Fx := XK,LB    ×X L,ρ,rig ,x
+                                                                                                           K,LT
+
+Spec Q̄p . Note that x corresponds to a Galois representation (χ1 , χ2 ) : GalK → T̆ (Q̄p ) which fac-
+tors through LT (Z̄p ) because GalK is a quasi-compact group. The fiber Fx is thus the groupoid
+[H 1 (GalK , U (Z̄p ))/H 0 (GalK , U (Z̄p ))], which is disconnected precisely when H 1 (GalK , U (Z̄p )) has p-
+power torsion. Nevertheless, such pathologies occur only when χ1 /χ2 is not the cyclotomic character,
+but is congruent to the cyclotmic character.
+                                                                                                L,ρ
+   Consider the locally closed sub-formal algebraic stack Y of some formal blowup of XK,          LT such that
+         L,ρ,rig
+Y rig ⊂ XK,LT    is the locus where H i (GalK , Ū (Z̄p )) is torsion-free for i = 0, 1, 2. Consider the base
+change
+                                                                L,ρ
+                                          Z := Y ×X L,ρ XK,       LB
+                                                          K,LT
+
+and the Herr complex [C ∗ ] = [C 0 → C 1 → C 2 ] (which is a perfect complex) over Y.                Since ρ is a
+dominant character, we have H 2 ([C ∗ ]) = 0 and thus H 1 ([C ∗ ]) is a coherent sheaf, and is locally free of
+constant rank. Thus Z ∼         = Spf Sym(H 1 ([C ∗ ])∨ ) is a vector bundle over Y of rank r. So, Z rig → Y rig is
+a Sp Q̄p ⟨T1 , . . . , Tr ⟩-torsor. We prove Theorem 12 in two steps: we first prove that Z rig → WDL,an  K,Ū ⋊LT
+induces an isomorphism of top Chow groups, and then we prove that each irreducible component of
+  L,ρ,rig
+XK, LB    has an open admissible substack contained in Z rig .
+
+6.2.1. Admissible formal blowups For a formal scheme Spf A and a global meromorphic function
+f of the rigid generic fiber Spf Arig , the locus |f | ≥ 1 corresponds to Spf A⟨ f1 ⟩rig , and the locus |f | = 0
+corresponds to Spf A⟨f ⟩/(f )rig . Here, Spf A⟨ f1 ⟩ is an open sub-formal scheme of an admissible formal
+blowup, while Spf A⟨f ⟩/(f ) is a closed sub-formal scheme of an admissible formal blowup.
+                                  L,ρ,rig
+Proof of Theorem 12. Let Y rig ⊂ XK,LT    be the substack whose Q̄p -points correspond to Galois rep-
+                                                                    rGal
+resentations r : GalK → LT (Z̄p ) such that ad(r)i : GalL −−−→           L
+                                                                            T̆ (Z̄p ) → GL(Uαi ) satisfies either
+| ad(r)i − rcyc | = 0 or | ad(r)i − rcyc | ≥ 1. Here, rcyc is the cyclotomic Galois character (not Weil-
+Deligne character).
+   It is clear that Y rig is the rigid generic fiber of a locally closed sub-formal scheme Y of an admissible
+                         L,ρ
+formal blowup of XK,       LT . The Herr complex [C 0 (Lie U ) → C 1 (Lie U ) → C 2 (Lie U )] interpolating
+H i (GalK , Lie U ) is quasi-isomorphic to its first cohomology H 1 ([C ∗ (Lie U )]), and is Z̄p -flat, over Y.
+   We define
+                                             Y?? := X?? ×X L,ρ,rig Y rig
+                                                           K,LT
+
+where ? is a wild card.
+                                                 L,ρ,rig     L,ρ,rig    L,ρ,rig       L,ρ,rig
+  Let Z be the center of U . There is an action XK,Z⋊  LT × XK,LB    → XK,LB    over XK,LB/Z . Note that
+ L,ρ,rig     L,ρ,rig
+YK,Z⋊  LT → YK,LT    is a Sp Q̄p ⟨T1 , . . . , Tr ⟩-torsor where r = rk H 1 (GalK , Z). Thus we have
+                                              L,ρ,rig
+                                      Chtop (YK,       ∼         L,ρ,rig
+                                                LB/Z ) = Chtop (YK,LB ),
+
+and a straightforward induction process on the upper central series of U shows
+                                 Chtop (Y L,ρ,rigL ) ∼         L,ρ,rig
+                                                     = Chtop (Y L ).
+                                               K,Ū ⋊ T             K, B
+24                                            ZHONGYIPAN LIN
+
+     We claim that
+                                             L,ρ,rig ∼        L,ρ,rig
+                                     Chtop (XK,LB ) = Chtop (YK,LB ).
+
+                                         L,ρ,rig                                                  L
+Let C be an irreducible component of XK,   LB . We argue by induction on all quotient subgroups of B
+
+containing LT , and thus in the rest of this paragraph LB denotes a quotient LB/N where N ⊂ U is a
+normal subgroup. Let Uα be a root group of the center Z of U , and let
+                                                 X
+                                       W :=             Uγ·α ⊂ Z
+                                               γ∈Gal(L/K)
+                                                                                       L,ρ,rig
+be the span of the Galois orbit of Uα . By induction, we can assume the image of C in XK,LB/W is the
+                                                      L,ρ,rig                             L,ρ,rig
+(Zariski) closure C ′ of an irreducible component of YK,LB/W . Consider the morphism f : XK,LB    →
+  L,ρ·α,rig
+XL,G m
+            that maps a Galois representation r to the adjoint representation ad(r|GalL )α restricted to
+the root space Uα . Let D be the image of C in X L,ρ·α,rig ∼
+                                                     L,Gm  = [Gm /Gm ]rig . If D contains an admissible
+         L,ρ·α,rig                                           L,ρ·α,rig
+open of XL,G m
+                   , then its Zariski closure is the entire XL,Gm
+                                                                       by [Crd99, Lemma 2.1.4]. Choose
+                            L,ρ·α,rig                       L,ρ,rig
+any admissible open U ⊂ XL,G   m
+                                      such that f −1 (U) ⊂ YK,LB . The intersection U ∩ D contains a
+
+non-empty admissible open, by which U is henceforth replaced. Note that V := f −1 (U) ∩ C is an
+                                        L,ρ,rig
+admissible open of C, and that V ⊂ YK,    LB . By Lemma 14, we see C is the Zariski closure of V. On
+                                                             L,ρ·α,rig
+the other hand, if D does not contain an admissible open of XL,Gm
+                                                                       , then D = [Spec Q̄p /Gm ]rig for
+                     L,ρ·α,rig
+some x : Spec Q̄p → XL,Gm
+                               . If x is the cyclotomic character, then there is nothing to do. If x is not
+the cyclotomic character, then H 1 (GalK , W (Z̄p )) ∼  = Z̄rp ⊕ Htor for Htor ̸= 0. There exists a surjective
+morphism
+                                         Htor × C ′ ⟨T1 , . . . , Tr ⟩ → C.
+By the local Euler characteristic, we have
+                                                                 L,ρ,rig
+              dim C ≤ dim C ′ + r = [K : Qp ] dim U/W + r < dim XK,LB    = [K : Qp ] dim U,
+                                             L,ρ,rig
+which contradicts the equidimensionality of XK,LB , as the nontrivial torsion forces r < [K : Qp ] dim W .
+                                  L,ρ
+   We remark that we used dim XK,   LB = [K : Qp ] dim U + 1 in the previous paragraph, which follows
+                                                                                      τ,ρ
+from the dimension calculation of the potentially semistable deformation rings Spec RK,  LB .
+
+   Now, it remains to show
+(5)                                       L,ρ,rig
+                                  Chtop (YK,Ū ⋊LT
+                                                   )∼          L,an
+                                                    = Chtop (WDK,Ū ⋊LT ).
+
+We can divide WDL,anK,Ū ⋊LT
+                             (resp. WDL,an
+                                      K,LT
+                                           ) into 2#∆ substacks US (resp. UT,S ), for Galois stable
+subsets S ⊂ ∆, locally closed in the Zariski topology, defined by the condition that ad(r)i = rcyc if
+and only if αi ∈ S. Set
+                                                                   L,ρ,rig
+                                       YS := US ×WDL,an           YK,Ū ⋊LT
+                                                       K,Ū ⋊LT
+                                                         L,ρ,rig
+                                     XT,S := US ×WDL,an XK,LT
+                                                       K,LT
+                                                         L,ρ,rig
+                                     YT,S := US ×WDL,an YK,LT    .
+                                                       K,LT
+                            EXTENSIONS OF DE RHAM GALOIS REPRESENTATIONS                                       25
+
+In the diagram
+                                          YS        / YT,S           / XT,S
+
+
+                                                        {
+                                          US        / UT,S ,
+
+we have
+                                          Chtop (YS ) ∼
+                                                      = Chtop (YT,S )
+                                          Chtop (US ) ∼
+                                                      = Chtop (UT,S ),
+since the corresponding maps are torsors for either Sp Q̄p ⟨T1 , . . . ⟩, or Spec Q̄p [T1 , . . . ]an . Since both
+XT,S and UT,S are moduli stacks of Weil representations for algebraic tori and are either rigid generic
+fiber or rigid analytification of the same algebraic stacks, we have
+                                        Chtop (XT,S ) ∼
+                                                      = Chtop (UT,S )
+by [Crd99, Theorem 2.3.1]. It follows that Chtop (YS ) ∼
+                                                       = Chtop (US ). By Corollary 7, we have
+                      Chtop (WDL,an           ∼                ∼
+                                                M                M
+(6)                                      L
+                                   K,Ū ⋊ T
+                                            ) =   Ch top (US ) =    Chtop (YS ).
+                                                    S                          S
+
+Let C ⊂ WDL,an
+            K,Ū ⋊LT
+                     be an irreducible component; for a unique S, C ∩ US contains an open admissible
+      L,an                                  L,ρ,rig
+of WDK,Ū ⋊LT . Thus the pullback of C to YK, Ū ⋊LT
+                                                     contains an admissible open substack of a unique
+YS . By Lemma 14 and Eq. (6), C pulls back to the Zariski closure of a unique irreducible component
+of a unique YS . So, we have a commutative diagram
+                                                         
+                                  Chtop (WDL,an     )           / Chtop (Y L,ρ,rig )
+                                           K,Ū ⋊LT                          _ Ū ⋊LT
+                                                                           K,
+
+                                                             ∼
+                                                             =
+                                                                  L)       
+                                                                      S Chtop (YS )
+
+and we have proved Eq. (5).                                                                                    □
+
+6.3. Example: L ResL/K GLn , L ResL/K GSp2n , L ResL/K GOn and L ResL/K Un
+   Recall that ∆ = {α1 , . . . , αs } is the set of simple positive (absolute) roots. Let L1 /K be the
+splitting field of α1 , and set ∆1 := ∆\{Gal(L1 /K)α1 }. Let M1 ⊃ T the Levi subgroup having simple
+positive roots ∆1 . A common feature of these classical groups is that M1 has      Q a direct summand
+S∼= ResL1 /K Gm , and spanZ (Gal(L1 /K)α1 ) ∼   = X ∗ (ResL1 /K Gm ). Write Ū 1 := α∈∆1 Uα .
+Proposition 5. If M1 has a direct summand S ∼
+                                            = ResL1 /K Gm and the image of γ ·α1 , γ ∈ Gal(L1 /K)
+in X ∗ (S) form a basis of X ∗ (S), then
+                   Chtop (WDL          ∼          L                       L
+                            K,Ū ⋊LT ) = Chtop (WDK,Ū 1 ⋊LT ) ⊕ Chtop (WDK,Ū 1 ⋊L(T /S) ).
+
+such that
+                                 Chtop (WDL            ∼          L,N1 =0
+                                          K,Ū 1 ⋊LT ) = Chtop (WDK,Ū ⋊LT )
+                                                        ∼                  L,ad(r) =rcyc
+                             Chtop (WDL                                   1
+                                      K,Ū 1 ⋊L(T /S) ) = Chtop (WDK,Ū ⋊LT                )
+26                                               ZHONGYIPAN LIN
+
+Proof. By Lemma 15, the conditions N1 = 0 and ad(r)1 = rcyc are transversal to each other. The
+morphism WDL K,Ū 1 ⋊LT
+                        → WDL
+                            K,Ū ⋊LT
+                                     clearly factors through WDL,N 1 =0
+                                                               K,Ū ⋊LT
+                                                                        . Indeed,
+
+                                      L,ad(r) ̸=r         L,N =0, ad(r)1 ̸=rcyc
+                                 WDK,Ū 1 ⋊L1T cyc → WDK,Ū1⋊LT
+
+is an isomorphism with the inverse induced from the group homomorphism Ū ⋊ LT → Ū 1 ⋊ LT . On
+the other hand, we have T = S × (T /S) by the assumptions, and it is clear that
+
+                                                     ∼      L,ad(r) =rcyc
+                                     WDL                        1
+                                       K,Ū ⋊L(T /S) = WDK,Ū ⋊LT           .
+
+            1 ̸=0       ∼      L,N ̸=0,ad(r)1 =rcyc
+Thus, WDL,N
+        K,Ū 1 ⋊L(T /S)
+                        = WDK,Ū1⋊LT                  .                                               □
+
+
+6.4. Local Langlands correspondence for algebraic tori Recall that for any divisible topological
+               ×
+group A (e.g. Fp and Q̄×
+                       p ), there is a bijection
+
+                                                              ∼
+                                                              =
+      {Continuous parameters WK → T̆ (A) ⋊ WK }/T̆ (A) −
+                                                       → {Continuous characters T (K) → A.}
+
+We will always consider the discrete topology on A.
+   In this paragraph, we consider A = Q̄×                                       ×
+                                        p . Note that the torsion subgroup of Q̄p is the roots of unity
+µ∞ = n≥1 µn ∼   = Q/Z. Write K ⊂ T (K) for the pro-p Iwahori of T (K). Then the image of K in Q̄×
+       S
+                                                                                                      p
+is contained in µ∞ .
+
+Definition 10. Write WDL,tame
+                          K,LT
+                               ⊂ WDL   K,LT for the unique closed substack whose Q̄p -points correspond
+                        ×
+to characters T (K) → Q̄p whose restriction to K is trivial.
+   Define
+
+                              WDtame    lim WDL,tame
+                                K,LT := −            ,
+                                         →    K,LT
+                                          L
+
+                              WDK,LB := lim WDL,tame
+                                tame
+                                                       × WDLK,LB ,                and
+                                        −→    K,LT
+                                                     WDL L
+                                          L            K, T
+                              tame,ρ,rig
+                             XK,         := lim WDL,tame   ×          L,ρ,rig
+                                                                     XK,LB .
+                                LB
+                                            −→    K,LT
+                                                         WDL
+                                             L                K,LT
+
+
+
+                                                                                L ,tame   ′
+Lemma 16. (1) There exists a finite Galois extension L′ /L such that WDtame
+                                                                       K,LT = WDK,LT .
+  (2) WDtame
+        K,LT is equidimensional of dimension 0.
+              tame,ρ                                   τ,ρ                  tame
+     (3) Let XK,LB   be the scheme-theoretic union of XK,LB such that τ ∈ WDK,LB (Q̄p ), then the rigid
+                  tame,ρ     tame,ρ,rig
+generic fiber of XK,LB   is XK,LB       .
+
+Proof. (1) The torsion subgroup of T (K)/K is a finite group of order d. Let L′ /L be the Galois closure
+of a totally ramified tame extension of degree d.
+   (2) It follows from (1).
+   (3) Clear.                                                                                         □
+                               EXTENSIONS OF DE RHAM GALOIS REPRESENTATIONS                              27
+
+6.5. Structure of p-adic tori We recall the structure theory of p-adic tori in general. After replacing
+T by ResK/Qp T , we assume T is an algebraic torus over Qp , and Γ = WQp /IQp ∼    = Z. T (Qp ) has a
+maximal bounded subgroup, denoted by T (Qp ) and an Iwahori subgroup, denoted by T (Qp )0 ([KP,
+                                               1
+
+Section 2.5(c)]). The quotient
+(7)                              T (Qp )1 /T (Qp )0 ∼
+                                                    = X∗ (T )Γ      IQp ,tor
+
+and
+                                         T (Qp )/T (Qp )0 ∼
+                                                          = X∗ (T )ΓIQp ,
+c.f. [KP, Section 11.7].
+Lemma 17. (1) The coarse moduli space of WDtame    Qp ,LT is isomorphic to the moduli stack YT (Qp )/K of
+smooth characters Spec A 7→ Hom(T (Qp )/K, A ). ×
+
+  (2) YT (Qp )/K is a disjoint union of G⊕r                   ∗  Γ
+                                         m , where r = rk X (T )IQp ,tf is the split rank of T , indexed by
+an index set I sitting in a short exact sequence
+                 0 → Hom(X ∗ (T )ΓIQp ,tor , Q/Z) → I → Hom(X ∗ (T )ΓIQp ,tf , (Q/Z)p′ ) → 0.
+
+Proof. We have
+                                    T (Qp )/K ∼
+                                              = X ∗ (T )ΓIQp ,tf × T (Qp )1 /K.
+by the structure of finitely generated abelian groups. Since X ∗ (T )ΓIQ ,tf ∼
+                                                                             = Z⊕r is a finitely generated
+                                                                        p
+free abelian group, we have
+                   YT (Q )/K ∼
+                           p  = G⊕r × {characters of the torsion group T (Qp )1 /K};
+                                     m
+
+here, {characters of the torsion group T (Qp )1 /K} is representable by the constant group scheme of
+the Pontryagin dual of T (Qp )1 /K, and we have a short exact sequence
+                           1 → T (Qp )0 /K → T (Qp )1 /K → T (Qp )1 /T (Qp )0 → 1,
+whose Pontryagin dual is the short exact sequence in (2).
+  To define a morphism from YT (Qp )/K to and from WDtame Qp ,LT , note that since T̆ (A) is an abelian
+group, H 1 (WQp , T̆ (A)) admits a natural abelian group structure. Indeed, by the inflation-restriction
+sequence, we have a short exact sequence
+                0 → H 1 (WQp /IQp , T̆ (A)IQp ) → H 1 (WQp , T̆ (A)) → H 1 (IQp , T̆ (A))Γ → 0
+that splits non-canonically. We call parameters coming from H 1 (WQp /IQp , T̆ (A)IQp ) unramified pa-
+rameters. We construct the connected component of unramified parameters and relate it to YT (Qp )/K .
+  The rank r is indeed the split rank of T , and there exists a homomorphism f : T → Grm (the quotient
+by the maximal anisotropic subtorus) inducing an isomorphism T (Qp )/T (Qp )1 ∼ = Grm (Qp )/Grm (Qp )1 ∼
+                                                                                                       =
+                                          Lf
+Zr . Consider the chain WQp → LGrm −→ LT . The locus of unramified parameters in WDtame     Qp ,LT is pre-
+                                                                  tame
+cisely the scheme-theoretic image of the unramified locus of WDQp ,LGr , which has coarse moduli space
+                                                                       m
+Grm × {0} ⊂ YT (Qp )/K . This concludes the proof as WDtame
+                                                         Qp ,LT is covered by the finitely many transla-
+tions of the connected component of unramified parameters by representatives from each irreducible
+component.                                                                                              □
+  Now we prove the main theorem:
+28                                                      ZHONGYIPAN LIN
+
+Theorem 13. Conjecture 1 holds in the following cases:
+      (1) G = T is a torus and X ∗ (T )ΓIQ is p-torsion-free,
+                                          p
+      (2) G = Un and p > 2, and
+      (3) LG = GSp2n or GOn , and p > 2.
+Proof of Theorem 13. (1) We can assume K = Qp . Recall that XQp ,LT,red is the reduced moduli stack
+of Weil representations A 7→ H 1 (WQp , T̆ (A))/T̆ (A) over Fp . By the same proof of Lemma 17, we can
+construct the universal unramified parameter Grm → XQp ,LT,red . If X ∗ (T )ΓIQ ,tor is p-torsion-free, then
+                                                                                            p
+translations of the universal unramified parameter by parameters corresponding to Hom(T (Qp )1 , F̄×     p)
+                                                                                    ∼          tame
+are mutually disjoint, and cover the entire XQp ,LT,red . Thus Chtop (XQp ,LT,red ) = Chtop (WDQp ,LT ).
+   (2, 3): By comparing [L25, Proposition 7] and Proposition 5, we inductively reduce it to the tori
+case (in each step the number of simple positive roots is reduced by 1), which is part (1).              □
+
+6.6. Connections to the parametrization in [EG23] by Serre weights We compare with [EG23,
+Definition 5.5.1]. Let α1 , . . . , αn−1 be the simple positive roots for GLn . Let Z ⊂ T be the center
+of GLn . Then X ∗ (T ) is a free abelian group with basis {α1 , . . . , αn−1 , β} where β is a generator of
+X ∗ (Z). By Proposition 5, we have
+                   Chtop (WDtame
+                            Q ,Ū ⋊T̆
+                                      )∼
+                                       = Chtop (WDtame
+                                                  Q ,Ū 1 ⋊T̆
+                                                              ) ⊕ Chtop (WDtame
+                                                                           Q ,Ū 1 ⋊(T̆ / Im(α ))
+                                                                                                  )
+                                p                               p                       p         1
+
+
+where α1 : Gm → T̆ is the cocharacter via the isomorphism X ∗ (T ) = X∗ (T̆ ). Note that Ū 1 ⋊ T̆ ∼
+                                                                                                   =
+(Ū 1 ⋊ (T̆ / Im(α1 ))) × Im(α1 ). So,
+Chtop (WDtame
+         Q ,Ū ⋊T̆
+                   )∼
+                    = (Chtop (WDtame
+                                Q ,Ū 1 ⋊(T̆ / Im(α ))
+                                                       ) × Chtop (WDtame                 tame
+                                                                    Qp ,Gm )) ⊕ Chtop (WDQ ,Ū 1 ⋊(T̆ / Im(α )) )
+               p                        p                   1                                         p      1
+                       ∼
+                       = Chtop (WDtame                     ) × {Chtop (WDtame
+                                  Qp ,Ū 1 ⋊(T̆ / Im(α1 ))               Qp ,Gm ) ∪ {pt}}
+                       ∼
+                       = Chtop (WDtame ) × {Chtop (WDtame           ×(n−1)
+                                  K,Z̆               K,Gm ) ∪ {pt}}
+                       ∼
+                       = Chtop (WDtame               tame           ×(n−1)
+                                  K,Gm ) × {Chtop (WDK,Gm ) ∪ {pt}}
+
+Before directly comparing with the ad hoc formula from [EG23, Definition 5.5.1], we compare with
+[GHS, Lemma 9.2.4]:
+                                                                         X1 (T̆ )
+                                       {Serre weights}/∼ ∼
+                                                         =
+                                                                     (p − 1)X 0 (T̆ )
+Since GLn has simply-connected derived subgroup, there exists fundamental weights {ω1 , . . . , ωn } ⊂
+X ∗ (T̆ ) such that ⟨αi , ωj ⟩ = δij . Let ωβ ∈ X ∗ (T̆ ) for the element such that ⟨αi , ωβ ⟩ = 0 for all i and
+⟨β, ωβ ⟩ = 1. Unravelling definitions shows
+                                            n−1
+                                            X
+                             X1 (T̆ ) = {         ni ωi + nβ ωβ , 0 ≤ ni ≤ p − 1, nβ ∈ Z}.
+                                            i=1
+
+So,
+                                                  n−1
+               X1 (T̆ )/(p − 1)X 0 (T̆ ) ∼
+                                                  X
+                                         ={             ni ωi + nβ ωβ , 0 ≤ ni ≤ p − 1, 0 ≤ nβ ≤ p − 2}.
+                                                  i=1
+                              EXTENSIONS OF DE RHAM GALOIS REPRESENTATIONS                                              29
+
+Since Chtop (WDtame     ∼
+               Qp ,Gm ) = Z[Z/(p − 1)], we have an isomorphism
+
+                                                    ×(n−1)        ∼
+                                                                  =
+                                                                        Pn−1
+     Chtop (WDtame                 tame
+              Qp ,Gm ) × {Chtop (WDQp ,Gm ) ∪ {pt}}        → Z{
+                                                           −              i=1 ni ωi +nβ ωβ ,0≤ni ≤p−1, 0≤nβ ≤p−2}   .
+
+Now, by [EG23, Subsection 1.12], a Serre weight is a tuple ⃗k = (k1 , . . . , kn ) such that 0 ≤ ki − ki+1 ≤
+p − 1 for 1 ≤ i ≤ n − 1 and 0 ≤ kn ≤ p − 2. Write C⃗k ⊂ WDtame      Qp ,Gn−1     ⋊Gn
+                                                                                      for the corresponding
+                                                                            a       m
+component, characterized by
+     • Ni ̸= 0 generically if and only if kn−i − kn−i+1 = p − 1,
+                       kn−i −kn−i+1
+     • ad(r)i /rcyc = rcyc          if kn−i − kn−i+1 < p − 1.
+The attachment ⃗k 7→ C⃗ is consistent with [EG23, Definition 5.5.1].
+                          k
+
+7.      The cyclotomic-free case
+  We still assume K = Qp . Denote by X := XLG,red the reduced Emerton-Gee stack. Since the
+Herr complex [C 0 → C 1 → C 2 ] whose cohomology interpolates r 7→ H i (GalQp , ad(r)) is a perfect
+complex over X , the vanishing locus of H 2 (GalQp , ad(r)) is an open substack of X , which we denote
+by X cf = XLcfG .
+  In order to be able to use results of [L23A], we assume G is tamely ramified.
+Lemma 18. Each ρ̄ ∈ X (Fp ) factors through U ⋊ LS, where S is a Qp -rational maximal torus of G,
+LS is the Langlands dual group of S, and U is the unipotent radical of a parabolic LP ⊃ LS subgroup
+
+of LG. Moreover, we can demand the splitting field of S to be unramified over L.
+     The tori S in Lemma 18 are usually called maximally unramified maximal tori of G.
+Proof. It is the main theorem of [L23A].                                                                                □
+Lemma 19. (1) There exists a finite set of types Ξ = {(λ, τ )}, such that each ρ̄ ∈ X cf (Fp ) admits a
+potentially crystalline lift of regular Hodge type λ and inertial type τ with (λ, τ ) ∈ Ξ.
+  (2) X cf is equidimensional of dimension dim Ğ/B̆.
+Proof. We first explain the construction of Ξ. For each stable conjugacy class of maximally unramified
+maximal tori S of G that splits over LS , choose an arbitrary regular cocharacter λS ∈ X∗ (S̆) ⊂ X∗ (Ğ).
+The set Ξ consists of pairs (λ, τ ) where λ = λS for some S and τ is an arbitrary inertial type that
+splits over LS .
+   (1) By Lemma 18, ρ̄ss factors through LS(Fp ) for some S, which by the LLC corresponds to a
+                            ×
+character χ : S(Qp ) → Fp . By Lemma 25, there exists a potentially crystalline character χλ :
+S(Qp ) → OQ  ×
+                 of Hodge type λ = λS . Take the Teichmuller lift [χχ−1                ×
+                                                                       λ ] : S(Qp ) → OQ and multiply
+               p                                                                                    p
+it by χλ , we get a lift of χ of Hodge type λ and inertial type that splits over LS .
+    Say ρ̄ factors through a parabolic LP =: U ⋊ LM . Note that ρ̄ as an extension of ρ̄ss is represented by
+a class [c̄] in H 1 (GalQp , U (Fp )). Since H 2 (GalQp , U (Fp )) = 0, H 1 (GalQp , U (Zp )) → H 1 (GalQp , U (Fp ))
+is surjective, and therefore there exists a class [c] lifting [c̄]. By Theorem 9, [c] represents a de Rham
+lift of ρ̄ that satisfies the desired properties.
+    (2) The finiteness of Ξ implies X is equal to the reduction of the union of finitely many potentially
+crystalline stacks, of regular Hodge type. The lemma follows from the equidimensionality of potentially
+crystalline stacks, of regular Hodge type. See Appendix B.                                                         □
+30                                            ZHONGYIPAN LIN
+
+
+Lemma 20. Let U be a unipotent algebraic group which admits an action of LG. Then XUcf⋊LG has
+dimension dim U + dim Ğ/B̆.
+Proof. It is a trivial extension of Lemma 19.                                                               □
+Corollary 8. The scheme-theoretic image of XLcfB in X cf is the entire X cf .
+Proof. By Lemma 18, X cf is the scheme-theoretic union of XUcf⋊LS where S ranges through the (finitely
+many stable conjugacy classes) of Qp -rational maximal tori of G. By Lemma 20, dim XUcf⋊LS < dim X cf
+unless U is the unipotent radical of LB and therefore LS ⊂ LB, up to Ğ-conjugacy.                  □
+   In the rest of this section, U is specialized to be the unipotent radical of LB, and LS is specialized
+to LT .
+Lemma 21. The morphism XLcfB → XLcfT induces a bijection of irreducible components.
+Proof. We replace XLcfT by one of its irreducible components Y, and we want to show XLcfB × Y is
+                                                                                                     XLcf
+                                                                                                        T
+irreducible.
+   Using the Qroot space decomposition of Lie U , we can write it as a direct sum Lie U = ⊕Wα , where
+each Wα = γ∈GalQ Uγ·α is the sum of the Galois orbit of a single root space Uα such that each
+                      p
+H 0 (GalQp , Wα ) ∼
+                  = H 0 (GalL , Uα ) can only be either trivial or 1-dimensional (by Shapiro’s lemma).
+   Fix α ∈ ∆(B, T ). There are three possibilities
+     (1) dim H 0 (GalQp , Wα ) is always 0 over Y;
+     (2) dim H 0 (GalQp , Wα ) is always 1 over Y, and
+     (3) dim H 0 (GalQp , Wα ) varies over Y.
+Denote by ∆v the subset of simple roots that lies in possibility (3). We can thus divide Y into 2|∆v |
+locally closed substacks YZ , Z ⊂ ∆v where dim H 0 (GalQp , Wα ) = 1 if and only if α ∈ Z.
+   The constancy of rk H 0 (GalQp , Wα ) implies XZ := XLcfB × YZ is Zariski-locally on YZ isomorphic
+                                                          XLcf
+                                                             T
+                            1                  0
+to the product stack YZ × [H (GalQp , Lie U )/H (GalQp , Lie U )].     Indeed by induction on short exact
+sequences 0 → Lie U/Wα → Lie U → Wα , it is harmless to replace Lie U by Wα and replace LB by
+Wα ⋊ LT . Note that H i (GalQp , Wα ) is a locally free sheaf over YZ , i = 0, 1, 2. Then over a Zariski
+cover of YZ where H i (GalQp , Wα ) is free, XZ is a trivial [H 1 (GalQp , Wα )/H 0 (GalQp , Wα )]-bundle. For
+the same reason, each XZ is an irreducible stack.
+  By the Euler characteristic for Galois cohomology,
+         dim[H 1 (GalQp , Lie U )/H 0 (GalQp , Lie U )] = dim H 2 (GalQp , Lie U ) + dim U = dim U
+                                            (
+                                               = dim U Z = ∅
+In particular, dim XZ = dim U + dim YZ                             by the irreducibility of Y. Since XLcfB is
+                                               < dim U Z ̸= ∅
+equidimensional, its irreducibility follows from the irreducibility of X∅ .                                □
+Lemma 22. Each irreducible component of XLcfB has a dense substack which embeds in X cf .
+Proof. The idea is to consider XLcfB with XLB∩LB ′ removed, where LB ′ ̸= LB is another Borel subgroup.
+By the Bruhat decomposition, we only need to remove LB ′ of the form wLB ′ w−1 where w is a Weyl
+                                                                                                              31
+
+group element. Note that dim XLB∩LB ′ < dim XLB by Lemma 20. Let ρ̄ ∈ XLcfB − ∪B ′ XLB∩LB ′ =: Z and
+let g ∈ Ğ be an automorphism of ρ̄. We necessarily have ρ̄ ∈ XLB∩gLBg−1 , which forces g to be in the
+normalizer of B̆, which is B̆ itself. Therefore Z → XLG is a monomorphism.                          □
+Proposition 6. There is a natural bijection between irreducible components of X cf and XLcfT .
+Proof. Combine Lemma 22, Lemma 21 and Lemma 19.                                                               □
+
+
+Appendices
+A.     Algebraic characters and crystalline parameters
+  Let T be a torus over K. We also denote by T its standard integral model, uniquely determined
+by T (OK ) = T (K)1 ([KP, Fact B.4.3]). The Iwahori model T ◦ is the neutral component of T , and
+we denote by T the special fiber of the Iwahori model T ◦ . If T is unramified, then T = T ◦ and
+X ∗ (T ) = X ∗ (T ) ∼
+                    = Zrk T .
+                                                     ×
+  Fix an embedding K̄ → Qp . We say T (K) → Qp is crystalline / semistable / de Rham if the
+corresponding parameter GalK → LT (Qp ) is crystalline / semistable / de Rham.
+                                    ×
+Definition 11. f : T (K) → Qp is said to be an algebraic     character if there exists a cocharacter
+                         ∗
+(χ• ) = (χσ )σ:K,→Qp ∈ X (ResK/Qp T ) such that f (x) = σ:K,→Qp σ(xχσ ) for all x ∈ K.
+                                                       Q
+
+  We will write f = ev(χ• ). If χ ∈ X ∗ (T ), we also denote by χ the cocharacter (χ, 0, 0, . . . , 0) ∈
+X ∗ (ResK/Qp T ) by abuse of notation.
+                                   ×                                                      ×
+Proposition 7. f : T (K) → Qp is crystalline if and only if T (OK ) → Qp is an algebraic character
+in the sense that there exists χ ∈ X ∗ (T ) such that f |T (OK ) is the restriction of an algebraic character
+to T (OK ).
+Proof. Since T (OK ) ⊃ T (K)0 =                lim          T (E), crystallinity is completely determined by the
+                                               −→
+                                        E/K unramified
+restriction of f to T (OK ); algebraic characters ev(χ• ) are clearly crystalline of Hodge type χ• . Con-
+versely, the theory of weakly admissible filtered φ-module together with Dieudonne-Manin classi-
+                                                                                                     ×
+fication imply the Hodge type χ• completely determines crystalline characters T (OK ) → Qp , so
+      ∗
+ev(X (ResK/Qp T )) exhausts all crystalline characters.                                                □
+Proposition 8. Assume T splits over Fpnm . The following diagram is commutative:
+                                        F −1
+                   0         X ∗ (T )            X ∗ (T )          Hom(T (Fpn ), F̄× )        0
+                                                     N                       N
+                                        F m −1                ev
+                   0         X ∗ (T )            X ∗ (T )          Hom(T (Fpmn ), F̄× )       0
+                               x7→xχ                          ×
+Here ev sends χ to T (Fpnm ) −−−−→ Gm (Fpnm ) ⊂ Fp , N = 1 + F + · · · + F m−1 , and F = pπ −1 is the
+absolute Frobenius structure on T . All vertical arrows are injective.
+Proof. The short exactness of the bottom row is clear because of the splitness of T over Fpnm . The
+rest of the proof follows from [DL, Section 5.3].                                                □
+32
+
+Lemma 23. Hom(T (K), K̄ × ) → Hom(T (OK ), K̄ × ) is surjective. If T is unramified, then
+                                                 ×                     ×
+                                 Hom(T (OK ), Fp ) = Hom(T (Fpn ), Fp )
+where Fpn is the residue field of OK .
+Proof. The first claim is because K̄ × is a divisible group, and Hom(−, K̄ × ) is exact. The second claim
+is clear.                                                                                               □
+                                                          ×                      ×
+  Let E/K be a finite extension. We say T (K) → Qp extends T (E) → Qp                if, after passing to the
+Langlands dual side, GalK → LT (Qp ) restricts to GalE → LT (Qp ).
+Lemma 24. Assume T is unramified and splits over Km .
+  (1) Denote by FrobK an arithmetic Frobenius element of GalK . Let ρ : GalKm → T̆ (Km ) be a
+continuous homomorphism. Then ρ(FrobK ◦γ Frob−1    K ) = FrobK (ρ(γ)) for all γ ∈ GalKm .
+  (2) Let ev(χ• ) : T (Km ) → Km be an algebraic character defined by χ• ∈ X ∗ (ResK/Qp T ). ev(χ• )
+                                ×
+
+can be extended to T (K) → Km × if and only if (Frob π −1 − 1)(χ ) = 0.
+                                                    K            •
+               −1
+  (3) (FrobK π − 1) ev(χ• ) ≡ ev((F − 1)(χ• )) as a character in characteristic p.
+Proof. (1) It is [L22, Corollary 5.2.2].
+  (2) Pass to the dual side, and suppose we have a parameter ρ : GalKm → LT (Km ). ρ can be
+extended to GalK if and only we can choose an element X ∈ T̆ (Km ) ⋊ FrobK such that after setting
+ρ(FrobK ) = X, we get ρ(FrobK ◦γ ◦ Frob−1  K ) = Xρ(γ)X
+                                                          −1 (∗) for all γ ∈ Gal
+                                                                                  Km . Since T splits over
+                                              −1
+Km , ρ(γ) ∈ T̆ (Km ) and therefore X ev(χ• )X = ev(π(χ• )); on the other hand, ev(χ• )◦Ad(FrobK ) =
+FrobK ev(χ• ) = ev(FrobK (χ• )). So (∗) is equivalent to FrobK π −1 (χ• ) = (χ• ).
+  (3) Clear.                                                                                            □
+                                                                          ×
+Theorem 14. If T is an unramified group, then any character f¯ : T (K) → Fp admits a crystalline
+              ×
+lift T (K) → OQ .
+                p
+
+                                         ×
+Proof. Denote by χ̄ ∈ Hom(T (Fpn ), Fp ) the character that inflates to of f¯|T (OK ) . By Proposition 8,
+                                                ev(N (χ)) = N (f¯). Set
+there exists a character χ ∈ X ∗ (T ) such that ¯
+                         N (ev(χ)) := (1 + FrobK π −1 + · · · + Frobm
+                                                                    Kπ
+                                                                       −m
+                                                                          ) ev(χ),
+                                                × lifting ¯
+which defines an algebraic character T (Km ) → Km         ev(N (χ)). We have
+                    (FrobK π −1 − 1)N (ev(χ)) = (Frobm
+                                                     Kπ
+                                                        −m
+                                                           − 1) ev(χ) = 0 ev(χ) = 0.
+So by Lemma 24, it extends to g : T (K) → Km      × . By the injectivity part of Proposition 8, ḡ : T (K) →
+   ×         ×
+OKm → Fpn and f¯ are equal over T (OK ). Finally, denote by [f¯ḡ −1 ] : T (K) → Km      × the Teichmüller
+
+lift of (f¯ḡ ), the product [f¯ḡ ]g is a crystalline lift of f¯.
+             −1                   −1                                                                       □
+Lemma 25. Set K = Qp . Let λ ∈ X ∗ (T ) be an arbitrary character. There exists a potentially
+                                 ×
+crystalline character T (Qp ) → OQ of Hodge type λ.
+                                    p
+
+
+Proof. Use the embedding T ,→ ResL/Qp T , and the character ev(λ) : ResL/Qp T (Qp ) = T (L) →
+ ×
+OQ  .                                                                                       □
+     p
+                                                                                                        33
+
+B.    Moduli of de Rham parameters: the reductive case
+  Let G be a quasi-split reductive group over K that splits over E, where E is a tamely ramified
+extension of K. Write LG = Ğ ⋊ Gal(E/K) for the Langlands dual group of G, where Ğ is the pinned
+dual group of G defined over Spec Z.
+
+B.1. Breuil-Kisin modules with Ğ-structure
+   Let O ⊃ OK be a DVR over Zp .
+   Denote by k the residue field of K. Let A be a Zp -algebra. For each choice of a compatible family
+  1/p ∞         n
+π       = (π 1/p )n∈Z+ of p-power roots of a uniformizer of K in Qp , we define an embedding
+                                      (W (k) ⊗Zp A)[[u]] → Ainf,A
+                                                         u 7→ [π ♭ ]
+                    n
+where π ♭ = ←
+            lim
+              −π
+                 1/p ∈ O ♭ . Denote by S
+                        Q                π ♭ ,A the image of the embedding above.
+                           p
+             n
+
+B.1.1. Definition A projective Breuil-Kisin module with A-coefficients is a finitely generated pro-
+jective Sπ♭ ,A -module M, equipped with a φ-semi-linear morphism ϕM : M → M such that 1 ⊗ ϕM :
+φ∗ M[1/Eπ♭ ] → M[1/Eπ♭ ] is a bijection. Here Eπ♭ is the Eisenstein polynomial corresponding to π.
+   We say (M, ϕM ) is an effective Breuil-Kisin module if ϕM (M) ⊂ M. We say a Breuil-Kisin module
+(M, ϕM ) has height h if
+                                                             1
+                                    Eπh♭ M ⊂ Im(1 ⊗ M) ⊂ h M.
+                                                           Eπ♭
+  Following the notation of [EG23], we denote by Cπ♭ ,d,h the (limit-preserving) moduli stack of effective
+Breuil-Kisin modules of height at most h for the uniformizer π (see [EG23, 4.5.7] for the definition).
+Also denote by Cπa♭ ,d,h the base-changed stack Cπ♭ ,d,h ⊗Zp O/ϖa .
+  Denote by Rπ♭ ,d the moduli of rank-d étale φ-modules for the φ-ring Sπ♭ [1/u], and denote by Raπ♭ ,d
+the base-changed version of Rπ♭ ,d .
+  In [L23B], we constructed the moduli stack Cπ♭ ,Ğ,h of Breuil-Kisin modules with Ğ-structure, and
+the moduli stack Rπ♭ ,Ğ of rank-d étale φ-modules with Ğ-structure. Note that when Ğ = GLd , there
+is a canonical monomorphism
+                                            Cπ♭ ,d,h ,→ Cπ♭ ,GLd ,h
+as Cπ♭ ,GLd ,h classifies Breuil-Kisin modules of height h that are not necessarily effective. Moreover,
+the h-th Tate twist morphism
+                                                     ∼
+                                                     =
+                                          Cπ♭ ,GLd ,h −
+                                                      → Cπ♭ ,d,2h
+sending F to F ×GLd G⊕d
+                     a (h) is an equivalence of 2-categories.
+                                                                           s
+B.1.2. Canonical extensions of GalK∞ -actions Write Ks for K(π 1/p ), 0 ≤ s ≤ ∞. We also write
+Kπ♭ ,s = Ks to emphasize the choice of π ♭ .
+  By Fontaine’s theory ([EG23, Proposition 2.7.8]), we can attach to a Breuil-Kisin module a (φ, GalK∞ )-
+module. By [EG23, Proposition 4.5.8], the GalK∞ -action on a (φ, GalK∞ )-module admits a canonical
+extension to GalKs , where s is any integer greater than the constant s(a, h, N ) defined in [EG23,
+34
+
+
+Lemma 4.3.3] (where N > e(a+h)
+                         p−a is a fixed number). More precisely, there exists a commutative
+diagram
+(8)                                                           Cπa♭ ,d,h
+
+
+                                                        {        
+                                                a
+                                               XK            / Ra
+                                                  s ,d           π ♭ ,d
+            a
+     where XK s ,d
+                   = XKs ,d ⊗Zp O/ϖa is the base-changed Emerton-Gee stack.
+
+B.1.3. Proposition For each s > s(a, 2h, N ), there exists a commutative diagram
+                                                              Cπa♭ ,d,h
+                                                                      _
+
+                                                                  
+                                                            Cπa♭ ,GL ,h
+                                                                           d
+
+
+
+                                                    z            
+                                               a
+                                              XK             / Ra
+                                                 s ,d            π ♭ ,d
+
+extending Diagram (8).
+Proof. It follows immediately from the discussion before Paragraph B.1.2.                                    □
+B.1.4. Definition Fix once for all an embedding Ğ ,→ GLd . We say a Breuil-Kisin module (F, ϕF )
+with Ğ-structure has height h if (F, ϕF ) ×Ğ GLd has height h.
+B.1.5. Lemma For each s ≥ 0, the morphism
+                                                       a
+                                  (†)        a
+                                            XK ,Ğ
+                                                   ,→ XK s ,GLd
+                                                                               ×    Raπ♭ ,Ğ
+                                                s                      Ra ♭
+                                                                           π ,GLd
+
+is a closed immersion.
+Proof. Write V = G⊕d   a for the trivial vector space of rank d so that GLd = GL(V ). For ease of
+notation, set s = 0. Fix a finite type O/ϖa -algebra A. XK,GL a
+                                                                  d
+                                                                    (A) is equivalent to the groupoid
+of projective étale (φ, GalK )-modules of rank d with A-coefficients, and Raπ♭ ,GL (A) is equivalent
+                                                                                    d
+to the groupoid of projective étale (φ, GalK∞ )-modules of rank d with A-coefficients. An object of
+  a
+XK,GL      × Raπ♭ ,Ğ (A) is a tuple
+      d  a
+         R ♭
+           π ,GLd
+
+
+         (M, F, ι) := ((M, ϕM , ρM ), (F, ϕF , ρF,∞ ), ι : (M, ϕM , ρM |GalK∞ ) ∼
+                                                                                = (F, ϕF , ρF,∞ ) ×Ğ V ),
+                       a
+where (M, ϕM , ρM ) ∈ XK,GL  (A) and (F, ϕF , ρF,∞ ) ∈ Raπ♭ ,Ğ (A). A morphism
+                           d
+
+                                          (M1 , F1 , ι1 ) → (M2 , F2 , ι2 )
+is a pair (g : M1 → M2 , f : F1 → F2 ) such that
+                                            g = ι−1      Ğ
+                                                 2 ◦ (f × V ) ◦ ι1 .
+                                                                                                                                        35
+
+The morphism (†) can be explicitly written as
+
+                                                       (F, ϕF , ρF ) 7→ (F ×Ğ V, F, id).
+From the description above, the morphism (†) is clearly faithful; indeed (†) is fully faithful: a Ğ-torsor
+morphism F1 → F2 respects the GalK -action if and only if F1 ×Ğ GLd → F1 ×Ğ GLd respects the
+GalK -action since Fi ,→ Fi ×Ğ GLd is a closed subscheme (i = 1, 2).
+   By [L23B, Theorem 1.1], (†) is relatively representable by algebraic stacks of finite type. To show
+(†) is a closed immersion, it suffices to show it is proper using the (Noetherian) valuative criterion.
+Let Λ be a discrete valuation ring over Fp with fraction field Ω. By [Stacks, Tag 0ARL], it is harmless
+to assume Λ is a complete discrete valuation ring; thus Sπ♭ ,Ω is a disjoint union of the spectrum of
+Noetherian complete regular local rings over Fp . By the Grothendieck-Serre conjecture (see the main
+theorem of [FP15]), all Ğ-torsors over Sπ♭ ,Λ are trivial Ğ-torsors. The valuative criterion can be
+checked by noticing the simple fact that Ğ(Sπ♭ ,Ω ) ∩ GL(Sπ♭ ,Λ ) = Ğ(Sπ♭ ,Λ ).                        □
+
+B.1.6. Lemma The diagram
+                                                                                    
+                           a
+                          XK ,Ğ      a
+                                               ×                   Cπa♭ ,GL ,h         / Ra
+                                                                                          π ♭ ,Ğ Ra
+                                                                                                       ×         Cπa♭ ,GL ,h
+                                s    XK                                     d                                                d
+                                        s ,GLd                                                      π ♭ ,GLd
+
+
+
+
+                                                                                                         
+                                               a                                       / Ra                      a
+                                              XK ,Ğ                                       π ♭ ,Ğ Ra
+                                                                                                      ×          XK s ,GLd
+                                                           s
+                                                                                                    π ♭ ,GLd
+
+
+is Cartesian.
+Proof. Note that A ⊗ (B ⊗ E) = A ⊗ (B ⊗ D) ⊗D E = A ⊗D E.                                                                               □
+                    B⊗D         C                              B⊗D              C
+                      C                                            C
+
+
+B.1.7. Canonical extensions of GalK∞ -actions, the Ğ-version
+  The morphism
+                              Cπ♭ ,Ğ,h ,→ Cπ♭ ,GLd ,h × Rπ♭ ,Ğ
+                                                                                        Rπ♭ ,GL
+                                                                                                d
+
+is a closed immersion. Define the stack Cπa♭ ,K ,Ğ,h so that the following diagram is Cartesian
+                                               s
+                                                               
+(9)                             Cπa♭ ,K ,Ğ,h                                                         / Ca
+                                              _
+                                              s                                                                     
+                                                                                                               π ♭ ,Ğ,h
+                                                                                                                      _
+
+                                                                                                                
+                        a
+                       XK ,Ğ       a
+                                      ×                Cπa♭ ,GL ,h                        / Ra
+                                                                                               π ♭ ,Ğ R   a
+                                                                                                             ×            Cπa♭ ,GL ,h
+                          s     XKs ,GL                                 d                                                        d
+                                                   d                                                       π ♭ ,GLd
+
+
+Note that all arrows in the diagram above are closed immersions. The diagram above can be interpreted
+as follows: for all Breuil-Kisin module with Ğ-structure, the GalK∞ -action can be extended to a GalKs -
+action canonically in a way not necessarily compatible with the Ğ-structure; and the condition that
+the canonical extension is compatible with the Ğ-structure is a closed condition.
+36
+
+     Define the stack Cπ♭ ,s,Ğ,h so that the following diagram is Cartesian
+
+                                         Cπa♭ ,s,Ğ,h          / Ca
+                                                                 π ♭ ,Ks ,Ğ,h
+
+
+                                                                        
+                                            a
+                                           XK,                   / Xa
+                                              Ğ                      Ks ,Ğ
+
+is Cartesian. The stack Cπa♭ ,s,Ğ,h can be interpreted as the moduli stack of Breuil-Kisin modules
+(M, ϕM ) together with an enhancement: a (φ, GalKs )-module (M                       ⊗          W (F♭ )A , ϕM ⊗ 1, ρ) such
+                                                                                 Sπ♭ ,A [1/u]
+
+that ρ ×Ğ GLd |GalKs is the canonical GalKs -action.
+
+B.1.8. Lemma (1) The morphism Cπa♭ ,K ,Ğ,h → XK          a       is representable by algebraic spaces, proper,
+                                              s             s ,Ğ
+and of finite presentation.
+  (2) The diagonal of Cπa♭ ,s,Ğ,h is affine and of finite presentation.
+
+Proof. (1) It follows from the diagram (9) and [EG23, Lemma 4.5.9].
+  (2) It follows from part (1), [L23B, Theorem 3.2], and [EG23, Lemma 4.5.14].                                          □
+
+B.2. Breuil-Kisin-Fargues modules with Ğ-structure
+   Let L/Qp be a finite Galois extension, Let O ⊃ OL be a DVR over Zp .
+   Denote by l the residue field of L. Let A be a Zp -algebra. For each choice of a compatible family
+     ∞        n
+π 1/p = (π 1/p )n∈Z+ of p-power roots of a uniformizer of L in Qp , we define an embedding
+                                             (W (l) ⊗ A)[[u]] → Ainf,A
+                                                           u 7→ [π ♭ ]
+                        n
+where π ♭ = ←
+            lim
+              −π
+                 1/p ∈ O ♭ . Denote by S
+                        Q                π ♭ ,A the image of the embedding above.
+                                 p
+               n
+
+
+B.2.1. Definition A projective Breuil-Kisin-Fargues module with A-coefficients is a finitely generated
+projective Ainf,A -module Minf , equipped with a φ-semi-linear endomorphism ϕMinf : Minf → Minf such
+that 1 ⊗ ϕMinf : φ∗ Minf [1/ξ] → Minf [1/ξ] is a bijection. Here ξ is a generator of ker(θ : Ainf → OQp )
+([BMS18, Definition 4.22]).
+   We say a Breuil-Kisin-Fargues module Minf descends to Sπ♭ ,A if there is a Breuil-Kisin module
+                   GalK ♭
+Mπ♭ ⊂ (Minf )          π ,∞   such that Ainf,A ⊗ Mπ♭ = Minf . We say Minf admits all descents over L if
+                                               Sπ♭ ,A
+
+it descends to Sπ♭ ,A for every choice of π ♭ (for every choice of π) and if furthermore
+      (1) the W (l)⊗Zp A-submodule Mπ♭ /[π ♭ ]Mπ♭ of (W (¯l)⊗A)⊗Ainf,A Minf is independent of the choice
+          of π and π ♭ ;
+      (2) the OL ⊗Zp A-submodule φ∗ Mπ♭ /Eπ♭ φ∗ Mπ♭ of OQp ,A ⊗Ainf,A φ∗ Minf is independent of the
+          choice of π and π ♭ .
+                                                                                                        37
+
+B.2.2. Lemma The category of Breuil-Kisin-Fargues modules with A-coefficients that admits all
+descents over L is an exact, rigid, symmetric monoidal category.
+Proof. Note that the property of admitting all descents over L is preserved under tensor products and
+duals.                                                                                              □
+B.2.3. Definition Let A be a p-adically complete O-algebra which is topologically of finite type. A
+Breuil-Kisin-Fargues GalL -module with A-coefficients is a Breuil-Kisin-Fargues module (Minf , ϕMinf )
+with A-coefficients equipped with a continuous semilinear GalL -action that commutes with ϕMinf .
+B.2.4. Connection to semistable Galois representations
+   Let M be an étale (φ, GalL )-module. By [EG23, Section 2.7], we can attach a GalL -representation
+V (M ) to M . By [EG23, Theorem F.11], if V (M ) is semistable with Hodge-Tate weights in [0, h],
+then there exists a unique Breuil-Kisin-Fargues GalL -module Minf of height at most h that admits
+                                                   ♭
+all descents over L such that Minf ⊗Ainf W (Qp ) = M . Moreover, by [EG23, Proposition 4.4.1], there
+exists a constant s′ (L, a, h, N ) (where N > e(a+h)                                               ♭
+                                               p−a is a fixed constant), such that for any choice π with
+                                                 ′
+corresponding descent Mπ♭ and for any s > s (L, a, h, N ), the restriction to GalLπ♭ ,s of the action of
+GalL on Minf ⊗O O/ϖa agrees with the canonical action considered in Paragraph B.1.2.
+
+B.2.5. Definition A Breuil-Kisin-Fargues GalL -module with A-coefficients with Ğ-structure is a faith-
+ful, exact, symmetric monoidal functor from f RepĞ to the category of Breuil-Kisin-Fargues GalL -
+module with A-coefficients.
+B.2.6. Proposition Let F be an étale (φ, GalL )-module with Ğ-structure. Then V (F ) is a semistable
+Ğ-valued Galois representation of GalL such that V (F ) ×Ğ GLd has Hodge-Tate weights in [−h, h] if
+and only if there exists a (necessarily) unique Breuil-Kisin-Fargues GalL -module F inf with Ğ-structure
+                                                                           ♭
+which admits all descents over L and which satisfies F = F inf ⊗Ainf W (Qp ), and such that F inf ×Ğ GLd
+is of height at most h.
+   Moreover, for any choice π ♭ with corresponding descent Fπ♭ and for any s > s′ (L, a, 2h, N ), the
+restriction to GalLπ♭ ,s of the action of GalL on (F inf ×Ğ GLd ) ⊗O O/ϖa agrees with the canonical
+action considered in Paragraph B.1.2.
+Proof. Let x ∈f RepĞ . By [Lev13, Proposition 5.3.2, Definition 5.3.1], V (F ) ×Ğ x = V (F ×Ğ x) is
+semistable. Fix a choice of π ♭ . By [EG23, Theorem F.11], F ×Ğ x corresponds to a unique Breuil-
+Kisin-Fargues GalL -module Fxinf . The uniqueness implies the association F inf : x 7→ Fxinf is functorial
+and monoidal. Since F inf ⊗Ainf W (Qp ) = F is faithful and exact and that Ainf is a subring of W (Qp ),
+F inf is automatically faithful and left-exact. It remains to show F inf is right-exact, and we do it by
+the bundle extension technique.
+                                                                                                  ♭
+   By [EG23, Lemma 4.2.8], Fxinf descends for each π ♭ uniquely to a Breuil-Kisin module Fxπ . Since
+                                                                  ♭          ♭
+Sπ♭ → Ainf is faithfully flat, it suffices to show the functor F π : x 7→ Fxπ is right-exact. By [Lev13,
+                                 ♭
+Lemma 4.2.22], the functor F π [1/p] is exact, and thus defines a φ-module with Ğ-structure F1 over
+                                   ♭
+Spec Sπ♭ [1/p]. The functor F π [1/u] is also exact by almost étale descent (S[1/u] → W (Qp ) is
+faithfully flat, see [EG23, Proposition 2.2.14]), and thus defines a φ-module with Ğ-structure F2 over
+Spec Sπ♭ [1/u]. The two φ-modules F1 and F2 can be glued along the intersection of Spec Sπ♭ [1/p]
+38
+
+and Spec Sπ♭ [1/u]. By [Lev13, Lemma 5.1.1] (see also the main result of [An22]), there exists unique
+extension F3 of F1 and F2 to Spec Sπ♭ . Since F3 , when regarded as a monoidal functor, is forced to
+      ♭
+be F π , we have finished showing F inf is a faithful, exact, symmetric monoidal functor.
+  The “moreover” part is [EG23, Proposition 4.4.1].                                                □
+
+     The proposition above motivates the following definition.
+
+                                                                                  a
+B.2.7. Definition For each h ≥ 0 and each finite Galois extension L of E, define CL,        to be the
+                                                                                    Ğ,ss,h
+                               a                                   a           a
+limit-preserving stack over O/ϖ such that for each finite type O/ϖ -algebra, CL,Ğ,ss,h (A) classifies
+Breuil-Kisin-Fargues GalL -modules F inf with A-coefficients and Ğ-structure which admits all descents
+over L such that F inf ×Ğ GLd is of height h and is equipped with canonical GalL -action in the sense
+of Proposition B.3.3.
+
+B.2.8. Lemma Let πL♭ be a compatible system of p-power roots of a uniformizer πL of L. The
+morphism
+(10)                                a
+                                   CL,Ğ,ss,h
+                                                  a
+                                              ,→ CL,GLd ,ss,h
+                                                                       ×       Cπa♭ ,s,Ğ,h
+                                                                C a♭
+                                                                 π ,s,GLd ,h
+                                                                  L
+
+
+is a closed immersion.
+
+Proof. The morphism CL,     a         → Cπa♭ ,s,Ğ,h is monomorphism by the definition of Cπa♭ ,s,Ğ,h . By [EG23,
+                              Ğ,ss,h
+Proposition 4.5.17], (10) is a monomorphism. Let A be a finite type O/ϖa -algebra. By Lemma B.2.2,
+An object F ∈ Cπa♭ ,s,Ğ,h (A) lies in the essential image of CL, a
+                                                                    Ğ,ss,h
+                                                                            (A) if and only if for any x ∈f RepĞ ,
+F ×Ğ x admits all descents over L when regarded as a Breuil-Kisin-Fargues GalL -module with A-
+coefficients. By the proof of [EG23, Proposition 4.5.17], the admitting all descents over L is a closed
+condition.                                                                                            □
+
+              a
+B.2.9. Lemma CL,        is an algebraic stack of finite presentation over O/ϖa , and have affine diag-
+                Ğ,ss,h
+onals.
+
+Proof. It follows from Lemma B.1.8 and Lemma B.2.8.                                                             □
+
+B.2.10. Lemma CL,Ğ,ss,h := −   a
+                             → CL,Ğ,ss,h is a p-adic formal algebraic stack of finite presentation, and
+                            lim
+                                   a
+have affine diagonals. The morphism CL,Ğ,ss,h → XL,Ğ is representable by algebraic spaces, proper and
+of finite presentation.
+
+Proof. It is a generalization of [EG23, Theorem 4.5.20], and follows from Lemma B.2.9 and [EG23,
+Proposition 4.5.17].                                                                          □
+
+B.3. Breuil-Kisin-Fargues lattices with LG-structure
+   Now we generalize the previous discussions to the case of non-split groups. Fix a uniformizer π = πK
+of K.
+                                                                                                                   39
+
+                                                                                                                  1/e
+B.3.1. Lemma If E is a tamely ramified Galois extension of K of ramification index e, then πE := πK
+is a uniformizer of E.
+Proof. We first show that πE ∈ E ′ for some unramified extension E ′ of E. Let Π ∈ OE be an arbitrary
+                                                     ×
+uniformizer. We have Πe = cπ for some c ∈ OE           . Write c̄ ∈ κE for the image of c in the residue field
+κE and write [c̄] for the Teichmüller lift of c̄. Since [c̄] admits an e-th root µ in an unramified extension
+                                                                                           e
+of E, by replacing Π by Πµ, we can assume c = 1 + πx for some x ∈ OE . Thus πΠe − 1 ∈ ΠOE . After
+                                                                                                        E
+multiplying Π by an e-th root of unity, we have πΠE − 1 ∈ ΠOE , and thus |Π − πE | < |Π|. By Krasner’s
+lemma, we have πE ∈ E ′ [Π] = E ′ .
+  Since xe = π is an Eisenstein polynomial, K[πE ] is totally ramified over K. Therefore πE ∈ E. □
+  Fix a tame Galois extension E of K of ramification index e. By the lemma above, πE := π 1/e is a
+                       ♭ be a compatible system of p-power roots of π . Set π ♭ := (π ♭ )e , which is a
+uniformizer of E. Let πE                                                 E           E
+compatible system of p-power roots of π. Set u := [π ♭ ] and uE := [πE
+                                                                     ♭ ]. We have
+
+                                            SK := Sπ♭                       = κK [[u]]
+                                            SE := Sπ♭                       = κE [[uE ]].
+                                                                    E
+
+It is clear that Spec SE [1/uE ] → Spec SK [1/u] is a Galois cover with Galois group canonically iden-
+tified with Gal(E/K).
+B.3.2. Semistable Galois representations and Breuil-Kisin-Fargues lattices
+  There exists an Ainf -linear isomorphism
+                                             Q
+                                  Ainf ⊗ SE → σ∈Gal(E/K) Ainf
+                                            SK
+                                               a⊗b                      7→ (aσ(b))σ
+The diagonal map ∆ : Ainf ⊗ SE → Ainf , a ⊗ b 7→ ab is the unique GalE -equivariant Ainf -linear
+                                 SK
+homomorphism such that the composition
+                                               a7→a⊗1                               ∆
+                                          Ainf −−−−→ Ainf ⊗ SE −
+                                                               → Ainf
+                                                                         SK
+
+is the identity map. Recall that Ainf = W (O                ♭   ); we also need to consider the base-changed version
+                                                     Qp
+                            ♭    a7→a⊗1          ♭                                    ♭         ∆   ♭
+                     W (Qp ) −−−−→ W (Qp ) ⊗ SE = W (Qp ) ⊗ AE −
+                                                               → W (Qp ).
+                                                     SK                                   AK
+                                                                                                    ♭
+  Let (F, ϕF , ρF ) be an étale (φ, GalK )-module with LG-structure over W (Qp ) that corresponds to
+an L-parameter. By [EG23, Eq. (2.7.3)], we have a Gal(E/K)-equivariant isomorphism
+                                           L                                                ♭
+(11)                            F̄ := F × G Gal(E/K) ∼
+                                                     = Spec W (Qp ) ⊗AK AE
+which we fix once for all. Moreover F → F̄ defines a Ğ-torsor over F̄ . Consider the pullback diagram
+                                                                
+                                                     F∆                           /F
+
+
+                                                                                     
+                                                                             ∆
+                                               Spec W (Qp )                       / F̄
+                                                                        ♭
+40
+
+Since ∆ is an GalE -equivariant embedding, F∆ ,→ F is both φ-equivariant and GalE -equivariant;
+therefore F∆ inherits a structure of étale (φ, GalE )-module with Ğ-structure, which we write as
+(F∆ , ϕ∆ , ρ∆ ) for simplicity.
+   Now assume the étale (φ, GalK )-module (F, ϕF , ρF ) with LG-structure is potentially semistable;
+suppose it becomes semistable after restricting to GalL for some finite Galois extension L of E. By
+Proposition B.3.3, the semistable étale (φ, GalL )-module (F∆ , ϕ∆ , ρ∆ |GalL ) admits a unique Breuil-
+Kisin-Fargues GalL -lattice F∆  inf with Ğ-structure. Note that F inf is Gal -invariant (c.f. [EG23, Corol-
+                                                                  ∆          E
+                      inf
+lary F.23]), and F∆ is indeed a Breuil-Kisin-Fargues GalE -module with Ğ-structure. Consider the
+following pushout diagram
+                                          
+                                     F∆       /F
+                                                            `
+                                                                   σ(F∆ )
+                                                                        σ∈Gal(E/K)
+
+
+                                                                                      
+                                   inf                        /
+                                                                                `             inf )
+                                  F∆                                                       σ(F∆
+                                                                        σ∈Gal(E/K)
+
+Set F inf :=               inf ). Concretely, O
+                  `
+                        σ(F∆                   F inf ⊂ OF∆ (the structure sheaf) is an Ainf -submodule,
+                                                        ∆
+               σ∈Gal(E/K)
+and OF inf is by definition the (direct) sum of the Gal(E/K)-translations of OF inf in OF (note that
+                                                                               ∆
+F∆ is a connected component of F and OF∆ is a direct summand of OF ).
+
+B.3.3. Proposition Let F be an étale (φ, GalK )-module with LG-structure. Assume V (F ) is a
+potentially semistable LG-valued L-parameter. Then there exists a unique Breuil-Kisin-Fargues GalK -
+module F inf with LG-structure which admits all descents over L and which satisfies F = F inf ⊗Ainf
+      ♭
+W (Qp ).
+
+Proof. By the construction above, OF inf is stable under the OLG -coaction on OF . In particular, F inf
+is an LG-torsor over Spec Ainf .
+   It remains to show F inf is GalK -stable. It follows from Tannakian formalism and the proof of [EG23,
+Corollary F.23].                                                                                      □
+
+B.3.4. Remark Given the Breuil-Kisin-Fargues GalK -lattice F inf , we can recover the Breuil-Kisin-
+                       inf . Consider
+Fargues GalE -lattice F∆
+                                                                        L
+                                        F̄ inf := F inf × G Gal(E/K).
+We have F̄ inf ∼
+               = Spec A ⊗SK SE , and such an identification is uniquely determined by Equation (11).
+The following Cartesian diagram
+                                                  inf                         / F inf
+                                                 F∆
+
+                                                                                    
+                                                                    
+                                               Spec Ainf                       / F̄ inf
+                                                                            ∆
+
+
+          inf from F inf .
+recovers F∆
+                                                                                                        41
+
+B.3.5. Definition For each Galois extension L/F , define CBKF a        to be the limit-preserving stack
+                                                                 −L,LG
+           a             a
+over O/ϖ such that CBKF −L,LG (A) is the groupoid of pairs (F , c) where F inf is a Breuil-Kisin-
+                                                                   inf
+
+Fargues GalL -module with LG-structure with A-coefficients and c is an GalL -equivariant morphism
+F inf × G Gal(E/K) ∼
+       L
+                     = Spec Ainf,A ⊗SK SE , for all finite type O/ϖa -algebras A.
+   If L ⊃ E, there exists a canonical morphism
+                                           a            a
+                                          CBKF −K,LG → CBKF −L,Ğ
+                                                                                        L
+defined by sending (F inf , c) to the pullback of F inf along c−1 ◦ ∆ : Spec Ainf,A → F × G Gal(E/K).
+  Set
+                                  L/K,a       a                             a
+                                 CLG,ss,h := CBKF −K,LG         ×          CL,Ğ,ss,h
+                                                           Ca
+                                                            BKF −L,Ğ
+
+and
+                                            L/K                 L/K,a
+                                           CLG,ss,h := −→ CLG,ss,h
+                                                       lim
+                                                       a
+
+for all Galois extensions L/E.
+
+B.3.6. Lemma The morphism
+                                       L/K,a              a
+                                     CLG,ss,h ,→ XK,LG × CL,Ğ,ss,h
+                                                           XL,Ğ
+
+is a closed immersion.
+
+Proof. By Remark B.3.4 and the construction before Proposition B.3.3, we see the morphism is a
+                L/K,a                                        a
+monomorphism. CLG,ss,h is the GalK -stable locus of XK,LG × CL, Ğ,ss,h
+                                                                        , which is a closed condition. □
+                                                                   XL,Ğ
+
+
+                                                     L/K
+B.3.7. Lemma For any Galois extension L/E, CLG,ss,h is a p-adic formal algebraic stack of finite pre-
+                                                                   L/K
+sentation with affine diagonal. The forgetful morphism CLG,ss,h → XK,LG is representable by algebraic
+spaces, proper and of finite presentation.
+
+Proof. Combine Lemma B.2.10 and Lemma B.3.6.                                                            □
+
+B.4. Inertial types Let A◦ be a p-adically complete flat O-algebra which is topologically of finite
+type over O, and write A := A◦ [1/p].
+   Let L/K be a finite Galois extension containing E with inertia group IL/K and suppose O[1/p]
+contains the image of all embeddings L ,→ Qp and that all irreducible O[1/p]-representations of IL/K
+are absolutely irreducible. Write l for the residue field of L and write L0 = W (l)[1/p].
+   In [EG23, Section 4.6], inertial types WDσ (Minf ) are attached to Breuil-Kisin-Fargues GalK modules
+M with A◦ -coefficients that admits all descents over L. The underlying A-module of WDσ (Minf )
+   inf
+
+is eσ (MA◦ ⊗A◦ A) and it is equipped with an A-linear action of IL/K (see loc. cit. for unfamiliar
+notations). Here eσ ∈ L0 ⊗Qp O[1/p] is the idempotent corresponding to a fixed choice of embedding
+σ : L0 ,→ O[1/p].
+42
+
+B.4.1. Lemma and Definition Let A◦ be a p-adically complete flat O-algebra which is topologically
+of finite type over O, and write A := A◦ [1/p].
+   Let F inf be a Breuil-Kisin-Fargues GalK modules Minf with A◦ -coefficients and LG-structure that
+admits all descents over L. The functor WD(F inf )
+                                      f
+                                          RepLG → VectA
+                                                              L
+                                              x 7→ WD(F inf × G x)
+is a faithful, exact, symmetric monoidal functor.
+
+Proof. The functor WD(F inf ) is clearly lax monoidal. Strict monoidality, faithfulness and exactness
+are local properties. Since A◦ is O-flat and topologically of finite type over O, it suffices to check
+the exactness (and monoidality and faithfulness) of WD(F inf ) at Λ-points for finite flat O-algebras Λ
+(because the union of images of Λ-points of Spec A◦ covers all closed points of Spec A◦ ). As is observed
+in [EG23, Remark 4.6.2], in the finite O-flat coefficients situation, WD(−) can be identified with
+Fontaine’s Dpst functor, which is well-known to be exact (see also [EG23, Section F.24]); faithfulness
+and monoidality are clear.                                                                             □
+
+B.4.2. Lemma Let A◦ be a p-adically complete flat O-algebra which is topologically of finite type
+over O, and write A := A◦ [1/p].
+   Let F inf be a Breuil-Kisin-Fargues GalK modules Minf with A◦ -coefficients and LG-structure that
+admits all descents over L. Then WD(F inf ) is a LG-torsor over Spec A equipped with an action of
+IF , whose formation is compatible with base change A◦ → B ◦ of p-adically complete O-flat algebras
+which are topologically of finite type over O.
+
+Proof. Combine [EG23, Proposition 4.6.3] and Lemma B.4.1.                                               □
+
+B.4.3. Definition Let τ be an LG(O[1/p])-valued representation of IL/K . In the setting of Lemma
+B.4.2, we say F inf has inertial type τ if étale locally on Spec A, WD(F inf ) is isomorphic to the base
+change to A of τ .
+
+B.4.4. Lemma Fix a finite Galois extension L/E. There are finitely many Ğ-conjugacy classes of
+inertial types IL/K → LG(Q̄p ).
+
+Proof. Since IL/K is a finite group, and Q̄p is a characteristic 0 field, all group homomorphisms
+IL/K → LG(Q̄p [ε]/ε2 ) factor through LG(Q̄p ): embed LG in GLN for some N , if g ∈ IL/K is sent to
+x + εy, then (x + εy)n = xn = 1 for some positive integer n, and thus y = 0. Therefore, deformation
+theory is trivial in our context.
+   By the proof of Lemma B.4.5 below (which makes use of only affine GIT theory and there is no
+circular reasoning), the coarse moduli space of all Ğ-conjugacy classes of inertial types IL/K → LG(Q̄p )
+is a finite type scheme over Q̄p . So we are done.                                                     □
+
+B.4.5. Lemma In the setting of Lemma B.4.2, we can decompose Spec A as the disjoint union of
+open and closed subschemes Spec Aτ , where Spec Aτ is the locus over which F inf has inertial type
+τ . Furthermore, the formation of this decomposition is compatible with base change A◦ → B ◦ of
+p-adically complete O-flat algebras which are topologically of finite type over O.
+                                                                                                                    43
+
+Proof. We start with analyzing the (coarse) moduli of inertial types. Say IL/K = {x1 , . . . , xN } consists
+of N elements. Consider the conjugation action of ĞQ̄p on the N -tuple
+                                           L (N )
+                                            GQ̄ := LGQ̄p × · · · × LGQ̄p
+                                               p
+
+             (N )
+Write LGQ̄          ĞQ̄p for the GIT quotient. By [BMRT11, Theorem 1.1] (which allows disconnected
+              p
+
+groups), if x1 , . . . , xN generate a finite subgroup of LG(Q̄p ), then the orbit ĞQ̄p · (x1 , . . . , xN ) is closed
+      (N )
+in LGQ̄ . Since the affine GIT quotient is a good quotient, the image of ĞQ̄p · (x1 , . . . , xN ) in the
+        p
+GIT quotient is a closed point. Inertial types IL/K → LG(Q̄p ) corresponds to tuples (x1 , . . . , xN ) that
+                                                                                           (N )
+satisfy a finite number of equations imposed by the group laws; write X ⊂ LGQ̄ for the closed affine
+                                                                                       p
+subscheme corresponding to inertial types. For each (x1 , . . . , xN ) ∈ X, {x1 , . . . , xn } generate a finite
+subgroup, and thus X ĞQ̄p is an orbit space. Since there are only finitely many conjugacy classes
+of inertial types by Lemma B.4.4, X ĞQ̄p is zero-dimensional and is thus a disjoint union of points.
+By descent, X Ğ defined over O[1/p] is also a zero-dimensional affine variety. Since the formation
+of W D(F inf ) is compatible with base change, the functor of points interpretation yields a canonical
+morphism Spec A → [X/Ğ] → X Ğ. The decomposition Spec A = ⨿ Spec Aτ is the base change of
+the corresponding decomposition on X Ğ.                                                                      □
+
+B.5. p-adic Hodge types Next we analyze p-adic Hodge types. By the geometric Shapiro lemma
+[L23B, Theorem 1.1], there is no difference in working with G or ResK/Qp G. For ease of notation, we
+will often replace G by ResK/Qp G and insist K = Qp .
+  Recall the following characterization of cocharacters.
+
+B.5.1. Lemma ([Ba12, Lemma 3.0.10]) Let H be a split connected reductive group over E and let
+µ, µ′ be two cocharacters of HQ̄p defined over E. If for any algebraic representation x : H → GL(V ),
+cocharatcers x ◦ µ and x ◦ µ′ are conjugate by an element of GL(V )(Q̄p ), then µ, µ′ are conjugate by
+an element of H(Q̄p ).
+
+B.5.2. Corollary Let H be a split connected reductive group over E. Let F be a trivial H-torsor
+over E. Let η, η ′ be two exact ⊗-filtrations on F . If for any algebraic representation x : H → GL(V ),
+cocharatcers x ◦ η and x ◦ η ′ are conjugate by an element of GL(V )(Q̄p ), then η, η ′ are conjugate by
+an element of H(Q̄p ).
+Proof. By [SN72, IV.2.4], both η, η ′ are splittable exact ⊗-filtrations, that is, they both are the
+canonical filtrations attached to exact ⊗-gradings ηe, ηe′ on F . An exact ⊗-grading ηe is equivalent to a
+cocharacter µ : Gm → Aut⊗ (F ). Since F is a trivial torsor, a choice of trivialization induces a group
+scheme isomorphism Aut⊗ (F ) ∼  = H and the choice of trivialization does not affect the conjugacy class
+                          ηe
+of the composition Gm −  → Aut⊗ (F ) ∼= H, which we also denote by ηe by abuse of notation.
+   We remark that two filtrations η, η ′ are H-conjugate if and only if two corresponding cocharacters
+µ, µ′ are H-conjugate. Indeed, two cocharacters µ1 , µ2 induce the same filtration if and only if they
+are conjugate by an element of Aut⊗!                                                   ⊗
+                                     µ (F ) which is a closed subgroup scheme of Aut (F ). See [BG19,
+Section 2.7] for unfamiliar notations.
+   The corollary now follows from Lemma B.5.1.                                                          □
+44
+
+B.5.3. Conjugacy classes of filtrations and Hodge types Recall that in [EG23, Definition 4.7.7],
+A Hodge type of rank d λ is defined to be a set of tuples of integers {λσ,j }σ:K,→Q̄p ,1≤j≤d with λσ,j ≥
+λσ,j+1 . It is clear that rank-d Hodge types λ are in one-to-one correspondence with ResK/Q     ˘ GLd -
+                                                                                                  p
+                                          ˘ GLd .
+conjugacy classes of cocharacters of ResK/Qp
+
+  So Hodge types for G should be defined as conjugacy classes of cocharacters of ResK/Q     ˘ G. As is
+                                                                                              p
+explained at the beginning of this subsection, it is harmless to replace G by ResK/Qp G, so Hodge
+types become conjugacy classes of cocharacters of Ğ.
+
+B.5.4. Definition Let A◦ be a p-adically complete flat O-algebra which is topologically of finite type
+over O, and let F inf be a Breuil-Kisin-Fargues GalE -module with Ğ-structure of height at most h,
+which admits all descents over some finite extension L of E.
+  Let λ : Gm → ĞQp of a cocharacter of ĞQp . We say F inf has Hodge type λ if for all algebraic
+representations f : Ğ → GL(V ), F inf ×Ğ V has Hodge type λ ◦ f in the sense of [EG23, Corollary
+4.7.8].
+
+B.5.5. Lemma Fix a number C > 0. Fix an embedding i : Ğ ,→ GLN . There exists only finitely
+many conjugacy classes of cocharacters λ of ĞQ̄p such that λ ◦ i correspond to a tuple of integers
+{λi,1 , . . . , λi,N } such that each λi,• has absolute value bounded by C.
+Proof. Clear.                                                                                           □
+
+B.5.6. Lemma In the context of Definition B.5.4, we can write Spec A as a disjoint union of open
+and closed substacks Spec Aλ over which F inf is of Hodge type λ. Moreover, this decomposition is
+compatible with base change A◦ → B ◦ of p-adically complete flat O-algebras which are topologically
+of finite type over O.
+Proof. By Corollary B.5.2, for any two non-equivalent Hodge types λ and λ′ , there exists an algebraic
+representation f such that λ ◦ f and λ ◦ f are not conjugate.
+   Since Spec A is topologically of finite type, there are only finitely many Hodge types occuring on
+Spec A (by Lemma B.5.5, the claim reduces to the GLN -case, which is well-known). In particular,
+we can choose finitely many different algebraic representations f1 , . . . , fm that distinguish all Hodge
+types occuring on Spec A, in the sense that for any two non-equivalent Hodge types λ and λ′ , there
+exists an algebraic representation fi (1 ≤ i ≤ m) such that λ ◦ fi and λ ◦ fi are not conjugate.
+   The lemma has thus been reduced to the GLn -case, which is dealt with in [EG23, Corollary 4.7.8],
+since Spec Aλ is the intersection of Spec Aλ◦fi , 1 ≤ i ≤ m.                                            □
+
+B.5.7. Corollary In the context of Definition B.5.4, we can write
+                                               a
+                                     Spec A =      Spec Aλ,τ
+                                                   λ,τ
+
+where Spec Aλ,τ is the locus over which F inf is of Hodge type λ and inertial type τ . Moreover, this
+decomposition is compatible with base change A◦ → B ◦ of p-adically complete flat O-algebras which
+are topologically of finite type over O.
+Proof. Combine Lemma B.5.6 and Lemma B.4.5.                                                             □
+                                                                                                         45
+
+B.5.8. Remark (1) By Lemma B.5.1, there is an intrinsic characterization of Hodge types for Breuil-
+Kisin-Fargues modules with Ğ-structure. The Hodge filtration on the de Rham periods ([EG23,
+Definition 4.7.6]) is exact and ⊗-compatible, and thus defines an exact ⊗-filtration µ on DdR (F inf ).
+The clopen Spec Aλ in Lemma B.5.6 is precisely the locus of Spec A where µ is conjugate to λ at all
+closed points.
+   (2) The formation of Hodge types is not sensitive to restriction of fields. So we say a Breuil-
+Kisin-Fargues GalK module with LG-structure has Hodge type λ if when restricted to GalE , it is a
+Breuil-Kisin-Fargues GalE module with Ğ-structure and Hodge type λ.
+                              L/K,fl                                      L/K
+B.5.9. Definition Write CLG,ss,h for the maximal O-flat substack of CLG,ss,h (see [EG23, Appendix A]
+for the existence). We record the following proposition.
+                                                                         L/K,fl
+B.5.10. Proposition Let L/E be a finite Galois extension. Then CLG,ss,h is the scheme-theoretical
+                             L/K,fl
+union of closed substacks CLG,ss,h,λ,τ , which is uniquely characterized by the following property: if A◦
+                                                    L/K,fl                      L/K,fl
+is a finite flat O-algebra, then an A◦ -point of CLG,ss,h factors through CLG,ss,h,λ,τ if and only if the
+corresponding Breuil-Kisin-Fargues F inf has Hodge type λ and inertial type τ .
+              L/K,fl
+  Moreover, CLG,ss,h,λ,τ is a p-adic formal algebraic stack of finite presentation which is flat over Spf O
+                                                         L/K,fl
+and whose diagonal is affine. The natural morphism CLG,ss,h,λ,τ → XK,LG is representable by algebraic
+spaces, proper, and of finite presentation.
+
+Proof. The proof is formally identical to that of [EG23, Proposition 4.8.2].                             □
+
+B.5.11. Definition Let τ be an inertial type and let λ be a Hodge type. Let h be a sufficiently large
+integer such that λ ◦ i is bounded by h (where i is the fixed embedding Ğ → GLd ), and let L/E be a
+                                                                        λ,τ
+Galois extension such that τ is trivial when restricted to IL . Define XK,LG to be the scheme-theoretic
+           L/K,fl
+image of CLG,ss,h,λ,τ in XK,LG .
+
+B.6. Potentially semistable deformation rings Recall the following theorem about Galois de-
+formation rings.
+
+B.6.1. Theorem ([BG19, Theorem A], [Ba12, Theorem 3.0.12]) Let τ be an inertial type, and let λ
+be a Hodge type. Fix a mod p L-parameter ρ̄ : GalK → LG(F). The framed potentially semistable
+                  □,τ,λ
+deformation ring Rρ̄    is equidimensional of dimension
+
+                                       1 + dimQp Ğ + dimQp Ğ/Pλ
+
+where Pλ := Aut⊗ (λ) is the parabolic subgroup of Ğ which stabilizes the exact ⊗-filtration associated
+to v. (See [BG19, Section 2.7] for unfamiliar notations.)
+                                                                                                 □,τ,λ
+   Denote by Rρ̄□ the universal deformation ring. The potentially semistable deformation ring Rρ̄      is
+the unique O-flat quotient such that for any finite local O[1/p]-algebra B, any O[1/p]-homomorphism
+                               □,τ,λ
+ζ : Rρ̄□ → B factors through Rρ̄     if and only if ζ corresponds to an L-parameter ρζ : GalK → LG(B)
+that is potentially semi-stable of inertial type τ and Hodge type λ.
+46
+
+Proof. The first paragraph is [BG19, Theorem A]; the second paragraph is [Ba12, Theorem 3.0.12]. We
+remark that in [BG19], any non-split group G is allowed. In [Ba12], only split groups G are considered.
+However, the same argument works through as long as deformation rings with fixed inertial types can
+be constructed, which we have done in Subsection B.4. We also remark that [BG19] directly uses
+results of [Ba12] even though the setting of [BG19] is more general.                                 □
+                                                                                  □,τ,λ
+B.6.2. Lemma In the setting of Theorem B.6.1, the morphism Spf Rρ̄                        → XK,LG factors through
+a versal morphism
+                                         □,τ,λ     τ,λ
+                                    Spf Rρ̄    → XK,LG .
+Proof. The proof is formally identical to that of [EG23, Proposition 4.8.10]. The inputs are
+     • Algebraicity of XK,LG ([L23B, Theorem 1.1]);
+                                                     L/K,fl
+      • Description of finite O-flat points of CLG,ss,h,λ,τ (Proposition B.5.10);
+                                                          □,τ,λ
+     • Description of finite O-flat points of Spf Rρ̄    (Theorem B.6.1); and
+     • Existence of Breuil-Kisin-Fargues lattices.
+The last bullet point in the GLd -case is [EG23, Theorem 4.7.13], which holds for general (split) groups
+G, as is observed in the thesis of B. Levin (see the proof of [Lev13, Proposition 5.4.2]). The non-split
+group case follows from the split group case (see the proof of Proposition B.3.3).                    □
+                                                                                             τ,λ
+B.6.3. Theorem Let τ be an inertial type and let λ be a Hodge type. Then XK,LG is a p-adic formal
+algebraic stack which is of finite type and flat over Spf O. It is uniquely determined as the O-flat
+                                                                                            τ,λ
+closed substack of XK,LG by the following property: if A◦ is a finite O-flat algebra, then XK,LG (A◦ )
+is the subgroupoid consisting of L-parameters which become potentially semistable of Hodge type λ
+and inertia type τ after inverting p.
+   The mod p fiber
+                                            τ,λ
+                                          XK,LG × Spec F
+                                                        Spf O
+
+is equidimensional of dimension dimQp Ğ/Pλ .
+Proof. The proof is formally identical to that of [EG23, Theorem 4.8.12]. The first claim follows
+                                                                                           τ,λ
+from Proposition B.5.10, and [L23B, Theorem 1.1]. The description of finite O-flat points XK,LG (A◦ )
+follows from Lemma B.6.2. The uniqueness follows from [EG23, Proposition 4.8.6]. The dimension
+                                                                 □,τ,λ
+calculation follows from Theorem B.6.1 and the versality of Spf Rρ̄    established in Lemma B.6.2
+(compare with [EG23, Theorem 4.8.14]).                                                            □
+
+References
+[An22] Johannes Anschütz. Extending torsors on the punctured Spec(Ainf ). J. Reine Angew. Math., 783:227–268, 2022.
+[Ba12] Sundeep Balaji. G-valued potentially semi-stable deformation rings. Thesis (Ph.D.)-The University of Chicago,
+    Ann Arbor: ProQuest LLC, 2012.
+[BMRT11] Michael Bate, Benjamin Martin, Gerhard Röhrle, and Rudolf Tange. Complete reducibility and conjugacy
+    classes of tuples in algebraic groups and Lie algebras. Math. Z., 269(3-4):809–832, 2011.
+[BC08] O. Brinon and B. Conrad. CMI summer school notes on p-adic Hodge theory.
+[Be02] Laurent Berger. Représentations p-adiques et équations différentielles. Invent. Math., 148(2):219–284, 2002.
+[BG19] Rebecca Bellovin and T. Gee. G-valued local deformation rings and global lifts. Algebra and Number Theory,
+    13:333–378, 2019.
+                                                                                                                       47
+
+[BM02] Christophe Breuil and Ariane Mézard. Multiplicités modulaires et représentations de GL2 (Zp ) et de Gal(Qp /Qp )
+     en l = p. Duke Math. J., 115(2):205–310, 2002.
+[BMS18] Bhargav Bhatt, Matthew Morrow, and Peter Scholze. Integral p-adic Hodge theory. Publications mathématiques
+     de l’IHÉS, 128(1):219–397, 2018.
+[C11] B. Conrad. Lifting global representations with local properties. Preprint.
+[Crd11] B. Conrad. Reductive group scheme (SGA3 Summer School 2011).
+[Crd08] Brian Conrad. Several approaches to non-archimedean geometry. In p-adic Geometry: Arizona Winter School
+     2007, volume 45 of University Lecture Series, pages 9–63. American Mathematical Society, Providence, RI, 2008.
+[Crd99] Brian Conrad. Irreducible components of rigid spaces. Ann. Inst. Fourier (Grenoble), 49(2):473–541, 1999.
+[DL] P. Deligne and G. Lusztig. Representation of reductive groups over finite fields. Ann. of Math., 103:103–161, 1976.
+[EG14] Matthew Emerton and Toby Gee. A geometric perspective on the Breuil-Mézard conjecture. J. Inst. Math.
+     Jussieu, 13(1):183–223, 2014.
+[EG23] M. Emerton and T. Gee. Moduli stacks of étale (ϕ, γ)-modules, and the existence of crystalline lifts. 2023.
+[EGH25] Matthew Emerton, Toby Gee, and Eugen Hellmann. An introduction to the categorical p-adic Langlands
+     program. In The Langlands program. II—geometrization of the Langlands correspondence, volume 112.2 of Proc.
+     Sympos. Pure Math., pages 167–419. Amer. Math. Soc., Providence, RI, 2025.
+[Eme] Mathew Emerton. formal algebraic stacks.
+[FP15] Roman Fedorov and Ivan Panin. A proof of the Grothendieck-Serre conjecture on principal bundles over regular
+     local rings containing infinite fields. Publ. Math. Inst. Hautes Études Sci., 122:169–193, 2015.
+[GHS] Toby Gee, Florian Herzig, and David Savitt. General Serre weight conjectures. J. Eur. Math. Soc. (JEMS),
+     20(12):2859–2949, 2018.
+[GK14] Toby Gee and Mark Kisin. The Breuil-Mézard conjecture for potentially Barsotti-Tate representations. Forum
+     Math. Pi, 2:e1, 56, 2014.
+[Hu94] R. Huber. A generalization of formal schemes and rigid analytic varieties. Math. Z., 217(4):513–551, 1994.
+[Kis08] Mark Kisin. Potentially semi-stable deformation rings. Journal of the American Mathematical Society, 21(2):513–
+     546, 2008.
+[Ko02] Helmut Koch. Galois theory of p-extensions. Springer Monographs in Mathematics. Springer-Verlag, Berlin, 2002.
+[KP] Tasho Kaletha and Gopal Prasad. Bruhat-Tits Theory A New Approach. Cambridge University Press, 2024.
+[LLHLM] Daniel Le, Bao V. Le Hung, Brandon Levin, and Stefano Morra. Local models for Galois deformation rings
+     and applications. Invent. Math., 231(3):1277–1488, 2023.
+[Lev13] Brandon Levin. G-valued flat deformations and local models. PhD. Thesis, 2013.
+[L22] Zhongyipan Lin. Crystalline lifts and a variant of the Steinberg-Winter Theorem. Doc. Math., 2022.
+[L23A] Z. Lin. A Deligne-Lusztig type correspondence. arXiv:2306.02093 [math.NT], 2023.
+[L23B] Z. Lin. Moduli of generalized phi-modules. arXiv:2304.05317v2 [math.NT], 2025.
+[L25] Z. Lin. The topological Breuil-Mezard conjecture for classical groups. arXiv:2508.19722 [math.NT], 2025.
+[Min24] Yu Min. Classicality of derived Emerton–Gee stack II: generalised reductive groups. arXiv:2411.12661 [math.NT],
+     2024.
+[SN72] Neantro Saavedra Rivano. Catégories Tannakiennes, volume 265 of Lecture Notes in Mathematics. Springer-
+     Verlag, Berlin-New York, 1972.
+[Stacks] The Stacks project 2025.
+[St10] Jakob Stix. Trading degree for dimension in the section conjecture: the non-abelian Shapiro lemma. Math. J.
+     Okayama Univ., 52:29–43, 2010.
+[WE18] Carl Wang-Erickson. Algebraic families of Galois representations and potentially semi-stable pseudodeformation
+     rings. Math. Ann., 371(3-4):1615–1681, 2018.
+
+  School of Mathematical Sciences, Tongji University, Zhiyuan building, no.1239, Siping Road, 200092
+Shanghai, China
+  Email address: zhong lin@tongji.edu.cn
+

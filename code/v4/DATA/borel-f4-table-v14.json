@@ -1,0 +1,396 @@
+{
+  "name": "borel-f4-table-v14",
+  "payload": {
+    "additional_borel_components": {
+      "configuration_labelled_record_count": 19,
+      "configuration_labelled_record_count_formula": "(p-1)+3=p+2",
+      "distinct_label_tuple_count": 17,
+      "distinct_label_tuple_count_formula": "(p-1)+1=p",
+      "ok": true,
+      "prime": 17,
+      "repeated_label_tuples": [
+        {
+          "label": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "records": [
+            {
+              "a": 0,
+              "configuration": "I"
+            },
+            {
+              "configuration": "III"
+            }
+          ]
+        },
+        {
+          "label": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "records": [
+            {
+              "a": 1,
+              "configuration": "I"
+            },
+            {
+              "configuration": "II"
+            }
+          ]
+        }
+      ],
+      "row_III_formula": "(0,1,0,1)",
+      "row_II_formula": "(1,1,0,1)",
+      "row_II_to_IV_labels": [
+        {
+          "configuration": "II",
+          "label": [
+            1,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "configuration": "III",
+          "label": [
+            0,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "configuration": "IV",
+          "label": [
+            0,
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "row_IV_formula": "(0,1,0,0)",
+      "row_I_count_formula": "p-1",
+      "row_I_formula": "(a,1,0,1), a in Z/(p-1)Z",
+      "row_I_labels": [
+        {
+          "a": 0,
+          "configuration": "I",
+          "label": [
+            0,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "a": 1,
+          "configuration": "I",
+          "label": [
+            1,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "a": 2,
+          "configuration": "I",
+          "label": [
+            2,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "a": 3,
+          "configuration": "I",
+          "label": [
+            3,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "a": 4,
+          "configuration": "I",
+          "label": [
+            4,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "a": 5,
+          "configuration": "I",
+          "label": [
+            5,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "a": 6,
+          "configuration": "I",
+          "label": [
+            6,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "a": 7,
+          "configuration": "I",
+          "label": [
+            7,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "a": 8,
+          "configuration": "I",
+          "label": [
+            8,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "a": 9,
+          "configuration": "I",
+          "label": [
+            9,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "a": 10,
+          "configuration": "I",
+          "label": [
+            10,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "a": 11,
+          "configuration": "I",
+          "label": [
+            11,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "a": 12,
+          "configuration": "I",
+          "label": [
+            12,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "a": 13,
+          "configuration": "I",
+          "label": [
+            13,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "a": 14,
+          "configuration": "I",
+          "label": [
+            14,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "a": 15,
+          "configuration": "I",
+          "label": [
+            15,
+            1,
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    "complement_ideal_count": 105,
+    "failures": [],
+    "ok": true,
+    "positive_root_count": 24,
+    "records": [
+      {
+        "DeltaK": [
+          "0001",
+          "0011",
+          "0100",
+          "0110",
+          "0120",
+          "1000"
+        ],
+        "K_complement": [
+          "0010"
+        ],
+        "Psi0": [
+          "0010"
+        ],
+        "Psi2": [
+          "0001",
+          "0011",
+          "0100",
+          "0110",
+          "0120"
+        ],
+        "checks": {
+          "complement_is_order_ideal": true,
+          "fine_closure": true,
+          "psi2_is_K_simple": true
+        },
+        "id": "I"
+      },
+      {
+        "DeltaK": [
+          "0001",
+          "0011",
+          "0100",
+          "0110",
+          "0120",
+          "1000"
+        ],
+        "K_complement": [
+          "0010"
+        ],
+        "Psi0": [
+          "0010"
+        ],
+        "Psi2": [
+          "0001",
+          "0011",
+          "0100",
+          "0110",
+          "0120",
+          "1000"
+        ],
+        "checks": {
+          "complement_is_order_ideal": true,
+          "fine_closure": true,
+          "psi2_is_K_simple": true
+        },
+        "id": "II"
+      },
+      {
+        "DeltaK": [
+          "0001",
+          "0011",
+          "0100",
+          "0110",
+          "0120",
+          "1100",
+          "1110",
+          "1120"
+        ],
+        "K_complement": [
+          "0010",
+          "1000"
+        ],
+        "Psi0": [
+          "0010",
+          "1000"
+        ],
+        "Psi2": [
+          "0001",
+          "0011",
+          "0100",
+          "0110",
+          "0120",
+          "1100",
+          "1110",
+          "1120"
+        ],
+        "checks": {
+          "complement_is_order_ideal": true,
+          "fine_closure": true,
+          "psi2_is_K_simple": true
+        },
+        "id": "III"
+      },
+      {
+        "DeltaK": [
+          "0100",
+          "0110",
+          "0111",
+          "0120",
+          "0121",
+          "0122",
+          "1100",
+          "1110",
+          "1111",
+          "1120",
+          "1121",
+          "1122"
+        ],
+        "K_complement": [
+          "0001",
+          "0010",
+          "0011",
+          "1000"
+        ],
+        "Psi0": [
+          "0001",
+          "0010",
+          "0011",
+          "1000"
+        ],
+        "Psi2": [
+          "0100",
+          "0110",
+          "0111",
+          "0120",
+          "0121",
+          "0122",
+          "1100",
+          "1110",
+          "1111",
+          "1120",
+          "1121",
+          "1122"
+        ],
+        "checks": {
+          "complement_is_order_ideal": true,
+          "fine_closure": true,
+          "psi2_is_K_simple": true
+        },
+        "id": "IV"
+      }
+    ]
+  },
+  "sage_version": "10.9",
+  "schema": "grob-computation-v14"
+}

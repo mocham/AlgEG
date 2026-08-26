@@ -1,0 +1,101 @@
+{
+  "name": "cycles-type-d-v14",
+  "payload": {
+    "determinants": {
+      "coefficients": [
+        -2,
+        2
+      ],
+      "cores_tested": 25,
+      "d8_height_six": {
+        "adjacency": [
+          {
+            "source": "00011211",
+            "targets": [
+              "00012211",
+              "00111211"
+            ]
+          },
+          {
+            "source": "00111111",
+            "targets": [
+              "00111211",
+              "01111111"
+            ]
+          },
+          {
+            "source": "01111101",
+            "targets": [
+              "01111111",
+              "11111101"
+            ]
+          },
+          {
+            "source": "01111110",
+            "targets": [
+              "01111111",
+              "11111110"
+            ]
+          },
+          {
+            "source": "11111100",
+            "targets": [
+              "11111101",
+              "11111110"
+            ]
+          }
+        ],
+        "determinant": {
+          "coefficient": 2,
+          "height": 6,
+          "variables": [
+            "x00000001",
+            "x00000010",
+            "x00000100",
+            "x00001000",
+            "x10000000"
+          ]
+        }
+      },
+      "observations_sha256": "87ac3dc205d6ff640b5cafd41ff36357f4849a6a2ea7a263cebbcc392fbea9a3",
+      "rank_range": [
+        4,
+        12
+      ]
+    },
+    "full_layers": {
+      "layers_tested": 928,
+      "nonempty_cores": 225,
+      "observations_sha256": "ce7ca18073a578d0dddca40f3d6684094a2b16677be2188cfec3e191878be7a9",
+      "rank_range": [
+        4,
+        32
+      ]
+    },
+    "implementation_sha256": {
+      "algebra.py": "a0f620c0b33b4c7ca5a0a4fd40c202cf72b82792d0b09e29b4ddda23dbff8bdb",
+      "graphs.py": "5c89f74cc6456e212afb7f2fc20123f2b42777d7a6d01503972a3c4ed6908f01",
+      "roots.py": "8b428be83a2ee7598d00deadc7528d9df8ab81a90bde2ba8756f07ef468019c0",
+      "type_d.py": "34c886d45a705d02712411f537d2a9b68dbde35fd9072345fdd9f3037479e237"
+    },
+    "ok": true,
+    "stable_family": {
+      "determinant": "+/-2*x_(n-2m-1)*product(x_i, i=n-m,...,n)",
+      "nonempty_heights": "h=2m with 1<=m<=floor((n-2)/2)",
+      "other_heights": "empty after degree-one source removal",
+      "remaining_graph": "directed C6 joined at one target to directed P_(2m-1)"
+    },
+    "target_subsets": {
+      "distinct_cores": 25,
+      "nonempty_selections": 677,
+      "observations_sha256": "f153ebdf9b04a95cd0a1b828eb9f61f70ec95b1256b3eb7e580ecd057a5a1d67",
+      "rank_range": [
+        4,
+        12
+      ],
+      "selections_tested": 15888
+    }
+  },
+  "sage_version": "10.9",
+  "schema": "grob-computation-v14"
+}

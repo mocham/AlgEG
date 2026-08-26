@@ -1,0 +1,74 @@
+% Exact theorem excerpts, with mathematical notation transcribed into TeX.
+% Retrieved 2026-08-24 from the publisher-hosted Numdam PDFs.
+
+% A. J. de Jong, "Crystalline Dieudonne module theory via formal and
+% rigid geometry", Publications Mathematiques de l'IHES 82 (1995), 5--96.
+% DOI: 10.1007/BF02698637
+% Source: https://www.numdam.org/item/10.1007/BF02698637.pdf
+
+% Section 7 setup, pp. 74--75.
+Let $O$ be a complete discrete valuation ring, $K$ its quotient field,
+$\pi\in O$ a uniformizer and $k$ the residue field: $k=O/\pi O$.
+
+We write $FS_O$ for the category of locally Noetherian adic formal schemes
+$X$ over $\operatorname{Spf}(O)$ whose reduction $X_{\mathrm{red}}$ is a
+scheme locally of finite type over $\operatorname{Spec}(k)$.
+
+Let $X=\operatorname{Spf}(A)$ be an affine formal scheme over
+$\operatorname{Spf}(O)$. Let $I\subset A$ be the biggest ideal of definition
+of $A$. The topological ring $A$ is Noetherian and adic. Thus $X$ is an
+object of $FS_O$ if and only if $A/I$ is a finitely generated $k$-algebra.
+This is also equivalent to the fact that $A$ is a quotient of
+\[
+ O\{x_1,\ldots,x_n\}[[y_1,\ldots,y_m]]
+\]
+for some $n,m\in\mathbb N$.
+
+% Lemma 7.1.9, pp. 78--79.
+\textbf{7.1.9. Lemma.} Let $X=\operatorname{Spf}(A)$ be as above. There is a
+bijection functorial in $A$ between the following two sets:
+\begin{enumerate}
+\item Maximal ideals $\mathfrak m\subset A\otimes_O K$.
+\item Points $x$ of $X^{\mathrm{rig}}$.
+\end{enumerate}
+If the point $x(\mathfrak m)\in X^{\mathrm{rig}}$ corresponds to
+$\mathfrak m\subset A\otimes_O K$, then there exists a canonical
+homomorphism of local rings
+\[
+ (A\otimes_O K)_{\mathfrak m}\longrightarrow
+ \mathcal O_{X^{\mathrm{rig}},x}
+\]
+compatible with the canonical map from $A\otimes_O K$ to global analytic
+functions. This homomorphism induces an isomorphism on completions.
+
+% The residue-field sentence in the proof of Lemma 7.1.9, p. 78.
+If $x$ is represented by a maximal ideal $\mathfrak p$ in one of the
+affinoid rings $C_n$, then the map $A\otimes_O K\to C_n/\mathfrak p$ is
+surjective. Thus $\mathfrak m$ is its kernel and has the same residue field
+as $\mathfrak p$ in $C_n$.
+
+% Brian Conrad, "Irreducible components of rigid spaces",
+% Annales de l'Institut Fourier 49 (1999), no. 2, 473--541.
+% DOI: 10.5802/aif.1681
+% Source: https://www.numdam.org/item/10.5802/aif.1681.pdf
+
+% Formal-scheme convention, p. 476.
+When the valuation on the complete field $k$ is discrete, with valuation
+ring $R$, the class $FS_R$ consists of formal schemes over
+$\operatorname{Spf}(R)$ which are locally noetherian adic and for which the
+closed formal subscheme cut out by topologically nilpotent functions is
+locally of finite type over the residue field of $R$.
+
+% Theorem 2.1.3, p. 491.
+\textbf{Theorem 2.1.3.} If $X$ is a locally finite type scheme over
+$\operatorname{Spec}(k)$ and $f:\widetilde X\to X$ is a normalization, then
+$f^{\mathrm{an}}$ is a normalization of $X^{\mathrm{an}}$. Likewise, if $k$
+has discrete valuation and $X$ is a formal scheme in $FS_R$, and
+$f:\widetilde X\to X$ is a normalization, then $f^{\mathrm{rig}}$ is a
+normalization of $X^{\mathrm{rig}}$.
+
+% Definition 2.2.2, p. 496.
+\textbf{Definition 2.2.2.} The irreducible components of a rigid space $X$
+are the reduced analytic sets of the form $X_i=p(\widetilde X_i)$, with
+$\widetilde X_i$ the connected components of the normalization
+$p:\widetilde X\to X$.

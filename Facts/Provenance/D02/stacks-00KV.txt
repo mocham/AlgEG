@@ -1,0 +1,17 @@
+Stacks Project, Lemma 10.60.11 (Tag 00KV)
+Source: https://stacks.math.columbia.edu/tag/00KV
+Retrieved: 2026-08-24
+
+Let R be a Noetherian ring. Let x be an element of R.
+
+1. If p is minimal over (x), then the height of p is 0 or 1.
+2. If p, q are in Spec(R) and q is minimal over (p, x), then there is no
+   prime strictly between p and q.
+
+Proof. For (1), if p is minimal over x, then the only prime ideal of R_p
+containing x is the maximal ideal pR_p. If x is not nilpotent in R_p, the
+dimension of R_p is 1. If x is nilpotent in R_p, then pR_p is the only prime
+ideal and the height is 0.
+
+For (2), part (1) applied in R/p shows that q/p has height 0 or 1. Hence no
+prime lies strictly between p and q.

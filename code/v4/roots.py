@@ -1,4 +1,4 @@
-"""Deterministic root-system helpers used by the current certificates."""
+"""Deterministic root-system helpers used by the current computations."""
 
 from itertools import combinations
 

@@ -1,0 +1,94 @@
+{
+  "name": "bch-root-graded-v14",
+  "payload": {
+    "A2": {
+      "ok": true,
+      "root_c_formula": "1/2*(ga*qb-gb*qa-fa*pb+fb*pa)"
+    },
+    "B2": {
+      "ok": true,
+      "root_d_left_formula": "fa*pc-fc*pa+1/6*(fa-pa)*(fa*pb-fb*pa)",
+      "root_d_right_formula": "ga*qc-gc*qa+1/6*(ga-qa)*(ga*qb-gb*qa)"
+    },
+    "F4": {
+      "bch_classes_checked": 11,
+      "maximum_positive_root_height": 11,
+      "ok": true
+    },
+    "free_lie_comparison": {
+      "classes": [
+        {
+          "class": 1,
+          "nonzero_word_count": 2,
+          "ok": true
+        },
+        {
+          "class": 2,
+          "nonzero_word_count": 2,
+          "ok": true
+        },
+        {
+          "class": 3,
+          "nonzero_word_count": 6,
+          "ok": true
+        },
+        {
+          "class": 4,
+          "nonzero_word_count": 4,
+          "ok": true
+        },
+        {
+          "class": 5,
+          "nonzero_word_count": 30,
+          "ok": true
+        },
+        {
+          "class": 6,
+          "nonzero_word_count": 28,
+          "ok": true
+        },
+        {
+          "class": 7,
+          "nonzero_word_count": 126,
+          "ok": true
+        },
+        {
+          "class": 8,
+          "nonzero_word_count": 124,
+          "ok": true
+        },
+        {
+          "class": 9,
+          "nonzero_word_count": 390,
+          "ok": true
+        },
+        {
+          "class": 10,
+          "nonzero_word_count": 388,
+          "ok": true
+        },
+        {
+          "class": 11,
+          "nonzero_word_count": 2046,
+          "ok": true
+        }
+      ],
+      "maximum_class": 11,
+      "method": "log(exp(tX)exp(tY)) mod t^(maximum_class+1)",
+      "ok": true,
+      "word_coefficients_sha256": "a616a1aa8a74070d3bcf416dc99818115d5f0c26d1ea296ba41053c29e580421"
+    },
+    "homogeneous_terms": {
+      "formulas": [
+        "Z_1=X+Y",
+        "Z_2=1/2[X,Y]",
+        "Z_3=1/12[X,[X,Y]]+1/12[[X,Y],Y]",
+        "Z_4=1/24[X,[[X,Y],Y]]"
+      ],
+      "ok": true
+    },
+    "ok": true
+  },
+  "sage_version": "10.9",
+  "schema": "grob-computation-v14"
+}

@@ -1,4 +1,4 @@
-"""Deterministic rotational-deformation certificates for Configurations I--IV."""
+"""Deterministic rotational-deformation checks for Configurations I--IV."""
 
 from random import Random
 
@@ -9,6 +9,13 @@ from roots import add, height, root_string, structure_constants, subtract
 
 
 ROTATION_ROOTS = {"I": "0010", "II": "0010", "III": "1000", "IV": "0010"}
+ROTATION_ROOT_CHOICES = (
+    ("IV", "0010"),
+    ("IV", "0011"),
+    ("IV", "1000"),
+    ("III", "1000"),
+    ("III", "0010"),
+)
 
 
 def _parse(root):
@@ -169,7 +176,7 @@ def _bad_primes(values):
 
 def find_characteristic_uniform_certificate(record, rotation_root, attempts=200,
                                               seed=20260801):
-    """Produce an exact point with invertible Jacobian over Z[1/12!]."""
+    """Produce an exact Q-point with invertible Jacobian over Z[1/12!]."""
     constants = structure_constants(("F", 4))
     psi2 = tuple(_parse(root) for root in record["Psi2"])
     psi0 = tuple(_parse(root) for root in record["Psi0"])
@@ -190,7 +197,7 @@ def find_characteristic_uniform_certificate(record, rotation_root, attempts=200,
             point[f"br{root_string(root)}"] = QQ(random.randrange(-2, 3))
         substitution = {ring(name): value for name, value in point.items()}
         if zero_equations[0].subs(substitution) != 0:
-            raise AssertionError("normalization point is invalid")
+            raise AssertionError("chosen point is invalid")
 
         columns = []
         for parameter_name in parameter_names:
@@ -247,6 +254,81 @@ def find_characteristic_uniform_certificate(record, rotation_root, attempts=200,
     }
 
 
+def verify_characteristic_uniform_witness(record, rotation_root, witness):
+    """Re-evaluate a recorded witness using exact QQ arithmetic."""
+    constants = structure_constants(("F", 4))
+    psi2 = tuple(_parse(root) for root in record["Psi2"])
+    expected_parameters = {
+        f"{prefix}{root_string(root)}"
+        for root in sorted(psi2) for prefix in ("at", "ap")
+    }
+    if set(witness["specialization"]) != expected_parameters:
+        raise ValueError("the at/ap values do not match Psi2")
+    specialization = {
+        name: QQ(value) for name, value in witness["specialization"].items()
+    }
+    ring, equations, determinant = _rotation_polynomials(
+        record, rotation_root, specialization, constants, base_ring=QQ)
+    if set(witness["point"]) != {str(variable) for variable in ring.gens()}:
+        raise ValueError("the variable values do not match the rotation system")
+    point = {ring(name): QQ(value) for name, value in witness["point"].items()}
+    equation_values = [equation.subs(point) for equation in equations]
+    determinant_value = determinant.subs(point)
+    prime_divisors = _bad_primes(
+        list(point.values()) + list(specialization.values()) + [determinant_value])
+    checks = {
+        "equation_values": [str(value) for value in equation_values],
+        "all_equations_zero": not any(equation_values),
+        "jacobian_determinant": str(determinant_value),
+        "jacobian_determinant_nonzero": determinant_value != 0,
+        "required_at_ap_values_nonzero": all(specialization.values()),
+        "prime_divisors": prime_divisors,
+        "all_prime_divisors_at_most_12": all(
+            prime <= 12 for prime in prime_divisors),
+    }
+    checks["ok"] = all((
+        checks["all_equations_zero"],
+        checks["jacobian_determinant_nonzero"],
+        checks["required_at_ap_values_nonzero"],
+        checks["all_prime_divisors_at_most_12"],
+    ))
+    return checks
+
+
+def verify_rotation_root_choices():
+    """Evaluate exactly the five specified root choices without file I/O."""
+    constants = structure_constants(("F", 4))
+    by_id = {record["id"]: record for record in F4_TABLE}
+    records = []
+    for configuration, rotation_root in ROTATION_ROOT_CHOICES:
+        record = by_id[configuration]
+        witness = find_characteristic_uniform_certificate(record, rotation_root)
+        if not witness["ok"]:
+            raise AssertionError(
+                f"no exact QQ witness found for {configuration}/{rotation_root}")
+        checks = verify_characteristic_uniform_witness(
+            record, rotation_root, witness)
+        if not checks["ok"]:
+            raise AssertionError(
+                f"exact witness check failed for {configuration}/{rotation_root}")
+        witness["substitutions"] = substitution_certificate(
+            tuple(_parse(root) for root in record["Psi2"]),
+            _parse(rotation_root), constants)
+        witness["outcome"] = "success"
+        witness["reason"] = checks
+        witness["selected_rotation_root"] = (
+            rotation_root == ROTATION_ROOTS[configuration])
+        records.append(witness)
+    return {
+        "choices_tested": len(records),
+        "failed_choices": [],
+        "all_choices_succeed": True,
+        "each_configuration_has_exactly_one_successful_tested_root": False,
+        "records": records,
+        "ok": True,
+    }
+
+
 def verify_configurations():
     constants = structure_constants(("F", 4))
     records = []
@@ -270,8 +352,13 @@ def verify_characteristic_uniform_configurations():
             tuple(_parse(root) for root in record["Psi2"]),
             _parse(rotation_root), constants)
         records.append(certificate)
+    root_choice_check = verify_rotation_root_choices()
     return {
         "records": records,
-        "ok": all(record.get("ok") and record.get("uniform_for_p_gt_12")
-                  for record in records),
+        "root_choice_check": root_choice_check,
+        "ok": (
+            all(record.get("ok") and record.get("uniform_for_p_gt_12")
+                for record in records)
+            and root_choice_check["ok"]
+        ),
     }

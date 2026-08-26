@@ -1,0 +1,12 @@
+Brian Conrad, "Reductive Group Schemes", Autour des schemas en groupes,
+Vol. I, Panoramas et Syntheses 42/43 (2014), pp. 93-444.
+Source PDF: https://math.stanford.edu/~conrad/papers/luminysga3.pdf
+Corollary B.3.5, p. 292. Retrieved 2026-08-24.
+
+Corollary B.3.5. - Let S = Spec A for a complete local noetherian ring
+(A, m) with residue field k. Let G be a smooth affine S-group and H an S-group
+of multiplicative type. Any homomorphism f_0 : H_0 -> G_0 between special fibers
+lifts to an S-homomorphism f : H -> G, and if f' : H -> G is another such lift
+then f and f' are conjugate under ker(G(S) -> G(k)).
+Moreover, if f_0 is a closed immersion then so is any such f.
+This corollary is a special case of SGA3, IX, 7.3.

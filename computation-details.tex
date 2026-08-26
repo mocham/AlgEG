@@ -1,0 +1,557 @@
+\ifdefined\pdfinfoomitdate
+  \pdfinfoomitdate=1
+\fi
+\ifdefined\pdftrailerid
+  \pdftrailerid{}
+\fi
+\ifdefined\pdfsuppressptexinfo
+  \pdfsuppressptexinfo=-1
+\fi
+
+\documentclass[11pt]{amsart}
+
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\fB}{\mathcal B}
+\newcommand{\rot}{\mathrm{rot}}
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\algorithmcaption}[2]{%
+  \refstepcounter{figure}\label{#2}%
+  \begin{center}\small\textbf{Algorithm \thefigure.} #1\end{center}}
+
+\title{Computational Details for Algorithmic Emerton--Gee Stacks}
+\date{Version 14}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{The bounded-cone and \texorpdfstring{$F_4$}{F4} computations}
+\label{sec:f4}
+
+Root data are generated from the $F_4$ Cartan matrix.  Roots are coefficient
+tuples in Bourbaki order, and every rank calculation is exact.
+
+\subsection{Field-degree bound}
+
+For each of the $105$ downward-closed complements $K$, the program forms the
+grouped cone matrix using every graph target.  A nonzero integral minor proves
+its rank.  The dimension estimate is automatic for $d=[F:\Q_p]\ge2$.
+Every prime divisor of the witness determinants belongs to $\{2,3\}$, so the
+same ranks hold for $p>12$.
+
+\begin{quote}
+\begin{algorithmic}[1]
+\Require The $F_4$ Cartan matrix.
+\State Generate $\Phi^+$, its root order, and all $105$ complements $K$.
+\For{each $K$}
+  \State Form the grouped cone matrix with $\Psi_2=\Phi^+$.
+  \State Find an integral maximal nonzero minor and factor its determinant.
+  \State Solve the dimension inequality for $d$.
+\EndFor
+\State Return the degrees that still require a finite computation.
+\end{algorithmic}
+\end{quote}
+\algorithmcaption{The field-degree bound}{alg:f4-degree-bound}
+
+Only $d=1$ remains.
+
+\subsection{Fine pairs without degree pruning}
+
+At degree one, let $S\subset\Phi^+$ satisfy
+\[
+f(\alpha)=1\qquad(\alpha\in S)
+\]
+for some linear functional $f$.  Every such $S$ contains a linearly independent
+subset with the same affine span.  The program starts with all independent
+subsets and adjoins roots by breadth-first search.  Affine inconsistency is the
+only reason that a branch stops.
+
+The pair inventory has $S=\Psi_2\ne\emptyset$.  The empty subset satisfies the
+affine equations, and both closure conditions hold for every
+$\Psi_0\subseteq\Phi^+$.  For every nonempty complement
+$C=\Phi^+\setminus\Phi_K$,
+\[
+\Psi_2=\emptyset,\qquad
+\operatorname{obstruction}=0,\qquad
+\varepsilon=\#C+\#(\Psi_0\setminus\Phi_K)\ge1.
+\]
+Indeed, the second summand is nonnegative and $\#C\ge1$.  Hence arbitrary
+$\Psi_0$ gives no case with $\varepsilon=0$.  The program checks all $1048$
+pairs $(C,r)$ with $C\ne\emptyset$ and
+$0\le r=\#(\Psi_0\setminus\Phi_K)\le\#C$.
+
+For each accepted $S$, choose $\alpha_0\in S$ and put
+\[
+L_S=\sum_{\alpha\in S}\Z(\alpha-\alpha_0),\qquad
+\Psi_0=L_S\cap\Phi^+,
+\qquad \Psi_2=S.
+\]
+If $\beta_1+\cdots+\beta_d\in\Psi_0$ with $d>0$ and
+$\beta_i\in\Psi_2$, then
+\[
+d=f(\beta_1+\cdots+\beta_d)=0,
+\]
+which is impossible.  Thus the degree value is checked at every node but is
+never used to stop the search.
+
+\begin{quote}
+\begin{algorithmic}[1]
+\Require $\Phi^+$ and the reviewed pair list $P$.
+\State For $S=\emptyset$, check
+$\varepsilon=\#(\Phi^+\setminus\Phi_K)
++\#(\Psi_0\setminus\Phi_K)\ge1$.
+\State Put every linearly independent nonempty subset of $\Phi^+$ in a queue.
+\While{the queue is nonempty}
+  \State Remove one subset $S$ and skip it if it was already examined.
+  \State Check that $f(\alpha)=1$ for all $\alpha\in S$ is consistent.
+  \State Compute $L_S$, $\Psi_0$, and both closure conditions.
+  \State Check that no positive sum of roots in $S$ belongs to $\Psi_0$.
+  \If{both closure conditions hold}
+    \State Add $(\Psi_0,S)$ to the recomputed list $P'$.
+  \EndIf
+  \For{$\beta\in\Phi^+\setminus S$}
+    \If{$S\cup\{\beta\}$ is affine-consistent}
+      \State Add $S\cup\{\beta\}$ to the queue.
+    \EndIf
+  \EndFor
+\EndWhile
+\State Compare the ordered lists $P'$ and $P$ and their SHA-256 digests.
+\end{algorithmic}
+\end{quote}
+\algorithmcaption{No-cutoff fine-pair computation}{alg:f4-pairs}
+
+There are $9780$ independent seeds and $50347$ nonempty affine-consistent subsets.
+The computation gives $4862$ fine pairs.  The recomputed and reviewed ordered
+lists agree, with digest
+\begin{center}
+\scriptsize
+\texttt{e1dc8ced6a02269877dbfbc4a908404657d8a415a3b503f54d429888af29d4be}.
+\end{center}
+All $3002$ relevant independent subsets occur among these pairs.
+
+\subsection{Classification and the Borel count}
+
+For nonempty $\Psi_2$, the cone calculation is applied to the $105$
+possibilities for $K$ and the $4862$ fine pairs.  The empty complement accounts
+for $4862$ entries.  Of the remaining $505648$ entries, $294388$ are excluded by
+the number of graph-target rows and $211260$ receive polynomial Jacobian-rank
+checks.  Exactly four have $\varepsilon=0$, namely Configurations I--IV.  The
+separate empty-$\Psi_2$ calculation has none.
+
+For their grouped cone matrices, the tuples
+\[
+(\#\text{variables},\#\text{relations},\operatorname{rank},\dim)
+\]
+are
+\[
+(28,17,17,11),\quad(29,17,17,12),\quad
+(30,14,14,16),\quad(32,8,7,25).
+\]
+Edges with a common graph target contribute to one summed equation.
+
+For split simple $F_4$, Configuration I has labels
+\[
+(a,1,0,1),\qquad a\in\Z/(p-1)\Z,
+\]
+and Configurations II--IV have labels
+\[
+(1,1,0,1),\qquad(0,1,0,1),\qquad(0,1,0,0).
+\]
+Consequently the number of configuration-labelled component records is
+\[
+(p-1)+3=p+2.
+\]
+At $p=17$, Configuration I contributes the $16$ records
+$(\mathrm I,(a,1,0,1))$ for $0\le a\le15$, and the other three configurations
+contribute one record each.  Hence the exact component count is
+\[
+16+3=19.
+\]
+There are $17$ distinct label tuples.  The tuple $(1,1,0,1)$ occurs for
+$(\mathrm I,a=1)$ and $\mathrm{II}$, and $(0,1,0,1)$ occurs for
+$(\mathrm I,a=0)$ and $\mathrm{III}$.
+
+\section{Baker--Campbell--Hausdorff computation}
+\label{sec:bch}
+
+Let
+\[
+\operatorname{BCH}(X,Y)=\log(\exp(X)\exp(Y))=\sum_{m\ge1}Z_m,
+\]
+where $Z_m$ has bracket length $m$.  The implementation uses
+\[
+Z_1=X+Y
+\]
+and, for $m\ge2$,
+\[
+\begin{aligned}
+mZ_m={}&\frac12[X-Y,Z_{m-1}]\\
+&+\sum_{1\le q\le(m-1)/2}\frac{B_{2q}}{(2q)!}
+\sum_{\substack{k_1+\cdots+k_{2q}=m-1\\k_i>0}}
+[Z_{k_1},[\cdots,[Z_{k_{2q}},X+Y]]\cdots]].
+\end{aligned}
+\]
+The first four terms are checked symbolically:
+\[
+\begin{aligned}
+Z_1&=X+Y,\\
+Z_2&=\tfrac12[X,Y],\\
+Z_3&=\tfrac1{12}[X,[X,Y]]+\tfrac1{12}[[X,Y],Y],\\
+Z_4&=\tfrac1{24}[X,[[X,Y],Y]].
+\end{aligned}
+\]
+
+Independently of this recursion, put
+\[
+A(t)=\exp(tX)\exp(tY)-1
+\]
+in the free associative algebra and compute
+\[
+\log(1+A(t))\bmod t^{12}
+=\sum_{r=1}^{11}\frac{(-1)^{r+1}}rA(t)^r\bmod t^{12}.
+\]
+For each $1\le m\le11$, the coefficient of $t^m$ is compared with the image of
+$Z_m$ in the enveloping algebra of the free Lie algebra on $X,Y$.  All eleven
+equalities hold.
+
+Write
+\[
+F=\sum f_\alpha e_\alpha,\quad
+G=\sum g_\alpha e_\alpha,\quad
+P=\sum p_\alpha e_\alpha,\quad
+Q=\sum q_\alpha e_\alpha.
+\]
+For $A_2$, with $[e_a,e_b]=e_c$, the $e_c$ coefficient of
+\(\operatorname{BCH}(G,Q)-\operatorname{BCH}(F,P)\) is
+\[
+\frac12(g_aq_b-g_bq_a-f_ap_b+f_bp_a).
+\]
+For the $B_2$ test algebra
+\[
+[e_a,e_b]=e_c,\qquad[e_a,e_c]=2e_d,
+\]
+the $e_d$ coefficient is
+\[
+\begin{aligned}
+&g_aq_c-g_cq_a
++\frac16(g_a-q_a)(g_aq_b-g_bq_a)\\
+&\quad-f_ap_c+f_cp_a
+-\frac16(f_a-p_a)(f_ap_b-f_bp_a).
+\end{aligned}
+\]
+A numerical $B_2$ check gives obstruction coefficient $-4$ in $e_d$; adding
+$\frac1{11}e_d$ to $F$ gives equality of the two BCH expressions.
+
+The largest positive-root height in $F_4$ is $11$.  The program constructs the
+positive Chevalley Lie algebra and computes all eleven homogeneous terms.
+It independently compares every F4 structure constant and every leading
+root-height Jacobian with \code{roots.py} and \code{algebra.py}.  For Configurations
+I--IV, a separate root-sum check proves that a term with one $\Psi_0$
+perturbation and at least two $\Psi_2$ factors cannot contribute to a
+$\Psi_2$ first-order rotation equation.
+
+\section{Bipartite root-poset computations}
+\label{sec:root-posets}
+
+For a bipartite graph, the reduction procedure repeatedly removes a graph
+source of out-degree one together with its unique adjacent graph target;
+graph sources of out-degree zero are discarded.  If a graph remains, its
+Jacobian has entries
+\[
+J_{\alpha,\beta}=N_{\beta,\alpha-\beta}x_{\alpha-\beta}.
+\]
+For $r$ graph-target rows and $c\ge r$ graph-source columns, the program tests
+the $\binom cr$ column subsets until it finds a nonzero determinant consisting
+of one monomial.
+
+\subsection{Exceptional Chevalley types}
+
+The finite graph computation is as follows.
+
+\begin{quote}
+\begin{algorithmic}[1]
+\Require A root system $\Phi$ of exceptional Chevalley type.
+\State Construct the directed root poset.
+\For{each height $h$}
+  \For{each graph-target subset $T$ at height $h+1$}
+    \State Keep the height-$h$ graph sources and the edges ending in $T$.
+    \State Repeatedly remove degree-one graph sources and adjacent targets.
+    \If{no edge remains}
+      \State Record success and continue.
+    \EndIf
+    \State Form $J_{\alpha,\beta}$ and test graph-source column subsets.
+    \State Fail unless one maximal determinant is a nonzero monomial.
+  \EndFor
+\EndFor
+\end{algorithmic}
+\end{quote}
+\algorithmcaption{Absolute root-poset check}{alg:absolute-root-posets}
+
+The numerical summary is
+\[
+\begin{array}{c|rr}
+\toprule
+\text{Type}&\text{graph-target selections}&\text{failures}\\
+\midrule
+F_4&48&0\\
+E_6&138&0\\
+E_7&384&0\\
+E_8&1196&0\\
+\bottomrule
+\end{array}
+\]
+and the nontrivial determinants, up to signs from row and column order, are
+\begingroup
+\small
+\[
+\begin{array}{c|c|l}
+\toprule
+\text{Type}&h&\det J\\
+\midrule
+F_4&3&3x_{0001}x_{0010}x_{1000}\\
+E_6&2&2x_{000010}x_{001000}x_{010000}\\
+E_6&3&3x_{000001}x_{000010}x_{001000}x_{010000}x_{100000}\\
+E_7&2&-2x_{0000100}x_{0010000}x_{0100000}\\
+E_7&3&-3x_{0000010}x_{0000100}x_{0010000}x_{0100000}x_{1000000}\\
+E_7&4&2x_{0000001}x_{0001000}x_{0010000}x_{0100000}\\
+E_7&8&-2x_{0000001}x_{0000010}x_{0000100}x_{0010000}\\
+E_8&2&-2x_{00001000}x_{00100000}x_{01000000}\\
+E_8&3&-3x_{00000100}x_{00001000}x_{00100000}x_{01000000}x_{10000000}\\
+E_8&4&2x_{00000010}x_{00010000}x_{00100000}x_{01000000}\\
+E_8&5&-5x_{00000001}x_{00000010}x_{00000100}x_{00010000}x_{00100000}x_{01000000}x_{10000000}\\
+E_8&8&-2x_{00000010}x_{00000100}x_{00001000}x_{00100000}\\
+E_8&9&3x_{00000001}x_{00000100}x_{00001000}x_{00010000}x_{00100000}x_{10000000}\\
+E_8&14&2x_{00000010}x_{00001000}x_{00010000}x_{01000000}\\
+\bottomrule
+\end{array}
+\]
+\endgroup
+
+\subsection{Type \texorpdfstring{$D_n$}{Dn}}
+
+Use the Bourbaki simple roots
+\[
+\alpha_i=e_i-e_{i+1}\ (1\le i\le n-1),\qquad
+\alpha_n=e_{n-1}+e_n.
+\]
+The implementation converts the positive roots by
+\[
+e_i-e_j=\sum_{k=i}^{j-1}\alpha_k
+\]
+and
+\[
+e_i+e_j=
+\begin{cases}
+\displaystyle\sum_{k=i}^{n-2}\alpha_k+\alpha_n,&j=n,\\[4pt]
+\displaystyle\sum_{k=i}^{j-1}\alpha_k
++2\sum_{k=j}^{n-2}\alpha_k+\alpha_{n-1}+\alpha_n,&j<n.
+\end{cases}
+\]
+
+For $h=2m$ with $1\le m\le\lfloor(n-2)/2\rfloor$, put $a=n-2m$ and define
+\[
+\begin{aligned}
+s_r&=e_{a+r}+e_{n-r} &&(0\le r<m),\\
+t_r&=e_{a-1+r}+e_{n-r} &&(0\le r\le m),\\
+u&=e_a-e_n,\qquad
+v=e_{a-1}-e_{n-1},\qquad
+w=e_{a-1}-e_n.
+\end{aligned}
+\]
+After the graph reduction above, the remaining edges are exactly
+\[
+s_r\longrightarrow t_r,t_{r+1},\qquad
+u\longrightarrow w,t_1,\qquad
+v\longrightarrow w,t_0.
+\]
+This graph is $\vec C_6$ joined at one graph target to the alternating path
+$\vec P_{2m-1}$.  At every other height no edge remains.  For $D_8$ at height
+$6$, one has $m=3$ and $\vec C_6\cup_{K_1}\vec P_5$.
+
+For every subset of graph targets, a nonempty graph remains precisely when the
+subset contains all graph targets in the graph above; in that case the
+remaining graph is the one just written.  Its square Jacobian satisfies
+\[
+\det J_{n,m}=\pm2x_{\alpha_{n-2m-1}}
+\prod_{i=n-m}^{n}x_{\alpha_i}.
+\]
+For $D_8$ at height $6$, the graph-source and graph-target strings are
+\[
+\begin{array}{c|c}
+00011211&00012211,\ 00111211\\
+00111111&00111211,\ 01111111\\
+01111101&01111111,\ 11111101\\
+01111110&01111111,\ 11111110\\
+11111100&11111101,\ 11111110
+\end{array}
+\]
+and
+\[
+\det J_{8,3}=2x_{00000001}x_{00000010}x_{00000100}
+x_{00001000}x_{10000000}.
+\]
+
+The finite verification has the following ranges and counts:
+\[
+\begin{array}{c|c|r}
+\toprule
+\text{check}&\text{ranks}&\text{number examined}\\
+\midrule
+\text{all adjacent-height graphs}&4\le n\le32&928\\
+\text{all graph-target subsets}&4\le n\le12&15888\\
+\text{determinants}&4\le n\le12&25\\
+\bottomrule
+\end{array}
+\]
+There are $225$ nonempty graphs in the first row, $677$ nonempty selections in
+the second row, and the determinant coefficients are exactly $-2$ and $2$.
+
+\subsection{Non-Borel root posets}
+
+The non-Borel test first applies the following disjunction: a relative cycle is
+non-obstructing, or its associated absolute graph passes
+Algorithm~\ref{alg:absolute-root-posets}.  The non-obstructing condition is
+therefore checked before an absolute Jacobian is formed.
+
+\begin{quote}
+\begin{algorithmic}[1]
+\Require A Levi subgroup, an elliptic Weyl group element $w$, and its relative root orbits.
+\State Construct the $w$-relative root poset.
+\State Remove individually non-obstructing graph targets.
+\State Mark graph-target subsets with no non-obstructing pair.
+\For{each adjacent-height bipartite graph}
+  \State Remove degree-one graph sources and adjacent targets repeatedly.
+  \For{each marked subset}
+    \State Restrict to that subset and repeat the graph reduction.
+    \State Replace each relative vertex by all absolute roots in its $w$-orbit.
+    \State Add an edge when target minus source is a positive root.
+    \State Apply Algorithm~\ref{alg:absolute-root-posets} if an edge remains.
+  \EndFor
+\EndFor
+\end{algorithmic}
+\end{quote}
+\algorithmcaption{Non-Borel cycle check}{alg:non-borel}
+
+The computation generates all Levi and elliptic Weyl group cases for the
+exceptional Chevalley types and gives
+\[
+\begin{array}{c|rr}
+\toprule
+\text{Type}&\text{cases}&\text{failures}\\
+\midrule
+F_4&19&0\\
+E_6&68&0\\
+E_7&145&0\\
+E_8&304&0\\
+\bottomrule
+\end{array}
+\]
+
+\section{Characteristic-uniform rotation checks}
+\label{sec:rotation}
+
+The rotation computation is performed over $\Q$.  It records integral data
+whose reductions give a smooth point in every characteristic $p>12$.
+For a rotation root $\delta_{\rot}$ and $\alpha\in\Psi_2$, the program follows
+the root string $\alpha+n\delta_{\rot}$.  At step $n$ it multiplies the current
+coefficient by
+\[
+N_{-\delta_{\rot},\alpha+n\delta_{\rot}}/n.
+\]
+For Configuration I this gives
+\[
+c_{0100}\longmapsto c_{0100}+2\mu c_{0110}-\mu^2c_{0120},\qquad
+c_{0001}\longmapsto c_{0001}-\mu c_{0011}.
+\]
+
+\begin{quote}
+\begin{algorithmic}[1]
+\Require $(K,\Psi_0,\Psi_2)$ and a rotation root $\delta_{\rot}$.
+\State Generate the Chevalley constants and root-string substitutions.
+\State Form the divided first-order deformation equations over $\Q$.
+\State Check from root sums that higher BCH words do not enter these equations.
+\For{the deterministic sequence of specializations and $\Q$-points}
+  \State Evaluate every equation and the square Jacobian determinant exactly.
+  \If{all equations vanish and $\det J\ne0$}
+    \State Factor the denominators and $\det J$.
+    \State Check every required nonzero coordinate.
+    \State Stop when every prime divisor is at most $12$.
+  \EndIf
+\EndFor
+\State Fail if no such $\Q$-point was found.
+\end{algorithmic}
+\end{quote}
+\algorithmcaption{Rotation check over $\Q$}{alg:rotation}
+
+The exact output is
+\[
+\begin{array}{c|c|r|c}
+\toprule
+\text{Configuration}&\delta_{\rot}&\det J&\text{prime divisors}\\
+\midrule
+\mathrm{I}&0010&432&2,3\\
+\mathrm{II}&0010&704&2,3,5,11\\
+\mathrm{III}&1000&15360&2,3,5\\
+\mathrm{IV}&0010&895795200&2,3,5\\
+\bottomrule
+\end{array}
+\]
+Every equation vanishes at its recorded $\Q$-point.  After inverting the
+listed primes, that point defines a smooth section; reduction gives a smooth
+point for every $p>12$.
+
+The program also checks the dependence on the rotation root without changing
+the four choices above.  It evaluates precisely
+\[
+\begin{array}{c|c|r|c|c}
+\toprule
+\text{Configuration}&\delta_{\rot}&\det J&\text{prime divisors}&\text{result}\\
+\midrule
+\mathrm{IV}&0010&895795200&2,3,5&\text{success}\\
+\mathrm{IV}&0011&-30800&2,3,5,7,11&\text{success}\\
+\mathrm{IV}&1000&315/4&2,3,5,7&\text{success}\\
+\mathrm{III}&1000&15360&2,3,5&\text{success}\\
+\mathrm{III}&0010&-29160&2,3,5&\text{success}\\
+\bottomrule
+\end{array}
+\]
+For every row, the recorded $\Q$-values give
+\[
+f_1=\cdots=f_n=0,\qquad \det J\ne0,\qquad
+\prod_{\alpha\in\Psi_2}a_{t,\alpha}a_{p,\alpha}\ne0,
+\]
+and every prime divisor is at most $12$.  Hence all five roots work for every
+$p>12$; among these choices the successful root is not unique for either
+Configuration III or Configuration IV.  In particular, none of the five has
+no solution, an everywhere-zero Jacobian determinant on its solution set, or
+a failure of the required nonvanishing condition.
+
+\section{Implementation and data}
+\label{sec:implementation}
+
+The implementation and reviewed data are available at
+\begin{center}
+\url{https://github.com/mocham/AlgEG/tree/grob-v14/code/v4}.
+\end{center}
+The commands, runtimes, deterministic JSON format, checksums, and module list
+are recorded in
+\begin{center}
+\url{https://github.com/mocham/AlgEG/blob/grob-v14/code/README.md}.
+\end{center}
+
+The CLI writes to \code{code/v4/DATA} unless \code{--output-directory} gives
+another directory.  With \code{--check}, it disables Python bytecode before local imports,
+then recomputes and compares every requested JSON and SHA-256 file without
+writing.  The full non-writing run is
+\[
+\code{python cli.py all --check --output-directory DATA}.
+\]
+
+\end{document}

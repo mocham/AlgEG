@@ -1,0 +1,282 @@
+\renewcommand{\MR}[1]{}\def\cftil#1{\ifmmode\setbox7\hbox{$\accent"5E#1$}\else
+  \setbox7\hbox{\accent"5E#1}\penalty 10000\relax\fi\raise 1\ht7
+  \hbox{\lower1.15ex\hbox to 1\wd7{\hss\accent"7E\hss}}\penalty 10000
+  \hskip-1\wd7\penalty 10000\box7}
+  \def\cftil#1{\ifmmode\setbox7\hbox{$\accent"5E#1$}\else
+  \setbox7\hbox{\accent"5E#1}\penalty 10000\relax\fi\raise 1\ht7
+  \hbox{\lower1.15ex\hbox to 1\wd7{\hss\accent"7E\hss}}\penalty 10000
+  \hskip-1\wd7\penalty 10000\box7}
+  \def\cftil#1{\ifmmode\setbox7\hbox{$\accent"5E#1$}\else
+  \setbox7\hbox{\accent"5E#1}\penalty 10000\relax\fi\raise 1\ht7
+  \hbox{\lower1.15ex\hbox to 1\wd7{\hss\accent"7E\hss}}\penalty 10000
+  \hskip-1\wd7\penalty 10000\box7}
+  \def\cftil#1{\ifmmode\setbox7\hbox{$\accent"5E#1$}\else
+  \setbox7\hbox{\accent"5E#1}\penalty 10000\relax\fi\raise 1\ht7
+  \hbox{\lower1.15ex\hbox to 1\wd7{\hss\accent"7E\hss}}\penalty 10000
+  \hskip-1\wd7\penalty 10000\box7}
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{BLGGT14}
+
+\bibitem[All]{2016arXiv160103752A}
+Patrick~B. Allen, \emph{{On automorphic points in polarized deformation
+  rings}}, Amer. J. Math. (to appear).
+
+\bibitem[All16]{allen2014deformations}
+\bysame, \emph{Deformations of polarized automorphic {G}alois representations
+  and adjoint {S}elmer groups}, Duke Math. J. \textbf{165} (2016), no.~13,
+  2407--2460. \MR{3546966}
+
+\bibitem[Bal12]{MR3152673}
+Sundeep Balaji, \emph{G-valued potentially semi-stable deformation rings},
+  ProQuest LLC, Ann Arbor, MI, 2012, Thesis (Ph.D.)--The University of Chicago.
+  \MR{3152673}
+
+\bibitem[BCDT01]{MR1839918}
+Christophe Breuil, Brian Conrad, Fred Diamond, and Richard Taylor, \emph{On the
+  modularity of elliptic curves over {$\bold Q$}: wild 3-adic exercises}, J.
+  Amer. Math. Soc. \textbf{14} (2001), no.~4, 843--939 (electronic).
+  \MR{1839918 (2002d:11058)}
+
+\bibitem[BDJ10]{bdj}
+Kevin Buzzard, Fred Diamond, and Frazer Jarvis, \emph{On {S}erre's conjecture
+  for mod {$l$} {G}alois representations over totally real fields}, Duke Math.
+  J. \textbf{155} (2010), no.~1, 105--161.
+
+\bibitem[Bel16]{2014arXiv1403.1411B}
+Rebecca Bellovin, \emph{Generic smoothness for {$G$}-valued potentially
+  semi-stable deformation rings}, Ann. Inst. Fourier (Grenoble) \textbf{66}
+  (2016), no.~6, 2565--2620. \MR{3580181}
+
+\bibitem[BG14]{MR3444225}
+Kevin Buzzard and Toby Gee, \emph{The conjectural connections between
+  automorphic representations and {G}alois representations}, Automorphic forms
+  and {G}alois representations. {V}ol. 1, London Math. Soc. Lecture Note Ser.,
+  vol. 414, Cambridge Univ. Press, Cambridge, 2014, pp.~135--187. \MR{3444225}
+
+\bibitem[BLGG]{blggUn}
+Tom Barnet-Lamb, Toby Gee, and David Geraghty, \emph{Serre weights for
+  ${U}(n)$}, J. Reine Angew. Math. (to appear).
+
+\bibitem[BLGG13]{MR3072811}
+Thomas Barnet-Lamb, Toby Gee, and David Geraghty, \emph{Serre weights for rank
+  two unitary groups}, Math. Ann. \textbf{356} (2013), no.~4, 1551--1598.
+  \MR{3072811}
+
+\bibitem[BLGGT14]{BLGGT}
+Thomas Barnet-Lamb, Toby Gee, David Geraghty, and Richard Taylor,
+  \emph{Potential automorphy and change of weight}, Ann. of Math. (2)
+  \textbf{179} (2014), no.~2, 501--609. \MR{3152941}
+
+\bibitem[B{\"o}c99]{MR1679172}
+Gebhard B{\"o}ckle, \emph{A local-to-global principle for deformations of
+  {G}alois representations}, J. Reine Angew. Math. \textbf{509} (1999),
+  199--236. \MR{1679172}
+
+\bibitem[{Boo}a]{2018arXiv180710743B}
+J.~{Booher}, \emph{{Minimally Ramified Deformations when $\ell \neq p$}}, J.
+  Number Theory (to appear).
+
+\bibitem[{Boo}b]{2016arXiv161204237B}
+\bysame, \emph{{Producing Geometric Deformations of Orthogonal and Symplectic
+  Galois Representations}}, Compos. Math. (to appear).
+
+\bibitem[Bou05]{MR2109105}
+Nicolas Bourbaki, \emph{Lie groups and {L}ie algebras. {C}hapters 7--9},
+  Elements of Mathematics (Berlin), Springer-Verlag, Berlin, 2005, Translated
+  from the 1975 and 1982 French originals by Andrew Pressley. \MR{2109105}
+
+\bibitem[BP]{2017arXiv170807434}
+Jeremy Booher and Stefan Patrikis, \emph{{$G$}-valued {G}alois deformation
+  rings when $\ell\neq p$}, Math. Res. Let. (to appear).
+
+\bibitem[BS07]{MR2359853}
+Christophe Breuil and Peter Schneider, \emph{First steps towards {$p$}-adic
+  {L}anglands functoriality}, J. Reine Angew. Math. \textbf{610} (2007),
+  149--180. \MR{2359853}
+
+\bibitem[CEG]{CEGglobalrealisable}
+Frank Calegari, Matthew Emerton, and Toby Gee, \emph{Globally realizable
+  components of local deformation rings}.
+
+\bibitem[CEGM]{2016arXiv160806059C}
+F.~{Calegari}, M.~{Emerton}, T.~{Gee}, and L.~{Mavrides}, \emph{{Explicit
+  {S}erre weights for two-dimensional {G}alois representations}}, Compos. Math.
+  (to appear).
+
+\bibitem[CGP15]{predbook}
+Brian Conrad, Ofer Gabber, and Gopal Prasad, \emph{Pseudo-reductive groups},
+  second ed., New Mathematical Monographs, vol.~26, Cambridge University Press,
+  Cambridge, 2015. \MR{3362817}
+
+\bibitem[CHT08]{CHT}
+Laurent Clozel, Michael Harris, and Richard Taylor, \emph{Automorphy for some
+  {$l$}-adic lifts of automorphic mod {$l$} {G}alois representations}, Publ.
+  Math. Inst. Hautes \'Etudes Sci. (2008), no.~108, 1--181, With Appendix A,
+  summarizing unpublished work of Russ Mann, and Appendix B by Marie-France
+  Vign{\'e}ras. \MR{2470687 (2010j:11082)}
+
+\bibitem[Con99]{conrad-rigid-irred-cpts}
+Brian Conrad, \emph{Irreducible components of rigid spaces}, Ann. Inst. Fourier
+  (Grenoble) \textbf{49} (1999), no.~2, 473--541. \MR{1697371}
+
+\bibitem[Con14]{conrad-luminy}
+\bysame, \emph{Reductive group schemes}, Autour des sch\'emas en groupes.
+  {V}ol. {I}, Panor. Synth\`eses, vol. 42/43, Soc. Math. France, Paris, 2014,
+  pp.~93--444. \MR{3362641}
+
+\bibitem[dJ95]{dejong-formalrigid}
+A.~J. de~Jong, \emph{Crystalline {D}ieudonn\'e module theory via formal and
+  rigid geometry}, Inst. Hautes \'Etudes Sci. Publ. Math. (1995), no.~82, 5--96
+  (1996). \MR{1383213}
+
+\bibitem[DM82]{dm}
+Pierre Deligne and J.S. Milne, \emph{Tannakian categories}, Hodge Cycles,
+  Motives, and Shimura Varieties, LNM, vol. 900, Springer, New York, 1982,
+  pp.~101--228.
+
+\bibitem[EG17]{EGcomponents}
+Matthew Emerton and Toby Gee, \emph{Dimension theory and components of
+  algebraic stacks}.
+
+\bibitem[Fon94]{fonl}
+Jean-Marc Fontaine, \emph{Repr\'esentations {$l$}-adiques potentiellement
+  semi-stables}, Ast\'erisque (1994), no.~223, 321--347, P{\'e}riodes
+  $p$-adiques (Bures-sur-Yvette, 1988). \MR{1293977}
+
+\bibitem[Gee11]{MR2785764}
+Toby Gee, \emph{Automorphic lifts of prescribed types}, Math. Ann. \textbf{350}
+  (2011), no.~1, 107--144. \MR{2785764 (2012c:11118)}
+
+\bibitem[GG15]{MR3449190}
+Toby Gee and David Geraghty, \emph{The {B}reuil-{M}\'ezard conjecture for
+  quaternion algebras}, Ann. Inst. Fourier (Grenoble) \textbf{65} (2015),
+  no.~4, 1557--1575. \MR{3449190}
+
+\bibitem[GHS]{2015arXiv150902527G}
+T.~{Gee}, F.~{Herzig}, and D.~{Savitt}, \emph{{General Serre weight
+  conjectures}}, J. Eur. Math. Soc. (to appear).
+
+\bibitem[GK14]{MR3292675}
+Toby Gee and Mark Kisin, \emph{The {B}reuil-{M}\'ezard conjecture for
+  potentially {B}arsotti-{T}ate representations}, Forum Math. Pi \textbf{2}
+  (2014), e1, 56. \MR{3292675}
+
+\bibitem[GLS14]{MR3164985}
+Toby Gee, Tong Liu, and David Savitt, \emph{The {B}uzzard-{D}iamond-{J}arvis
+  conjecture for unitary groups}, J. Amer. Math. Soc. \textbf{27} (2014),
+  no.~2, 389--435. \MR{3164985}
+
+\bibitem[GLS15]{MR3324938}
+\bysame, \emph{The weight part of {S}erre's conjecture for {$\mathrm{GL}(2)$}},
+  Forum Math. Pi \textbf{3} (2015), e2, 52. \MR{3324938}
+
+\bibitem[GP92]{MR1186476}
+Benedict~H. Gross and Dipendra Prasad, \emph{On the decomposition of a
+  representation of {${\rm SO}_n$} when restricted to {${\rm SO}_{n-1}$}},
+  Canad. J. Math. \textbf{44} (1992), no.~5, 974--1002. \MR{1186476}
+
+\bibitem[GR10]{MR2730575}
+Benedict~H. Gross and Mark Reeder, \emph{Arithmetic invariants of discrete
+  {L}anglands parameters}, Duke Math. J. \textbf{154} (2010), no.~3, 431--508.
+  \MR{2730575}
+
+\bibitem[Gro64]{MR0173675}
+A.~Grothendieck, \emph{\'{E}l\'ements de g\'eom\'etrie alg\'ebrique. {IV}.
+  \'{E}tude locale des sch\'emas et des morphismes de sch\'emas. {I}}, Inst.
+  Hautes \'Etudes Sci. Publ. Math. (1964), no.~20, 259. \MR{0173675 (30
+  \#3885)}
+
+\bibitem[Gro07]{grossodd}
+Benedict~H. Gross, \emph{Odd {G}alois representations}, preprint, 2007.
+
+\bibitem[Jan04]{jantzen}
+Jens~Carsten Jantzen, \emph{Nilpotent orbits in representation theory}, Lie
+  theory, Progr. Math., vol. 228, Birkh\"auser Boston, Boston, MA, 2004,
+  pp.~1--211. \MR{2042689 (2005c:14055)}
+
+\bibitem[Kis07]{MR2459302}
+Mark Kisin, \emph{Modularity of 2-dimensional {G}alois representations},
+  Current developments in mathematics, 2005, Int. Press, Somerville, MA, 2007,
+  pp.~191--230. \MR{2459302 (2010a:11098)}
+
+\bibitem[Kis08]{MR2373358}
+\bysame, \emph{Potentially semi-stable deformation rings}, J. Amer. Math. Soc.
+  \textbf{21} (2008), no.~2, 513--546. \MR{2373358 (2009c:11194)}
+
+\bibitem[Kis09]{MR2600871}
+\bysame, \emph{Moduli of finite flat group schemes, and modularity}, Ann. of
+  Math. (2) \textbf{170} (2009), no.~3, 1085--1180. \MR{2600871 (2011g:11107)}
+
+\bibitem[KW09]{MR2480604}
+Chandrashekhar Khare and Jean-Pierre Wintenberger, \emph{On {S}erre's
+  conjecture for 2-dimensional mod {$p$} representations of {${\rm
+  Gal}(\overline{\Bbb Q}/\Bbb Q)$}}, Ann. of Math. (2) \textbf{169} (2009),
+  no.~1, 229--253. \MR{2480604 (2009m:11077)}
+
+\bibitem[Mat89]{matsumura}
+Hideyuki Matsumura, \emph{Commutative ring theory}, second ed., Cambridge
+  Studies in Advanced Mathematics, vol.~8, Cambridge University Press,
+  Cambridge, 1989, Translated from the Japanese by M. Reid. \MR{1011461
+  (90i:13001)}
+
+\bibitem[Maz89]{MR1012172}
+B.~Mazur, \emph{Deforming {G}alois representations}, Galois groups over {${\bf
+  Q}$} ({B}erkeley, {CA}, 1987), Math. Sci. Res. Inst. Publ., vol.~16,
+  Springer, New York, 1989, pp.~385--437. \MR{1012172}
+
+\bibitem[McN04]{mcninch}
+George~J. McNinch, \emph{Nilpotent orbits over ground fields of good
+  characteristic}, Math. Ann. \textbf{329} (2004), no.~1, 49--85. \MR{2052869
+  (2005j:17018)}
+
+\bibitem[Pat16]{MR3529115}
+Stefan Patrikis, \emph{Deformations of {G}alois representations and exceptional
+  monodromy}, Invent. Math. \textbf{205} (2016), no.~2, 269--336. \MR{3529115}
+
+\bibitem[PY02]{MR1893005}
+Gopal Prasad and Jiu-Kang Yu, \emph{On finite group actions on reductive groups
+  and buildings}, Invent. Math. \textbf{147} (2002), no.~3, 545--560.
+  \MR{1893005}
+
+\bibitem[Ram02]{MR1935843}
+Ravi Ramakrishna, \emph{Deforming {G}alois representations and the conjectures
+  of {S}erre and {F}ontaine-{M}azur}, Ann. of Math. (2) \textbf{156} (2002),
+  no.~1, 115--154. \MR{1935843 (2003k:11092)}
+
+\bibitem[SGA70]{SGA3.II}
+\emph{Sch\'emas en groupes. {II}: {G}roupes de type multiplicatif, et structure
+  des sch\'emas en groupes g\'en\'eraux}, S\'eminaire de G\'eom\'etrie
+  Alg\'ebrique du Bois Marie 1962/64 (SGA 3). Dirig\'e par M. Demazure et A.
+  Grothendieck. Lecture Notes in Mathematics, Vol. 152, Springer-Verlag,
+  Berlin-New York, 1970. \MR{0274459}
+
+\bibitem[SR72]{saavedra}
+Neantro Saavedra~Rivano, \emph{Cat\'egories {T}annakiennes}, Lecture Notes in
+  Mathematics, Vol. 265, Springer-Verlag, Berlin-New York, 1972. \MR{0338002}
+
+\bibitem[{Sta}]{stacks-project}
+The {Stacks Project Authors}, \emph{\itshape {S}tacks {P}roject},
+  \url{http://stacks.math.columbia.edu}.
+
+\bibitem[Til96]{MR1643682}
+Jacques Tilouine, \emph{Deformations of {G}alois representations and {H}ecke
+  algebras}, Published for The Mehta Research Institute of Mathematics and
+  Mathematical Physics, Allahabad; by Narosa Publishing House, New Delhi, 1996.
+  \MR{1643682}
+
+\bibitem[TW95]{MR1333036}
+Richard Taylor and Andrew Wiles, \emph{Ring-theoretic properties of certain
+  {H}ecke algebras}, Ann. of Math. (2) \textbf{141} (1995), no.~3, 553--572.
+  \MR{1333036 (96d:11072)}
+
+\bibitem[Wil95]{MR1333035}
+Andrew Wiles, \emph{Modular elliptic curves and {F}ermat's last theorem}, Ann.
+  of Math. (2) \textbf{141} (1995), no.~3, 443--551. \MR{1333035 (96d:11071)}
+
+\end{thebibliography}
